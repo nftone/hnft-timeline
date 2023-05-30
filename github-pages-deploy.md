@@ -9,5 +9,7 @@ The repository slug is used in 2 files:
 - nuxt.config.ts: `app.baseURL`
 
 ## Deploy commands
-`yarn run generate`
-`yarn run gh-pages-deploy`
+```
+yarn run generate
+yarn run gh-pages-deploy
+```
