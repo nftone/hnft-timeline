@@ -1,5 +1,5 @@
 <template>
-  <div id="team">
+  <section id="team">
     <div class="team-member">
       <img src="@/assets/images/lugosis.png" alt="Lugosis" />
       <div class="team-member-name">Lugosis</div>
@@ -23,7 +23,7 @@
       <div class="team-member-name">Krillin</div>
       <div class="team-member-position">Incubator</div>
     </div>
-  </div>
+  </section>
 </template>
 
 <style>

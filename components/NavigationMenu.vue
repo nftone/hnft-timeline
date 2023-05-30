@@ -8,11 +8,27 @@
 
     <Transition name="slide-fade">
       <div class="submenu" v-if="isMenuExpanded">
-        <div><NuxtLink to="/">Home</NuxtLink></div>
         <div>
-          <NuxtLink to="/#the-artist">The artist</NuxtLink>
+          <NuxtLink :to="{ path: '/' }" @click="() => toggleMenuExpansion()">
+            Home
+          </NuxtLink>
         </div>
-        <div><NuxtLink to="/#team">Team</NuxtLink></div>
+        <div>
+          <NuxtLink
+            :to="{ path: '/', hash: '#the-artist' }"
+            @click="() => toggleMenuExpansion()"
+          >
+            The artist
+          </NuxtLink>
+        </div>
+        <div>
+          <NuxtLink
+            :to="{ path: '/', hash: '#team' }"
+            @click="() => toggleMenuExpansion()"
+          >
+            Team
+          </NuxtLink>
+        </div>
         <div class="grayed"><NuxtLink to="gallery">Gallery</NuxtLink></div>
         <div class="grayed"><NuxtLink to="#">Connect</NuxtLink></div>
         <div class="grayed"><NuxtLink>Buy</NuxtLink></div>

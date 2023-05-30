@@ -1,5 +1,5 @@
 <template>
-  <div id="the-artist" class="text-section">
+  <section id="the-artist" class="text-section">
     <h1>The artist</h1>
     <p>
       Get to know Lugosis, the artist behind Outlawz. Some people refer to him
@@ -43,5 +43,5 @@
       was only a matter of time before Lugosis took his work to another level to
       create something of his own.
     </p>
-  </div>
+  </section>
 </template>
