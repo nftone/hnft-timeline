@@ -25,7 +25,7 @@ export default <RouterConfig>{
 
       if ("scrollBehavior" in document.documentElement.style) {
         // @ts-ignore
-        return window.scrollTo({ top: el.offsetTop - 100, behavior: "smooth" });
+        return window.scrollTo({ top: el.offsetTop - 120, behavior: "smooth" });
       } else {
         // @ts-ignore
         return window.scrollTo({ top: 0, behavior: "smooth" });
