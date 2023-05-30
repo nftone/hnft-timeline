@@ -1,0 +1,1 @@
+<template>Terms & Conditions</template>

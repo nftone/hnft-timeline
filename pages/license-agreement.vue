@@ -1,0 +1,1 @@
+<template>License agreement</template>

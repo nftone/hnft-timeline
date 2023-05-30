@@ -1,0 +1,92 @@
+@font-face {
+  font-family: "Next Book";
+  src: local("Next Book"),
+    url(@/assets/fonts/NextBook-Regular.otf) format("truetype");
+}
+
+@font-face {
+  font-family: "Next Book Regularita";
+  src: local("Next Book Regularita"),
+    url(@/assets/fonts/NextBook-RegularIta.otf) format("truetype");
+}
+
+@font-face {
+  font-family: "Next Book Bold";
+  src: local("Next Book Bold"),
+    url(@/assets/fonts/NextBook-Bold.otf) format("truetype");
+}
+
+:root {
+  --background-color: #fff;
+  --border-color: black;
+  --blur-overlay-background-color: rgba(0, 0, 0, 0.5);
+  --font-color: black;
+  --grayed-color: #a0a0a0;
+}
+
+[theme="dark-theme"] {
+  --background-color: #0d0d0d;
+  --border-color: white;
+  --font-color: #fff;
+}
+
+html {
+  font-family: "Next Book";
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--font-color);
+  margin: 0;
+}
+
+a {
+  color: var(--font-color);
+  text-decoration: none;
+}
+
+a:visited {
+  color: unset;
+}
+
+.circled-link {
+  border-radius: 20px;
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+  font-family: "Next Book";
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0 auto;
+  padding: 5px 0 4px 0;
+  text-align: center;
+  text-transform: uppercase;
+  width: 120px;
+}
+
+.grayed,
+.grayed a {
+  color: var(--grayed-color);
+  border-color: var(--grayed-color);
+  cursor: not-allowed;
+}
+
+.text-section {
+  margin: 100px 50px 0 50px;
+  overflow: hidden;
+  position: relative;
+}
+
+.text-section h1 {
+  font-size: 34px;
+  font-weight: 400;
+  margin-bottom: 16px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.text-section p {
+  font-size: 12px;
+  font-weight: 500;
+  margin-bottom: 16px;
+  text-align: justify;
+}
