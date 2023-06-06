@@ -59,6 +59,8 @@ a:visited {
   margin: 0 auto;
   padding: 5px 0 4px 0;
   text-align: center;
+  display: table-cell;
+  vertical-align: middle;
   text-transform: uppercase;
   width: 120px;
 }

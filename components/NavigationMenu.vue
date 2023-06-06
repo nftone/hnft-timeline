@@ -138,6 +138,7 @@ const toggleMoreExpansion = useToggle(isMoreExpanded);
 }
 
 .connect-button-section {
+  display: grid;
   position: absolute;
   z-index: 2;
   top: 70px;
