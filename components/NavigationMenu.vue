@@ -4,7 +4,7 @@
   </Transition>
 
   <div id="navigation-menu">
-    <div class="circled-link" @click="toggleMenuExpansion()">Menu</div>
+    <span class="circled-link" @click="toggleMenuExpansion()">Menu</span>
 
     <Transition name="slide-fade">
       <div class="submenu" v-if="isMenuExpanded">
