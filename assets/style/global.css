@@ -57,15 +57,17 @@ a:visited {
   font-size: 14px;
   font-weight: 400;
   margin: 0 auto;
-  height: 25px;
-  line-height: 25px;
+  height: 26px;
+  line-height: 26px;
+  display: grid;
+  place-content: center;
   text-align: center;
   text-transform: uppercase;
   width: 120px;
-  display: flex;
+  /* display: flex;
   justify-content: center;
   align-items: center;
-  vertical-align: middle;
+  vertical-align: middle; */
 }
 
 .grayed,
