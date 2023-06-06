@@ -59,10 +59,9 @@ a:visited {
   margin: 0 auto;
   height: 26px;
   line-height: 26px;
-  display: grid;
-  place-content: center;
+  display: flex;
+  justify-content: center;
   text-align: center;
-  text-transform: uppercase;
   width: 120px;
   /* display: flex;
   justify-content: center;
