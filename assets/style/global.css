@@ -58,12 +58,14 @@ a:visited {
   font-weight: 400;
   margin: 0 auto;
   height: 25px;
+  line-height: 25px;
   text-align: center;
   text-transform: uppercase;
   width: 120px;
   display: flex;
   justify-content: center;
   align-items: center;
+  vertical-align: middle;
 }
 
 .grayed,
