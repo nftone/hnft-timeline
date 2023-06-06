@@ -1,13 +1,19 @@
 <template>
   <div id="home-section">
-    <img src="~assets/images/logoCharacter.png" alt="Outlawz logo" />
+    <img
+      class="logo-character"
+      src="~assets/images/logoCharacter.png"
+      alt="Outlawz logo"
+    />
     <img
       v-if="!isDark"
+      class="text-logo"
       src="~assets/images/logoFont.png"
       alt="Outlawz text logo"
     />
     <img
       v-if="isDark"
+      class="text-logo"
       src="~assets/images/logoFontWhite.png"
       alt="Outlawz text logo"
     />
@@ -43,5 +49,16 @@ const isDark = useDark();
   position: absolute;
   bottom: 25px;
   width: 100%;
+}
+
+.logo-character {
+  width: 100%;
+  max-width: 110px;
+  margin-bottom: 8px;
+}
+
+.text-logo {
+  width: 100%;
+  max-width: 173px;
 }
 </style>
