@@ -3,10 +3,12 @@
     <h1>The artist</h1>
     <p>
       Get to know Lugosis, the artist behind Outlawz. Some people refer to him
-      as Enfant perdu and the tattoo on his face is a clear message of why they
-      call him so. No wonder, Lugosis started drawing before he could even
-      speak. Everywhere and whenever there was time, he worked on his creations
-      without even looking up.
+      as
+      <i>Enfant perdu</i>
+      and the tattoo on his face is a clear message of why they call him so. No
+      wonder, Lugosis started drawing before he could even speak. Everywhere and
+      whenever there was time, he worked on his creations without even looking
+      up.
     </p>
 
     <p>
