@@ -3,6 +3,11 @@ export default defineNuxtConfig({
   ssr: false,
   app: {
     baseURL: "/outlawz-website/",
+    head: {
+      charset: "utf-8",
+      viewport: "width=device-width, initial-scale=1",
+      title: "Activity | Emblem Vault",
+    },
   },
   modules: ["@vueuse/nuxt"],
   css: ["@/assets/style/global.css"],
