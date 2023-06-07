@@ -1,34 +1,40 @@
 <template>
   <section id="team">
-    <h1>The team</h1>
+    <h1 v-if="!largerThanSm">The team</h1>
 
     <div class="team-members">
       <div class="team-member">
         <img src="@/assets/images/lugosis.png" alt="Lugosis" />
         <div class="team-member-name">Lugosis</div>
-        <div class="team-member-position"><i>Artist</i></div>
+        <div class="team-member-position">Artist</div>
       </div>
 
       <div class="team-member">
         <img src="@/assets/images/dan.png" alt="Dan" />
         <div class="team-member-name">Dan</div>
-        <div class="team-member-position"><i>Art curator</i></div>
+        <div class="team-member-position">Art curator</div>
       </div>
 
       <div class="team-member">
         <img src="@/assets/images/victor.png" alt="Victor" />
         <div class="team-member-name">Victor</div>
-        <div class="team-member-position"><i>Project lead</i></div>
+        <div class="team-member-position">Project lead</div>
       </div>
 
       <div class="team-member">
         <img src="@/assets/images/krillin.png" alt="Krillin" />
         <div class="team-member-name">Krillin</div>
-        <div class="team-member-position"><i>Incubator</i></div>
+        <div class="team-member-position">Incubator</div>
       </div>
     </div>
   </section>
 </template>
+
+<script setup>
+import { breakpointsTailwind, useBreakpoints } from "@vueuse/core";
+const breakpoints = useBreakpoints(breakpointsTailwind);
+const largerThanSm = breakpoints.greater("sm");
+</script>
 
 <style>
 #team {
@@ -54,10 +60,46 @@
 
 .team-member img {
   width: 106px;
-  height: 112px;
 }
 
 .team-member-name {
   margin-top: 12px;
+}
+
+.team-member-position {
+  font-style: italic;
+}
+
+@media (min-width: 640px) {
+  #team {
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    margin-bottom: 0;
+  }
+
+  .team-members {
+    max-width: 1400px;
+    width: 100%;
+    align-items: self-end;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .team-member {
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .team-member img {
+    width: 253px;
+  }
+
+  .team-member-name {
+    font-weight: 800;
+  }
+
+  .team-member-position {
+    font-style: normal;
+  }
 }
 </style>

@@ -1,9 +1,68 @@
 <template>
-  <Transition name="slide-fade">
-    <div v-if="isMenuExpanded" id="blur-overlay"></div>
-  </Transition>
+  <div v-if="largerThanSm" id="navigation-menu-desktop">
+    <div class="left-section">
+      <div>
+        <NuxtLink :to="{ path: '/' }" @click="() => toggleMenuExpansion()">
+          Home
+        </NuxtLink>
+      </div>
+      <div>
+        <NuxtLink
+          :to="{ path: '/', hash: '#the-artist' }"
+          @click="() => toggleMenuExpansion()"
+        >
+          The artist
+        </NuxtLink>
+      </div>
 
-  <div id="navigation-menu">
+      <div>
+        <NuxtLink
+          :to="{ path: '/', hash: '#team' }"
+          @click="() => toggleMenuExpansion()"
+        >
+          Team
+        </NuxtLink>
+      </div>
+      <div class="grayed"><NuxtLink>Gallery</NuxtLink></div>
+      <div class="grayed"><NuxtLink>Buy</NuxtLink></div>
+    </div>
+
+    <div class="right-section">
+      <div>
+        <img
+          @click="toggleDark()"
+          v-if="isDark"
+          src="~/assets/images/lightMode.png"
+        />
+        <img
+          @click="toggleDark()"
+          v-if="!isDark"
+          src="~/assets/images/darkMode.png"
+        />
+      </div>
+
+      <div>
+        <NuxtLink class="grayed">References</NuxtLink>
+      </div>
+      <div>
+        <NuxtLink class="grayed">License agreement</NuxtLink>
+      </div>
+      <div>
+        <NuxtLink class="grayed">Terms & Conditions</NuxtLink>
+      </div>
+      <div>
+        <NuxtLink to="https://discord.com" target="_blank">Discord</NuxtLink>
+      </div>
+      <div>
+        <NuxtLink to="https://twitter.com" target="_blank">Twitter</NuxtLink>
+      </div>
+      <div>
+        <NuxtLink class="grayed">Connect</NuxtLink>
+      </div>
+    </div>
+  </div>
+
+  <div v-else id="navigation-menu">
     <div class="circled-link" @click="toggleMenuExpansion()">Menu</div>
 
     <Transition name="slide-fade">
@@ -29,7 +88,7 @@
             Team
           </NuxtLink>
         </div>
-        <div class="grayed"><NuxtLink to="gallery">Gallery</NuxtLink></div>
+        <div class="grayed"><NuxtLink>Gallery</NuxtLink></div>
         <div class="grayed"><NuxtLink>Buy</NuxtLink></div>
         <div class="circled-link" @click="toggleMoreExpansion()">More</div>
       </div>
@@ -37,14 +96,14 @@
 
     <Transition name="slide-fade">
       <div class="submenu" v-if="isMenuExpanded && isMoreExpanded">
-        <div>
-          <NuxtLink to="references">References</NuxtLink>
+        <div class="grayed">
+          <NuxtLink>References</NuxtLink>
         </div>
-        <div>
-          <NuxtLink to="license-agreement">License agreement</NuxtLink>
+        <div class="grayed">
+          <NuxtLink>License agreement</NuxtLink>
         </div>
-        <div>
-          <NuxtLink to="terms-and-conditions">Terms & Conditions</NuxtLink>
+        <div class="grayed">
+          <NuxtLink>Terms & Conditions</NuxtLink>
         </div>
         <div>
           <NuxtLink to="https://discord.com" target="_blank">Discord</NuxtLink>
@@ -77,9 +136,13 @@
 <script setup>
 import { ref } from "vue";
 import { useDark, useToggle } from "@vueuse/core";
+import { breakpointsTailwind, useBreakpoints } from "@vueuse/core";
 
+const breakpoints = useBreakpoints(breakpointsTailwind);
 const isDark = useDark();
 const toggleDark = useToggle(isDark);
+
+const largerThanSm = breakpoints.greater("sm");
 
 const isMenuExpanded = ref(false);
 const isMoreExpanded = ref(false);
@@ -171,5 +234,48 @@ const toggleMoreExpansion = useToggle(isMoreExpanded);
 #dark-mode-toggle img {
   width: 16px;
   height: 16px;
+}
+
+#navigation-menu-desktop {
+  z-index: 4;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: grid;
+  grid-auto-flow: column;
+  padding: 40px 0;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 500;
+  background-color: var(--background-color);
+}
+
+#navigation-menu-desktop .left-section,
+#navigation-menu-desktop .right-section {
+  display: grid;
+  grid-auto-flow: column;
+}
+
+#navigation-menu-desktop .left-section div,
+#navigation-menu-desktop .right-section div {
+  padding: 0 16px;
+  cursor: pointer;
+}
+
+#navigation-menu-desktop .left-section:first-child {
+  margin-left: 40px;
+}
+
+#navigation-menu-desktop .right-section:last-child {
+  margin-right: 40px;
+}
+
+#navigation-menu-desktop .left-section {
+  justify-self: left;
+}
+
+#navigation-menu-desktop .right-section {
+  justify-self: right;
 }
 </style>

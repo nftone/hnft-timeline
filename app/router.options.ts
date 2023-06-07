@@ -23,7 +23,7 @@ export default <RouterConfig>{
     if (to.hash) {
       let el = await findEl(to.hash);
       if (el) {
-        const stickyHeaderHeight = 120;
+        const stickyHeaderHeight = to.hash === "#team" ? 0 : 120;
         const offset =
           el.getBoundingClientRect().top +
           window.pageYOffset -

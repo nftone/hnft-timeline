@@ -92,6 +92,8 @@ a:visited {
   margin: 100px 50px 0 50px;
   overflow: hidden;
   position: relative;
+  max-width: 760px;
+  width: 100%;
 }
 
 h1 {
@@ -108,4 +110,20 @@ h1 {
   font-weight: 500;
   margin-bottom: 16px;
   text-align: justify;
+}
+
+@media (min-width: 640px) {
+  h1 {
+    font-size: 72px;
+    font-weight: 500;
+  }
+
+  .text-section {
+    height: 100vh;
+    margin: 0 auto;
+  }
+
+  .text-section p {
+    font-size: 18px;
+  }
 }
