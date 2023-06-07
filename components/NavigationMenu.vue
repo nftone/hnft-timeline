@@ -1,12 +1,22 @@
 <template>
-  <div v-if="largerThanSm" id="navigation-menu-desktop">
+  <div
+    v-if="largerThanSm"
+    id="navigation-menu-desktop"
+    @mouseover="isBlur = false"
+    @mouseleave="isBlur = true"
+    :class="{ blur: isBlur }"
+  >
     <div class="left-section">
-      <div>
+      <div :class="`${currentSection === pageSections.home ? '' : 'blurable'}`">
         <NuxtLink :to="{ path: '/' }" @click="() => toggleMenuExpansion()">
           Home
         </NuxtLink>
       </div>
-      <div>
+      <div
+        :class="`${
+          currentSection === pageSections['the-artist'] ? '' : 'blurable'
+        }`"
+      >
         <NuxtLink
           :to="{ path: '/', hash: '#the-artist' }"
           @click="() => toggleMenuExpansion()"
@@ -15,7 +25,9 @@
         </NuxtLink>
       </div>
 
-      <div>
+      <div
+        :class="`${currentSection === pageSections['team'] ? '' : 'blurable'}`"
+      >
         <NuxtLink
           :to="{ path: '/', hash: '#team' }"
           @click="() => toggleMenuExpansion()"
@@ -23,8 +35,8 @@
           Team
         </NuxtLink>
       </div>
-      <div class="grayed"><NuxtLink>Gallery</NuxtLink></div>
-      <div class="grayed"><NuxtLink>Buy</NuxtLink></div>
+      <div class="grayed blurable"><NuxtLink>Gallery</NuxtLink></div>
+      <div class="grayed blurable"><NuxtLink>Buy</NuxtLink></div>
     </div>
 
     <div class="right-section">
@@ -41,23 +53,23 @@
         />
       </div>
 
-      <div>
-        <NuxtLink class="grayed">References</NuxtLink>
+      <div class="grayed blurable">
+        <NuxtLink>References</NuxtLink>
       </div>
-      <div>
-        <NuxtLink class="grayed">License agreement</NuxtLink>
+      <div class="grayed blurable">
+        <NuxtLink>License agreement</NuxtLink>
       </div>
-      <div>
-        <NuxtLink class="grayed">Terms & Conditions</NuxtLink>
+      <div class="grayed blurable">
+        <NuxtLink>Terms & Conditions</NuxtLink>
       </div>
-      <div>
+      <div class="blurable">
         <NuxtLink to="https://discord.com" target="_blank">Discord</NuxtLink>
       </div>
-      <div>
+      <div class="blurable">
         <NuxtLink to="https://twitter.com" target="_blank">Twitter</NuxtLink>
       </div>
-      <div>
-        <NuxtLink class="grayed">Connect</NuxtLink>
+      <div class="grayed blurable">
+        <NuxtLink>Connect</NuxtLink>
       </div>
     </div>
   </div>
@@ -137,13 +149,18 @@
 import { ref } from "vue";
 import { useDark, useToggle } from "@vueuse/core";
 import { breakpointsTailwind, useBreakpoints } from "@vueuse/core";
+import useScrollPosition, {
+  pageSections,
+} from "@/composables/useScrollPosition";
 
+const { currentSection } = useScrollPosition();
 const breakpoints = useBreakpoints(breakpointsTailwind);
 const isDark = useDark();
 const toggleDark = useToggle(isDark);
 
 const largerThanSm = breakpoints.greater("sm");
 
+const isBlur = ref(true);
 const isMenuExpanded = ref(false);
 const isMoreExpanded = ref(false);
 
@@ -277,5 +294,18 @@ const toggleMoreExpansion = useToggle(isMoreExpanded);
 
 #navigation-menu-desktop .right-section {
   justify-self: right;
+}
+
+.blurable {
+  filter: blur(0);
+}
+
+.blur .blurable {
+  filter: blur(2px);
+}
+
+/* animate blur filter */
+.blur .blurable {
+  transition: filter 0.3s;
 }
 </style>
