@@ -22,16 +22,16 @@ export default <RouterConfig>{
 
     if (to.hash) {
       let el = await findEl(to.hash);
-
-      if ("scrollBehavior" in document.documentElement.style) {
-        // @ts-ignore
-        return window.scrollTo({ top: el.offsetTop - 120, behavior: "smooth" });
-      } else {
-        // @ts-ignore
-        return window.scrollTo({ top: 0, behavior: "smooth" });
+      if (el) {
+        const stickyHeaderHeight = 120;
+        const offset =
+          el.getBoundingClientRect().top +
+          window.pageYOffset -
+          stickyHeaderHeight;
+        window.scrollTo({ top: offset, behavior: "smooth" });
       }
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
-
-    return window.scrollTo({ top: 0, behavior: "smooth" });
   },
 };
