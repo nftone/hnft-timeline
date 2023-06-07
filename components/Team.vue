@@ -72,6 +72,7 @@ const largerThanSm = breakpoints.greater("sm");
 
 @media (min-width: 640px) {
   #team {
+    margin-top: 0;
     height: 100vh;
     display: grid;
     place-items: center;

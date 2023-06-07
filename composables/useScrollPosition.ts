@@ -15,10 +15,18 @@ export default function useScrollPosition() {
     const team = document.getElementById(pageSections.team);
     const theArtistPosition = theArtist?.offsetTop || 0;
     const teamPosition = team?.offsetTop || 0;
+    console.log(
+      "🚀 ~ file: useScrollPosition.ts:18 ~ handleScroll ~ teamPosition:",
+      theArtistPosition
+    );
 
+    console.log(
+      "🚀 ~ file: useScrollPosition.ts:20 ~ handleScroll ~ scrollPosition:",
+      scrollPosition
+    );
     if (scrollPosition + 120 < theArtistPosition) {
       currentSection.value = pageSections.home;
-    } else if (scrollPosition < teamPosition) {
+    } else if (scrollPosition + 20 < teamPosition) {
       currentSection.value = pageSections["the-artist"];
     } else {
       currentSection.value = pageSections.team;

@@ -93,7 +93,6 @@ a:visited {
   overflow: hidden;
   position: relative;
   max-width: 760px;
-  width: 100%;
 }
 
 h1 {
@@ -119,6 +118,7 @@ h1 {
   }
 
   .text-section {
+    width: 100%;
     height: 100vh;
     margin: 0 auto;
   }
