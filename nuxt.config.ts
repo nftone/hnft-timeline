@@ -15,6 +15,21 @@ export default defineNuxtConfig({
           type: "font/woff",
           crossorigin: "anonymous",
         },
+        {
+          rel: "apple-touch-icon",
+          sizes: "180x180",
+          href: "@/assets/images/favicons/apple-touch-icon.png",
+        },
+        {
+          rel: "icon",
+          sizes: "32x32",
+          href: "@/assets/images/favicons/favicon-32x32.png",
+        },
+        {
+          rel: "icon",
+          sizes: "16x16",
+          href: "@/assets/images/favicons/favicon-16x16.png",
+        },
       ],
     },
   },
