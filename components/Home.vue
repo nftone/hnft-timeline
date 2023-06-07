@@ -1,5 +1,21 @@
 <template>
-  <div id="home-section">
+  <div v-if="largerThanSm" id="home-section">
+    <img
+      v-if="!isDark"
+      class="logo"
+      src="~assets/images/logoLight.png"
+      alt="Outlawz text logo"
+    />
+    <img
+      v-if="isDark"
+      class="logo"
+      src="~assets/images/logoDark.png"
+      alt="Outlawz text logo"
+    />
+    <div class="circled-link-desktop grayed">Buy</div>
+  </div>
+
+  <div v-if="!largerThanSm" id="home-section">
     <img
       class="logo-character"
       src="~assets/images/logoCharacter.png"
@@ -19,14 +35,16 @@
     />
   </div>
 
-  <div class="buy-cta-section">
+  <div v-if="!largerThanSm" class="buy-cta-section">
     <div class="circled-link grayed">Buy</div>
   </div>
 </template>
 
 <script setup>
 import { useDark } from "@vueuse/core";
-
+import { breakpointsTailwind, useBreakpoints } from "@vueuse/core";
+const breakpoints = useBreakpoints(breakpointsTailwind);
+const largerThanSm = breakpoints.greater("sm");
 const isDark = useDark();
 </script>
 
@@ -46,8 +64,7 @@ const isDark = useDark();
 
 .buy-cta-section {
   z-index: 2;
-  position: absolute;
-  bottom: 25px;
+  position: relative;
   width: 100%;
 }
 
@@ -60,5 +77,10 @@ const isDark = useDark();
 .text-logo {
   width: 100%;
   max-width: 173px;
+}
+
+.logo {
+  width: 100%;
+  max-width: 1095px;
 }
 </style>

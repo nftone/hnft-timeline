@@ -65,6 +65,22 @@ a:visited {
   width: 120px;
 }
 
+.circled-link-desktop {
+  border-radius: 30px;
+  border: 1px solid var(--border-color);
+  text-transform: uppercase;
+  cursor: pointer;
+  font-family: "Next Book";
+  font-size: 36px;
+  font-weight: 400;
+  margin: 0 auto;
+  height: 61px;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  width: 140px;
+}
+
 .grayed,
 .grayed a {
   color: var(--grayed-color);
