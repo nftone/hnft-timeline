@@ -1,11 +1,5 @@
 <template>
-  <div
-    v-if="largerThanSm"
-    id="navigation-menu-desktop"
-    @mouseover="isBlur = false"
-    @mouseleave="isBlur = true"
-    :class="{ blur: isBlur }"
-  >
+  <div v-if="largerThanSm" id="navigation-menu-desktop">
     <div class="left-section">
       <div :class="`${currentSection === pageSections.home ? '' : 'blurable'}`">
         <NuxtLink :to="{ path: '/' }" @click="() => toggleMenuExpansion()">
@@ -187,7 +181,6 @@ const toggleDark = useToggle(isDark);
 
 const largerThanSm = breakpoints.greater("sm");
 
-const isBlur = ref(true);
 const isMenuExpanded = ref(false);
 const isMoreExpanded = ref(false);
 const areTraitsExpanded = ref(false);
@@ -323,7 +316,7 @@ watch(isMenuExpanded, (value) => {
   width: 100%;
   display: grid;
   grid-auto-flow: column;
-  padding: 40px 0;
+  padding: 20px 0;
   font-size: 12px;
   text-transform: uppercase;
   font-weight: 500;
@@ -334,12 +327,16 @@ watch(isMenuExpanded, (value) => {
 #navigation-menu-desktop .right-section {
   display: grid;
   grid-auto-flow: column;
+  place-content: center;
 }
 
 #navigation-menu-desktop .left-section div,
 #navigation-menu-desktop .right-section div {
+  display: grid;
+  place-content: center;
   padding: 0 16px;
   cursor: pointer;
+  height: 50px;
 }
 
 #navigation-menu-desktop .left-section:first-child {
@@ -359,15 +356,14 @@ watch(isMenuExpanded, (value) => {
 }
 
 .blurable {
-  filter: blur(0);
-}
-
-.blur .blurable {
   filter: blur(2px);
 }
 
-/* animate blur filter */
-.blur .blurable {
+.blurable:hover {
+  filter: blur(0);
+}
+
+.blurable {
   transition: filter 0.3s;
 }
 
