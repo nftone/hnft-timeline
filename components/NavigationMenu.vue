@@ -162,6 +162,10 @@
       </div>
     </div>
   </div>
+
+  <div v-if="largerThanSm && isGallery" id="traits-menu-section">
+    <TraitsMenu />
+  </div>
 </template>
 
 <script setup>
@@ -370,5 +374,14 @@ watch(isMenuExpanded, (value) => {
 /* animate blur filter */
 .blur .blurable {
   transition: filter 0.3s;
+}
+
+/* Absolute on left */
+#traits-menu-section {
+  position: absolute;
+  left: 0;
+  top: 186px;
+  width: 220px;
+  height: 100%;
 }
 </style>

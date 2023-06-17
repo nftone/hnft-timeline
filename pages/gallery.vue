@@ -39,4 +39,21 @@ const { displayedAssets } = useGallery();
   /* max-width: 260px; */
   width: 100%;
 }
+
+@media (min-width: 640px) {
+  .assets-container {
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 16px;
+  }
+
+  .gallery-container {
+    margin-left: 220px;
+  }
+}
+
+@media (min-width: 900px) {
+  .assets-container {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
 </style>

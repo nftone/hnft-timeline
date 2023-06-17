@@ -67,6 +67,7 @@ const onCheckboxClicked = ({ target: { value } }) => {
 
 <style>
 #traits-menu {
+  text-transform: uppercase;
   display: grid;
   place-content: center;
   row-gap: 12px;
@@ -85,6 +86,7 @@ const onCheckboxClicked = ({ target: { value } }) => {
 }
 
 .trait-menu-category-header {
+  cursor: pointer;
   display: flex;
 }
 
@@ -159,5 +161,12 @@ const onCheckboxClicked = ({ target: { value } }) => {
 
 .trait-menu-category-body .trait input.dark:checked::before {
   background-color: white;
+}
+
+@media (min-width: 640px) {
+  #traits-menu {
+    justify-content: left;
+    padding-left: 24px;
+  }
 }
 </style>
