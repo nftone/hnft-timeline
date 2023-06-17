@@ -63,6 +63,9 @@ const getImageUrl = (image) => {
 @media (min-width: 900px) {
   .assets-container {
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    max-width: max-content;
+    float: right;
+    margin-right: 26px;
   }
 }
 
