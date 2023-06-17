@@ -195,7 +195,7 @@ const toggleMenuExpansion = useToggle(isMenuExpanded);
 const toggleMoreExpansion = useToggle(isMoreExpanded);
 const toggleTraitsExpansion = useToggle(areTraitsExpanded);
 
-const isGallery = ref(route.path === "/gallery");
+const isGallery = ref(route.path.includes("/gallery"));
 
 // Make isMenuExpanded false if traits are expanded
 watch(areTraitsExpanded, (value) => {
