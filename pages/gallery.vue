@@ -1,13 +1,15 @@
 <template>
   <div class="gallery-container">
     <div class="assets-container">
-      <div
-        class="asset-container"
-        v-for="(asset, i) in displayedAssets"
-        :key="`asset-${i}-${asset.tokenId}`"
-      >
-        <img :src="`/images/${asset.image}`" :alt="asset.image" />
-      </div>
+      <TransitionGroup name="spring">
+        <div
+          class="asset-container"
+          v-for="(asset, i) in displayedAssets"
+          :key="`asset-${i}-${asset.tokenId}`"
+        >
+          <img :src="`/images/${asset.image}`" :alt="asset.image" />
+        </div>
+      </TransitionGroup>
     </div>
   </div>
 </template>
@@ -55,5 +57,17 @@ const { displayedAssets } = useGallery();
   .assets-container {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
+}
+
+/* spring transition */
+.spring-enter-active,
+.spring-leave-active {
+  transition: all 0.3s ease;
+}
+
+.spring-enter-from,
+.spring-leave-to {
+  opacity: 0;
+  transform: translateY(20px);
 }
 </style>
