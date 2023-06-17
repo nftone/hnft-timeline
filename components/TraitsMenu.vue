@@ -26,10 +26,11 @@
               :key="`category-${category}-${i}-trait-${trait}-${j}`"
             >
               <input
-                type="checkbox"
+                type="radio"
                 :value="trait"
+                :class="`${isDark && 'dark'}`"
                 :checked="filters.includes(trait)"
-                @input="onCheckboxClicked"
+                @click="onCheckboxClicked"
               />
               <span>{{ trait }}</span>
             </div>
@@ -42,10 +43,14 @@
 
 <script setup>
 import { ref } from "vue";
+import { useDark } from "@vueuse/core";
+
 import TriangleIcon from "@/components/TriangleIcon.vue";
 import useGallery from "@/composables/useGallery";
 
 const { categories, filters } = useGallery();
+const isDark = useDark();
+
 const expandedCategory = ref(null);
 
 const onCategoryClicked = (category) => {
@@ -103,5 +108,56 @@ const onCheckboxClicked = ({ target: { value } }) => {
 
 .trait-menu-category-body .trait input {
   margin-right: 10px;
+}
+
+/* override radio input colors and make everything black */
+.trait-menu-category-body .trait input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1px solid black;
+  transition: 0.2s all linear;
+  position: relative;
+  cursor: pointer;
+}
+
+.trait-menu-category-body .trait input:checked {
+  background-color: white;
+}
+
+.trait-menu-category-body .trait input:checked::before {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: black;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.trait-menu-category-body .trait input:active {
+  border-color: #000;
+}
+
+.trait-menu-category-body .trait input:active::before {
+  background-color: #000;
+}
+
+.trait-menu-category-body .trait input.dark {
+  border: 1px solid white;
+}
+
+.trait-menu-category-body .trait input.dark:checked {
+  background-color: #000;
+}
+
+.trait-menu-category-body .trait input.dark:checked::before {
+  background-color: white;
 }
 </style>
