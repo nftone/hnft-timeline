@@ -14,7 +14,6 @@ export default function useGallery(): UseGallery {
   const assets = Array.from({ length: 10 }, () => fakeAsset);
 
   const displayedAssets = computed(() => {
-    console.log("aa");
     if (!filters.value.length) return assets;
     return assets.filter(({ traits }) =>
       filters.value.some((trait) => traits.includes(trait))
