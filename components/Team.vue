@@ -84,8 +84,8 @@ const largerThanSm = breakpoints.greater("sm");
     align-items: self-end;
     grid-template-columns: repeat(2, 1fr);
     inline-size: auto;
-    column-gap: 60px;
-    grid-template-columns: repeat(2, 1fr);
+    row-gap: 80px;
+    column-gap: 80px;
   }
 
   .team-member {
