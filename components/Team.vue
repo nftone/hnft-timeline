@@ -80,10 +80,12 @@ const largerThanSm = breakpoints.greater("sm");
   }
 
   .team-members {
-    max-width: 1400px;
     width: 100%;
     align-items: self-end;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    inline-size: auto;
+    column-gap: 60px;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .team-member {
@@ -92,7 +94,7 @@ const largerThanSm = breakpoints.greater("sm");
   }
 
   .team-member img {
-    width: 253px;
+    width: 200px;
   }
 
   .team-member-name {
@@ -101,6 +103,19 @@ const largerThanSm = breakpoints.greater("sm");
 
   .team-member-position {
     font-style: normal;
+  }
+}
+
+@media (min-width: 1200px) {
+  .team-members {
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 1400px;
+    width: 100%;
+    align-items: self-end;
+  }
+
+  .team-member img {
+    width: 253px;
   }
 }
 </style>
