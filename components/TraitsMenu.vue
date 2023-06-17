@@ -11,13 +11,15 @@
           @click="onCategoryClicked(category)"
         >
           <div class="triangle-icon">
-            <TriangleIcon :is-expanded="expandedCategory === category.title" />
+            <TriangleIcon
+              :is-expanded="expandedCategories.includes(category.title)"
+            />
           </div>
           <div class="category-title">{{ category.title }}</div>
         </div>
         <Transition name="slide-fade">
           <div
-            v-if="expandedCategory === category.title"
+            v-if="expandedCategories.includes(category.title)"
             class="trait-menu-category-body"
           >
             <div
@@ -51,11 +53,12 @@ import useGallery from "@/composables/useGallery";
 const { categories, filters } = useGallery();
 const isDark = useDark();
 
-const expandedCategory = ref(null);
+const expandedCategories = ref([]);
 
 const onCategoryClicked = (category) => {
-  if (category.title === expandedCategory.value) expandedCategory.value = null;
-  else expandedCategory.value = category.title;
+  const categoryIndex = expandedCategories.value.indexOf(category.title);
+  if (categoryIndex === -1) expandedCategories.value.push(category.title);
+  else expandedCategories.value.splice(categoryIndex, 1);
 };
 
 const onCheckboxClicked = ({ target: { value } }) => {
@@ -112,7 +115,6 @@ const onCheckboxClicked = ({ target: { value } }) => {
   margin-right: 10px;
 }
 
-/* override radio input colors and make everything black */
 .trait-menu-category-body .trait input {
   -webkit-appearance: none;
   -moz-appearance: none;
