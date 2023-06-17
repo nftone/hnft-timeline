@@ -126,6 +126,12 @@
       </div>
     </Transition>
 
+    <Transition name="slide-fade">
+      <div class="submenu traits-submenu" v-if="areTraitsExpanded">
+        <TraitsMenu />
+      </div>
+    </Transition>
+
     <div id="dark-mode-toggle">
       <img
         @click="toggleDark()"
@@ -142,13 +148,21 @@
     <div class="connect-button-section">
       <div class="connect-button circled-link grayed">Connect</div>
     </div>
+
+    <div v-if="isGallery" class="traits-button-section">
+      <div class="traits-button circled-link" @click="toggleTraitsExpansion()">
+        Traits
+      </div>
+    </div>
   </div>
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { computed, ref, watch } from "vue";
 import { useDark, useToggle } from "@vueuse/core";
 import { breakpointsTailwind, useBreakpoints } from "@vueuse/core";
+import TraitsMenu from "@/components/TraitsMenu.vue";
+
 import useScrollPosition, {
   pageSections,
 } from "@/composables/useScrollPosition";
@@ -156,6 +170,7 @@ import useScrollPosition, {
 const { currentSection } = useScrollPosition();
 const breakpoints = useBreakpoints(breakpointsTailwind);
 const isDark = useDark();
+const route = useRoute();
 const toggleDark = useToggle(isDark);
 
 const largerThanSm = breakpoints.greater("sm");
@@ -163,9 +178,27 @@ const largerThanSm = breakpoints.greater("sm");
 const isBlur = ref(true);
 const isMenuExpanded = ref(false);
 const isMoreExpanded = ref(false);
+const areTraitsExpanded = ref(false);
 
 const toggleMenuExpansion = useToggle(isMenuExpanded);
 const toggleMoreExpansion = useToggle(isMoreExpanded);
+const toggleTraitsExpansion = useToggle(areTraitsExpanded);
+
+const isGallery = computed(() => route.path === "/gallery");
+
+// Make isMenuExpanded false if traits are expanded
+watch(areTraitsExpanded, (value) => {
+  if (value) {
+    isMenuExpanded.value = false;
+  }
+});
+
+// Make areTraitsExpanded false if menu is expanded
+watch(isMenuExpanded, (value) => {
+  if (value) {
+    areTraitsExpanded.value = false;
+  }
+});
 </script>
 
 <style>
@@ -228,7 +261,19 @@ const toggleMoreExpansion = useToggle(isMoreExpanded);
   padding-bottom: 18px;
 }
 
-.connect-button {
+.traits-button-section {
+  display: grid;
+  position: absolute;
+  z-index: 2;
+  top: 114px;
+  place-items: center;
+  background-color: var(--background-color);
+  width: 100%;
+  padding-bottom: 22px;
+}
+
+.connect-button,
+.traits-button {
   place-self: center;
 }
 
@@ -239,6 +284,10 @@ const toggleMoreExpansion = useToggle(isMoreExpanded);
   text-transform: uppercase;
   row-gap: 14px;
   background-color: var(--background-color);
+}
+
+.traits-submenu {
+  margin-top: 94px;
 }
 
 #dark-mode-toggle {
