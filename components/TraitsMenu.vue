@@ -97,7 +97,7 @@ const onCheckboxClicked = ({ target: { value } }) => {
   display: grid;
   place-content: flex-start;
   justify-items: left;
-  row-gap: 4px;
+  row-gap: 8px;
   padding-top: 8px;
 }
 
