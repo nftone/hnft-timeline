@@ -132,7 +132,7 @@
       </div>
     </Transition>
 
-    <div v-if="isGallery" id="back-button" @click="isGallery = false">
+    <div v-if="isGallery" id="back-button">
       <NuxtLink :to="{ path: '/' }">
         <img v-if="isDark" src="~/assets/images/backButtonDark.png" />
         <img v-if="!isDark" src="~/assets/images/backButtonLight.png" />
@@ -169,6 +169,7 @@
 </template>
 
 <script setup>
+import { useRoute } from "vue-router";
 import { ref, watch } from "vue";
 import { useDark, useToggle } from "@vueuse/core";
 import { breakpointsTailwind, useBreakpoints } from "@vueuse/core";
@@ -195,18 +196,14 @@ const toggleMenuExpansion = useToggle(isMenuExpanded);
 const toggleMoreExpansion = useToggle(isMoreExpanded);
 const toggleTraitsExpansion = useToggle(areTraitsExpanded);
 
-const isGallery = ref(route.path.includes("/gallery"));
+const isGallery = computed(() => route.path.includes("/gallery"));
 
 watch(areTraitsExpanded, (value) => {
-  if (value) {
-    isMenuExpanded.value = false;
-  }
+  if (value) isMenuExpanded.value = false;
 });
 
 watch(isMenuExpanded, (value) => {
-  if (value) {
-    areTraitsExpanded.value = false;
-  }
+  if (value) areTraitsExpanded.value = false;
 });
 </script>
 
