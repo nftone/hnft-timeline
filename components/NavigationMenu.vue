@@ -165,7 +165,7 @@
 </template>
 
 <script setup>
-import { computed, ref, watch } from "vue";
+import { ref, watch } from "vue";
 import { useDark, useToggle } from "@vueuse/core";
 import { breakpointsTailwind, useBreakpoints } from "@vueuse/core";
 import TraitsMenu from "@/components/TraitsMenu.vue";
