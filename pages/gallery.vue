@@ -14,8 +14,7 @@
 
 <script setup>
 import useGallery from "@/composables/useGallery";
-const { metadata: AssetsMetadata, displayedAssets, filters } = useGallery();
-console.log("🚀 ~ file: gallery.vue:6 ~ displayedAssets:", displayedAssets);
+const { displayedAssets } = useGallery();
 </script>
 
 <style>
