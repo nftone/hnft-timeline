@@ -7,7 +7,7 @@
           v-for="(asset, i) in displayedAssets"
           :key="`asset-${i}-${asset.tokenId}`"
         >
-          <img :src="`/images/${asset.image}`" :alt="asset.image" />
+          <img :src="getImageUrl(asset.image)" :alt="asset.image" />
         </div>
       </TransitionGroup>
     </div>
@@ -17,6 +17,13 @@
 <script setup>
 import useGallery from "@/composables/useGallery";
 const { displayedAssets } = useGallery();
+
+const getImageUrl = (image) => {
+  if (window.location.href.includes("github.io")) {
+    return `/outlawz-website/images/${image}`;
+  }
+  return `/images/${image}`;
+};
 </script>
 
 <style>
