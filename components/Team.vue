@@ -90,7 +90,6 @@ const largerThanSm = breakpoints.greater("sm");
 
   .team-member {
     font-size: 16px;
-    font-weight: 500;
   }
 
   .team-member img {
@@ -99,10 +98,6 @@ const largerThanSm = breakpoints.greater("sm");
 
   .team-member-name {
     font-weight: 800;
-  }
-
-  .team-member-position {
-    font-style: normal;
   }
 }
 
