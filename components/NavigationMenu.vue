@@ -132,6 +132,13 @@
       </div>
     </Transition>
 
+    <div v-if="isGallery" id="back-button" @click="isGallery = false">
+      <NuxtLink :to="{ path: '/' }">
+        <img v-if="isDark" src="~/assets/images/backButtonDark.png" />
+        <img v-if="!isDark" src="~/assets/images/backButtonLight.png" />
+      </NuxtLink>
+    </div>
+
     <div id="dark-mode-toggle">
       <img
         @click="toggleDark()"
@@ -184,7 +191,7 @@ const toggleMenuExpansion = useToggle(isMenuExpanded);
 const toggleMoreExpansion = useToggle(isMoreExpanded);
 const toggleTraitsExpansion = useToggle(areTraitsExpanded);
 
-const isGallery = computed(() => route.path === "/gallery");
+const isGallery = ref(route.path === "/gallery");
 
 // Make isMenuExpanded false if traits are expanded
 watch(areTraitsExpanded, (value) => {
@@ -288,6 +295,13 @@ watch(isMenuExpanded, (value) => {
 
 .traits-submenu {
   margin-top: 94px;
+}
+
+#back-button {
+  z-index: 3;
+  position: fixed;
+  left: 30px;
+  top: 30px;
 }
 
 #dark-mode-toggle {
