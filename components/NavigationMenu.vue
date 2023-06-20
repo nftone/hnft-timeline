@@ -166,18 +166,20 @@
       </NuxtLink>
     </div>
 
-    <div id="dark-mode-toggle">
-      <img
-        @click="toggleDark()"
-        v-if="isDark"
-        src="~/assets/images/lightMode.png"
-      />
-      <img
-        @click="toggleDark()"
-        v-if="!isDark"
-        src="~/assets/images/darkMode.png"
-      />
-    </div>
+    <Teleport to="body">
+      <div id="dark-mode-toggle">
+        <img
+          @click="toggleDark()"
+          v-if="isDark"
+          src="~/assets/images/lightMode.png"
+        />
+        <img
+          @click="toggleDark()"
+          v-if="!isDark"
+          src="~/assets/images/darkMode.png"
+        />
+      </div>
+    </Teleport>
 
     <div class="connect-button-section">
       <div class="connect-button circled-link grayed">Connect</div>
@@ -335,7 +337,7 @@ watch(isMenuExpanded, (value) => {
 }
 
 #dark-mode-toggle {
-  z-index: 3;
+  z-index: 9999;
   position: fixed;
   right: 30px;
   top: 30px;
