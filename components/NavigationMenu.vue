@@ -213,7 +213,6 @@ const route = useRoute();
 const toggleDark = useToggle(isDark);
 
 const largerThanMd = breakpoints.greater("md");
-const medium = breakpoints.between("md", "xl");
 
 const isMenuExpanded = ref(false);
 const isMoreExpanded = ref(false);
