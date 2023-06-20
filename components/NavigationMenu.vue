@@ -53,7 +53,7 @@
         </NuxtLink>
       </div>
 
-      <div v-if="medium" class="desktop-menu legal-menu grayed blurable">
+      <div class="desktop-menu legal-menu grayed blurable">
         <div>Legal</div>
 
         <Transition name="slide-fade">
@@ -70,14 +70,7 @@
         </Transition>
       </div>
 
-      <div v-if="largerThanXl" class="grayed blurable">
-        <NuxtLink>License agreement</NuxtLink>
-      </div>
-      <div v-if="largerThanXl" class="grayed blurable">
-        <NuxtLink>Terms & Conditions</NuxtLink>
-      </div>
-
-      <div v-if="medium" class="desktop-menu social-menu grayed blurable">
+      <div class="desktop-menu social-menu grayed blurable">
         <div>Socials</div>
 
         <Transition name="slide-fade">
@@ -100,12 +93,6 @@
         </Transition>
       </div>
 
-      <div v-if="largerThanXl" class="blurable">
-        <NuxtLink to="https://discord.com" target="_blank">Discord</NuxtLink>
-      </div>
-      <div v-if="largerThanXl" class="blurable">
-        <NuxtLink to="https://twitter.com" target="_blank">Twitter</NuxtLink>
-      </div>
       <div class="grayed blurable">
         <NuxtLink>Connect</NuxtLink>
       </div>
@@ -227,7 +214,6 @@ const toggleDark = useToggle(isDark);
 
 const largerThanMd = breakpoints.greater("md");
 const medium = breakpoints.between("md", "xl");
-const largerThanXl = breakpoints.greater("xl");
 
 const isMenuExpanded = ref(false);
 const isMoreExpanded = ref(false);
