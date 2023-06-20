@@ -468,6 +468,7 @@ watch(isMenuExpanded, (value) => {
 }
 
 .desktop-menu {
+  position: relative;
   padding: 0 !important;
 }
 
