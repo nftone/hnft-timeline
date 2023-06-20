@@ -172,7 +172,7 @@ const totalPrice = computed(() => {
 }
 
 .logo-section .logo-character {
-  width: 106px;
+  width: 116px;
 }
 
 .modal-actions {
