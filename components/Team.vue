@@ -1,6 +1,6 @@
 <template>
   <section id="team">
-    <h1 v-if="!largerThanSm">The team</h1>
+    <h1 v-if="!largerThanMd">The team</h1>
 
     <div class="team-members">
       <div class="team-member">
@@ -33,7 +33,7 @@
 <script setup>
 import { breakpointsTailwind, useBreakpoints } from "@vueuse/core";
 const breakpoints = useBreakpoints(breakpointsTailwind);
-const largerThanSm = breakpoints.greater("sm");
+const largerThanMd = breakpoints.greater("md");
 </script>
 
 <style>

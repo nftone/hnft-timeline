@@ -1,5 +1,5 @@
 <template>
-  <div v-if="largerThanSm" id="navigation-menu-desktop">
+  <div v-if="largerThanMd" id="navigation-menu-desktop">
     <div class="left-section">
       <div :class="`${currentSection === pageSections.home ? '' : 'blurable'}`">
         <NuxtLink :to="{ path: '/' }" @click="() => toggleMenuExpansion()">
@@ -203,7 +203,7 @@
     </div>
   </div>
 
-  <div v-if="largerThanSm && isGallery" id="traits-menu-section">
+  <div v-if="largerThanMd && isGallery" id="traits-menu-section">
     <TraitsMenu />
   </div>
 </template>
@@ -225,8 +225,8 @@ const isDark = useDark();
 const route = useRoute();
 const toggleDark = useToggle(isDark);
 
-const largerThanSm = breakpoints.greater("sm");
-const medium = breakpoints.between("sm", "xl");
+const largerThanMd = breakpoints.greater("md");
+const medium = breakpoints.between("md", "xl");
 const largerThanXl = breakpoints.greater("xl");
 
 const isMenuExpanded = ref(false);

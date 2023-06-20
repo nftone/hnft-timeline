@@ -1,5 +1,5 @@
 <template>
-  <div v-if="largerThanSm" id="home-section">
+  <div v-if="largerThanMd" id="home-section">
     <img
       v-if="!isDark"
       class="logo"
@@ -15,7 +15,7 @@
     <div class="circled-link-desktop grayed">Buy</div>
   </div>
 
-  <div v-if="!largerThanSm" id="home-section">
+  <div v-if="!largerThanMd" id="home-section">
     <img
       class="logo-character"
       src="~assets/images/logoCharacter.png"
@@ -35,7 +35,7 @@
     />
   </div>
 
-  <div v-if="!largerThanSm" class="buy-cta-section">
+  <div v-if="!largerThanMd" class="buy-cta-section">
     <div class="circled-link grayed">Buy</div>
   </div>
 </template>
@@ -44,7 +44,7 @@
 import { useDark } from "@vueuse/core";
 import { breakpointsTailwind, useBreakpoints } from "@vueuse/core";
 const breakpoints = useBreakpoints(breakpointsTailwind);
-const largerThanSm = breakpoints.greater("sm");
+const largerThanMd = breakpoints.greater("md");
 const isDark = useDark();
 </script>
 
