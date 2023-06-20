@@ -50,16 +50,58 @@
       <div class="grayed blurable">
         <NuxtLink>References</NuxtLink>
       </div>
-      <div class="grayed blurable">
+
+      <div v-if="medium" class="desktop-menu legal-menu grayed blurable">
+        <div>Legal</div>
+
+        <Transition name="slide-fade">
+          <div class="desktop-submenu legal-submenu">
+            <NuxtLink class="desktop-submenu-item">
+              <div class="grayed circled-link">License&nbsp;agreement</div>
+            </NuxtLink>
+            <NuxtLink class="desktop-submenu-item">
+              <div class="grayed circled-link">
+                Terms&nbsp;&&nbsp;Conditions
+              </div>
+            </NuxtLink>
+          </div>
+        </Transition>
+      </div>
+
+      <div v-if="largerThanXl" class="grayed blurable">
         <NuxtLink>License agreement</NuxtLink>
       </div>
-      <div class="grayed blurable">
+      <div v-if="largerThanXl" class="grayed blurable">
         <NuxtLink>Terms & Conditions</NuxtLink>
       </div>
-      <div class="blurable">
+
+      <div v-if="medium" class="desktop-menu social-menu grayed blurable">
+        <div>Socials</div>
+
+        <Transition name="slide-fade">
+          <div class="desktop-submenu social-submenu">
+            <NuxtLink
+              to="https://discord.com"
+              target="_blank"
+              class="desktop-submenu-item"
+            >
+              <div class="grayed circled-link">Discord</div>
+            </NuxtLink>
+            <NuxtLink
+              to="https://twitter.com"
+              target="_blank"
+              class="desktop-submenu-item"
+            >
+              <div class="grayed circled-link">Twitter</div>
+            </NuxtLink>
+          </div>
+        </Transition>
+      </div>
+
+      <div v-if="largerThanXl" class="blurable">
         <NuxtLink to="https://discord.com" target="_blank">Discord</NuxtLink>
       </div>
-      <div class="blurable">
+      <div v-if="largerThanXl" class="blurable">
         <NuxtLink to="https://twitter.com" target="_blank">Twitter</NuxtLink>
       </div>
       <div class="grayed blurable">
@@ -180,6 +222,8 @@ const route = useRoute();
 const toggleDark = useToggle(isDark);
 
 const largerThanSm = breakpoints.greater("sm");
+const medium = breakpoints.between("sm", "xl");
+const largerThanXl = breakpoints.greater("xl");
 
 const isMenuExpanded = ref(false);
 const isMoreExpanded = ref(false);
@@ -238,7 +282,7 @@ watch(isMenuExpanded, (value) => {
   position: fixed;
   font-family: "Next Book";
   font-weight: 400;
-  font-size: 14px;
+  font-size: 12px;
   top: 0;
   padding: 25px 0 18px 0;
   width: 100%;
@@ -247,6 +291,11 @@ watch(isMenuExpanded, (value) => {
   text-transform: uppercase;
   row-gap: 14px;
   background-color: var(--background-color);
+}
+
+#navigation-menu .circled-link,
+#navigation-menu-desktop .circled-link {
+  font-size: 12px;
 }
 
 .connect-button-section {
@@ -374,5 +423,45 @@ watch(isMenuExpanded, (value) => {
   top: 186px;
   width: 220px;
   height: 100%;
+}
+
+.social-submenu,
+.legal-submenu {
+  display: none !important;
+}
+
+.legal-menu:hover .legal-submenu {
+  display: grid !important;
+}
+
+.social-menu:hover .social-submenu {
+  display: grid !important;
+}
+
+.desktop-submenu {
+  height: auto !important;
+  place-content: unset;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  left: 0;
+  width: auto;
+  padding: 0;
+}
+
+.desktop-menu {
+  padding: 0 !important;
+}
+
+.desktop-submenu a {
+  margin-top: 10px;
+  padding: 0;
+  cursor: pointer;
+  width: 100%;
+}
+
+.desktop-submenu-item div {
+  height: auto !important;
+  padding: 4px 20px !important;
 }
 </style>
