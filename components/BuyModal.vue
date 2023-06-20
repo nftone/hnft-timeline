@@ -30,7 +30,7 @@
                 <div class="quantity-selector-button" @click="onMinusClicked">
                   -
                 </div>
-                <div>
+                <div style="text-align: center">
                   <input type="number" min="1" v-model="quantity" />
                 </div>
                 <div class="quantity-selector-button" @click="onPlusClicked">
@@ -118,17 +118,18 @@ const totalPrice = computed(() => {
 
 .modal-info-table {
   display: grid;
-  place-content: baseline;
-  justify-content: stretch;
   grid-auto-flow: row;
-  row-gap: 18px;
+  row-gap: 4px;
   margin-top: 18px;
+  grid-template-rows: repeat(3, 38px);
+  place-content: stretch;
 }
 
 .modal-info-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
   column-gap: 8px;
+  place-content: center;
 }
 
 .modal-info-row div:last-child,
@@ -137,16 +138,14 @@ const totalPrice = computed(() => {
 }
 
 .modal-quantity-selector-row {
-  margin-top: -10px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  column-gap: 8px;
   align-items: center;
 }
 
 .quantity-selector {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 38px 1fr;
   place-content: center;
   align-items: center;
 }
@@ -154,10 +153,7 @@ const totalPrice = computed(() => {
 .quantity-selector-button {
   cursor: pointer;
   font-size: 18px;
-}
-
-.quantity-selector-button:first {
-  text-align: left;
+  text-align: center !important;
 }
 
 .modal-body .logo-section {
@@ -170,10 +166,11 @@ const totalPrice = computed(() => {
 }
 
 .quantity-selector input {
+  box-sizing: border-box;
   border-radius: 50%;
   border: 2px solid var(--border-color);
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   text-align: center;
 }
 
