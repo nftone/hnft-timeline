@@ -293,7 +293,7 @@ watch(isMenuExpanded, (value) => {
   display: grid;
   position: absolute;
   z-index: 2;
-  top: 70px;
+  top: 69px;
   place-items: center;
   background-color: var(--background-color);
   width: 100%;
@@ -304,7 +304,7 @@ watch(isMenuExpanded, (value) => {
   display: grid;
   position: absolute;
   z-index: 2;
-  top: 114px;
+  top: 113px;
   place-items: center;
   background-color: var(--background-color);
   width: 100%;
