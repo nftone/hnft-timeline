@@ -86,17 +86,27 @@ const totalPrice = computed(() => {
   background-color: rgba(0, 0, 0, 0.8);
   display: flex;
   transition: opacity 0.3s ease;
-  display: grid;
   place-content: center;
 }
 
 .buy-modal-inner {
-  width: 320px;
-  height: 570px;
+  width: 100%;
+  height: 100%;
   transition: all 0.3s ease;
   display: grid;
   grid-template-rows: auto 1fr auto;
   background-color: var(--background-color);
+}
+
+@media (min-width: 640px) {
+  .buy-modal-outer {
+    display: grid;
+  }
+
+  .buy-modal-inner {
+    width: 320px;
+    height: 570px;
+  }
 }
 
 .modal-header {
@@ -159,6 +169,10 @@ const totalPrice = computed(() => {
 .modal-body .logo-section {
   text-align: center;
   align-self: self-end;
+}
+
+.logo-section .logo-character {
+  width: 106px;
 }
 
 .modal-actions {
