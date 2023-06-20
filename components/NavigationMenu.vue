@@ -430,6 +430,10 @@ watch(isMenuExpanded, (value) => {
   display: none !important;
 }
 
+.social-submenu .circled-link {
+  width: unset;
+}
+
 .legal-menu:hover .legal-submenu {
   display: grid !important;
 }
