@@ -111,6 +111,10 @@ h1 {
   text-align: justify;
 }
 
+.text-section a {
+  text-decoration: underline;
+}
+
 @media (min-width: 640px) {
   h1 {
     font-size: 72px;

@@ -33,15 +33,13 @@
     </p>
     <p>
       Lugosis has collaborated with different types of Streetwear brands, from
-      "garage screen printers" to the "big players" such as Nike, Montana Cans,
-      <u>Carhartt</u>
-      ,
-      <u>Ma®ket</u>
-      ,
-      <u>Dr. Martens</u>
+      &ldquo;garage screen printers&rdquo; to the &ldquo;big players&rdquo; such as <a href="https://lugosis.com/blogs/featuring/nike" target="_blank">Nike</a>&#44
+      <a href="https://www.montana-cans.com/en/spray-cans/montana-limited-editions/black-artist-series/black-artist-edition-lugosis" target="_blank">Montana Cans</a>&#44
+      <a href="https://lugosis.com/blogs/featuring/carhartt" target="_blank">Carhartt</a>&#44
+      <a href="https://lugosis.com/blogs/featuring/ma%C2%AEket" target="_blank">Ma®ket</a>&#44
+      <a href="https://www.collater.al/en/dr-martens-frankestein-poster-milan-art/" target="_blank" >Dr. Martens</a>
       and
-      <u>Tod&#x27;s</u>
-      . Every project he has been involved in has been celebrated by many. It
+      <a  href="https://www.vogue.it/moda/article/tods-borse-san-patrignano-writer-lugosis" target="_blank" >Tod&#x27;s</a>&#46 Every project he has been involved in has been celebrated by many. It
       was only a matter of time before Lugosis took his work to another level to
       create something of his own.
     </p>

@@ -47,8 +47,10 @@
         />
       </div>
 
-      <div class="grayed blurable">
-        <NuxtLink>References</NuxtLink>
+      <div class="blurable">
+        <NuxtLink to="https://linktr.ee/lugosis" target="_blank">
+          References
+        </NuxtLink>
       </div>
 
       <div v-if="medium" class="desktop-menu legal-menu grayed blurable">
@@ -144,8 +146,10 @@
 
     <Transition name="slide-fade">
       <div class="submenu" v-if="isMenuExpanded && isMoreExpanded">
-        <div class="grayed">
-          <NuxtLink>References</NuxtLink>
+        <div>
+          <NuxtLink to="https://linktr.ee/lugosis" target="_blank">
+            References
+          </NuxtLink>
         </div>
         <div class="grayed">
           <NuxtLink>License agreement</NuxtLink>
