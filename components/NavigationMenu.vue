@@ -393,11 +393,21 @@ watch(isMenuExpanded, (value) => {
 }
 
 #navigation-menu-desktop .left-section:first-child {
-  margin-left: 40px;
+  margin-left: 4px;
 }
 
 #navigation-menu-desktop .right-section:last-child {
-  margin-right: 40px;
+  margin-right: 4px;
+}
+
+@media (min-width: 840px) {
+  #navigation-menu-desktop .left-section:first-child {
+    margin-left: 40px;
+  }
+
+  #navigation-menu-desktop .right-section:last-child {
+    margin-right: 40px;
+  }
 }
 
 #navigation-menu-desktop .left-section {
