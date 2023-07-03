@@ -11,7 +11,7 @@ const dir = "dist"; //or from env variable? perhaps or from args
 import * as ghpages from "gh-pages";
 import { execCmdOnController } from "./SpawnExecOnController.mjs";
 import fs from "node:fs";
-process.env.NUXT_APP_BASE_URL = "/outlawz-website/"; //if .env doesnt exist
+process.env.NUXT_APP_BASE_URL = "/hnft-timeline/"; //if .env doesn't exist
 //build
 {
   // const {cmd,stdout,stderr,code,signal} = await execCmdOnController('pnpm run build')//vite
