@@ -150,7 +150,6 @@ export default {
 }
 
 .item-card-secondary-container {
-  background-color: --grey-four;
   padding: 8px;
   border-radius: 4px;
 }

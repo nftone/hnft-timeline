@@ -16,6 +16,10 @@ export default {
 </script>
 
 <style>
+a {
+  text-decoration: none;
+}
+
 .header-container {
   display: flex;
   flex-direction: column;
@@ -26,7 +30,7 @@ export default {
 }
 
 .title {
-  font-family: Lato,Helvetica,Arial,sans-serif;
+  font-family: Lato, Helvetica, Arial, sans-serif;
   color: #fff;
 
   display: flex;
@@ -55,10 +59,6 @@ export default {
 .timeline-link {
   transition: 0.2s ease-out;
   text-decoration: underline;
-}
-
-.timeline-link:hover {
-  color: var(--grey-one);
 }
 
 @media screen and (max-width: 767px) {
