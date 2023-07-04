@@ -1,7 +1,7 @@
 <template>
   <LoadingOverlay v-if="loading" />
 
-  <div v-else>
+  <div v-else  class="app">
     <TimelineHeader />
 
     <div class="timeline-container">
@@ -121,7 +121,19 @@ export default {
 </script>
 
 <style>
+
+.app {
+  background-color: #252525;
+}
+
+.timeline-container a {
+  font-family: Lato,Helvetica,Arial,sans-serif;
+  color: #fff;
+}
+
 .timeline-container {
+  font-family: Lato,Helvetica,Arial,sans-serif;
+  color: #fff;
   padding-left: 1rem;
   padding-right: 1rem;
   padding-bottom: 1rem;

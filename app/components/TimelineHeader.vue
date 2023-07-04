@@ -26,6 +26,9 @@ export default {
 }
 
 .title {
+  font-family: Lato,Helvetica,Arial,sans-serif;
+  color: #fff;
+
   display: flex;
   flex-direction: column;
   margin-top: 1rem;
