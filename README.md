@@ -1,3 +1,17 @@
+# HNFT Timeline
+
+We decided to open source the HNFT Timeline project to allow the community to contribute to the project.
+Anyone can submit a project or event to be added to the timeline.
+
+The timeline holds 2 types of items: projects and events.
+
+Projects are NFT projects that have been launched on a blockchain, eg. CryptoPunks, Etheria, etc.
+Events are any relevant events that have happened in the NFT space, eg. Namecoin creation, ERC-721 standard, etc.
+
+
+## How to contribute
+
+Submit a pull request that complies to the standard below.
 
 
 ## Project File Structure
