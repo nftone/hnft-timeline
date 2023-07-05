@@ -16,21 +16,21 @@
               {{ month.name }}
             </div>
             <div
-              v-for="(item, i) in getTimelineEventsByPeriod(
+              v-for="(project, i) in getTimelineEventsByPeriod(
                 year.number,
                 month.number
               )"
               :key="`item-${i}`"
-              class="month-items-container"
+              class="month-projects-container"
             >
-              <TimelineEvent v-if="!item.placeholder" :item="item" />
+              <TimelineEvent v-if="!project.placeholder" :item="project" />
             </div>
             <div
-              v-for="(item, i) in getTimelineItemsBy(year.number, month.number)"
+              v-for="(project, i) in getTimelineProjectsBy(year.number, month.number)"
               :key="`item-${i}`"
-              class="month-items-container"
+              class="month-projects-container"
             >
-              <TimelineItem :item="item" />
+              <TimelineItem :item="project" />
             </div>
           </div>
         </div>
@@ -61,7 +61,7 @@ export default {
   data: () => ({
     months,
     years,
-    items: [],
+    projects: [],
     eventsList: [],
     loading: true,
   }),
@@ -71,7 +71,7 @@ export default {
       const timelineResponse = await Axios.get(TIMELINE_URL);
       const data = timelineResponse.data;
       this.eventsList = data.timelineEvents;
-      this.items = data.timelineItems;
+      this.projects = data.timelineItems;
     } catch (error) {
       console.error(error);
     } finally {
@@ -80,12 +80,12 @@ export default {
   },
 
   methods: {
-    getTimelineItemsBy(year, month) {
-      const itemsInTheMonth = [...this.items]
-        .filter((item) => {
-          const itemDate = new Date(item.date);
+    getTimelineProjectsBy(year, month) {
+      const projectsInTheMonth = [...this.projects]
+        .filter((project) => {
+          const projectDate = new Date(project.date);
           return (
-            itemDate.getFullYear() === year && itemDate.getMonth() === month
+            projectDate.getFullYear() === year && projectDate.getMonth() === month
           );
         })
         .sort((a, b) => {
@@ -94,15 +94,15 @@ export default {
           return aDate - bDate;
         });
 
-      if (itemsInTheMonth.length === 0) return [{ placeholder: true }];
+      if (projectsInTheMonth.length === 0) return [{ placeholder: true }];
 
-      return itemsInTheMonth;
+      return projectsInTheMonth;
     },
 
     getTimelineEventsByPeriod(year, month) {
       const eventsInTheMonth = [...this.eventsList]
-        .filter((item) => {
-          const eventDate = new Date(item.date);
+        .filter((event) => {
+          const eventDate = new Date(event.date);
           return (
             eventDate.getFullYear() === year && eventDate.getMonth() === month
           );
@@ -122,10 +122,6 @@ export default {
 
 <style>
 
-.app {
-  //background-color: #252525;
-}
-
 .timeline-container a {
   font-family: Lato,Helvetica,Arial,sans-serif;
   color: #fff;
@@ -138,7 +134,6 @@ export default {
   padding-left: 1rem;
   padding-right: 1rem;
   padding-bottom: 1rem;
-
 }
 
 .year-inner-container {
@@ -165,14 +160,14 @@ export default {
   margin: 10px 10px;
 }
 
-.month-items-container {
+.month-projects-container {
   justify-content: left;
   background-color: #656565;
   border-radius: 4px;
   margin: 4px;
 }
 
-.month-items-container:hover {
+.month-projects-container:hover {
   transform: scale(1.01);
   box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2), 0 1px 15px 0 rgba(0, 0, 0, 0.19);
 }
