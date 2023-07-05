@@ -80,6 +80,7 @@ Project {
 ```
 {
   name: string
+  slug: string
   date: string
 }
 ```
@@ -87,6 +88,7 @@ Project {
 ```
 {
   "name": "1st ERC-721 token",
+  "slug": "1st-erc-721-token",
   "date": "2018-01-23"
 }
 ```
