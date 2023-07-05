@@ -90,3 +90,34 @@ Link [{
   slug: string;
 }
 ```
+
+## Here an example
+```
+name: "Etheria World";
+date: "2015-10-19";
+description: "In the modern era, Etheria ended up being the first true
+NFT project in history (by more than a year) and tiles are now traded on the Exchange page.";
+creator: "Cyrus Adkisson";
+Link[]: {
+    description : “Official”,
+    url : "https://etheria.world/",
+    logo : “ ”
+},
+{
+    description : “Twitter”,
+    url: "https://twitter.com/etheriaworld",
+    logo : " "
+},
+{
+    description : “Discord”,
+    url: "https://discord.com/invite/etheriaworld",
+    logo : " "
+},
+{
+    description : “Instagram”,
+    url: "https://instagram.com/etheriawordl",
+    logo : " "
+}
+network: "Ethereum";
+slug: "etheria world";
+```
