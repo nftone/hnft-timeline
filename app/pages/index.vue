@@ -123,7 +123,7 @@ export default {
 <style>
 
 .app {
-  background-color: #252525;
+  //background-color: #252525;
 }
 
 .timeline-container a {
@@ -134,9 +134,11 @@ export default {
 .timeline-container {
   font-family: Lato,Helvetica,Arial,sans-serif;
   color: #fff;
+  background-color: #252525;
   padding-left: 1rem;
   padding-right: 1rem;
   padding-bottom: 1rem;
+
 }
 
 .year-inner-container {
