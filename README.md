@@ -20,7 +20,7 @@ The app is built with Nuxt. Refer to the README in the app folder for more infor
 
 
 
-## Project File Structure
+## File Structure
 ```
 ├── app
 └── data
