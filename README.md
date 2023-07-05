@@ -22,11 +22,16 @@ The app is built with Nuxt. Refer to the README in the app folder for more infor
 
 ## Project File Structure
 ```
-├── ...
- └── data
-     └── projects
-          └── projects_slug
-              └── metadata.json
+├── app
+└── data
+    └── projects
+        └── [project_slug]
+             └── metadata.json
+             └── image.jpg
+    └── events
+        └── [event_slug]
+             └── metadata.json
+             └── image.jpg
 ```
 
 ## Interface Project
