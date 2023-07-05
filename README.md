@@ -24,125 +24,79 @@ The app is built with Nuxt. Refer to the README in the app folder for more infor
 ```
 ├── app
 └── data
-    └── projects
-        └── [project_slug]
-             └── metadata.json
-             └── image.jpg
+    ├── projects
+    |   └── [project_slug]
+    |        ├──  metadata.json
+    |        └── image.jpg
     └── events
         └── [event_slug]
-             └── metadata.json
+             ├── metadata.json
              └── image.jpg
 ```
 
-## Interface Project
-```
-Link [{
-  	description: string,
-  	url: lien
-}]
+## Data structures
 
-{
-  id: number;
-  name: string;
-  date: string;
-  description: string;
-  creator: string;
-  Link[]: {
-      description : “Official”,
-      url : string,
-      logo : “icone”
-  },
-  {
-      description : “Twitter”,
-      url: string,
-      logo : “icone”
-  },
-  {
-      description : “Discord”,
-      url: string,
-      logo : “icone”
-  },
-  {
-      description : “Instagram”,
-      url: string,
-      logo : “icone”
-  }
-  network: string;
-  slug: string;
-}
-
+### Project
+#### Project interface
 ```
-
-## Event File Structure
-```
-├── ...
- └── data
-     └── events
-          └── events_slug
-              └── metadata.json
-```
-
-
-## Interface Event
-```
-{
-  id: number;
-  name: string;
-  date: string;
-  description: string;
-  creator: string;
-  Link[]: {
-      description : “Official”,
-      url : string,
-      logo : “icone”
-  },
-  {
-      description : “Twitter”,
-      url: string,
-      logo : “icone”
-  },
-  {
-      description : “Discord”,
-      url: string,
-      logo : “icone”
-  },
-  {
-      description : “Instagram”,
-      url: string,
-      logo : “icone”
-  }
-  network: string;
-  slug: string;
+Project {
+  name: string
+  slug: string
+  date: string
+  description?: string
+  creator: string
+  links: Link[]
+  network: string
 }
 ```
 
-## Here an example
+#### Project example
 ```
-name: "Etheria World";
-date: "2015-10-19";
-description: "In the modern era, Etheria ended up being the first true
-NFT project in history (by more than a year) and tiles are now traded on the Exchange page.";
-creator: "Cyrus Adkisson";
-Link[]: {
-    description : “Official”,
-    url : "https://etheria.world/",
-    logo : “ ”
-},
 {
-    description : “Twitter”,
-    url: "https://twitter.com/etheriaworld",
-    logo : " "
-},
-{
-    description : “Discord”,
-    url: "https://discord.com/invite/etheriaworld",
-    logo : " "
-},
-{
-    description : “Instagram”,
-    url: "https://instagram.com/etheriawordl",
-    logo : " "
+  "name": "Etheria",
+  "slug": "etheria",
+  "date": "2015-10-19",
+  "description": "In the modern era, Etheria ended up being the first true
+  NFT project in history (by more than a year) and tiles are now traded on the Exchange page.",
+  "creator": "Cyrus Adkisson",
+  "links": [
+     {
+       "type": "Website",
+       "url": "https://etheria.world/"
+     },
+     {
+       "type" : "Twitter",
+       "url": "https://twitter.com/etheriaworld",
+     }
+  ],
+  "network": "Ethereum"
 }
-network: "Ethereum";
-slug: "etheria world";
+
+```
+<br />
+
+### Event
+#### Event interface
+```
+{
+  name: string
+  date: string
+}
+```
+#### Event example
+```
+{
+  "name": "1st ERC-721 token",
+  "date": "2018-01-23"
+}
+```
+<br />
+
+### Link
+#### Link interface
+```
+Link {
+  type: string,
+  url: string,
+}
 ```
