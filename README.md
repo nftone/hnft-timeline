@@ -11,7 +11,13 @@ Events are any relevant events that have happened in the NFT space, eg. Namecoin
 
 ## How to contribute
 
-Submit a pull request that complies to the standard below.
+### To add / update a project or event
+Update the corresponding metadata.json file in the data folder and submit a pull request.
+
+### To contribute to the app
+The primary goal of this project is to open source the HNFT timeline data, but PRs on the app itself are welcome!
+The app is built with Nuxt. Refer to the README in the app folder for more information.
+
 
 
 ## Project File Structure
