@@ -26,11 +26,11 @@ The app is built with Nuxt. Refer to the README in the app folder for more infor
 └── data
     ├── projects
     |   └── [date_project_slug]
-    |        ├──  metadata.json
+    |        ├── data.json
     |        └── image.jpg
     └── events
         └── [date_event_slug]
-             ├── metadata.json
+             ├── data.json
              └── image.jpg
 ```
 
