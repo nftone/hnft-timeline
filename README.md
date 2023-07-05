@@ -1,57 +1,92 @@
-TODOS
-Instructions for the community
 
 
-Nouvelle interface :
+## Project File Structure
+```
+├── ...
+ └── data
+     └── projects
+          └── projects_slug
+              └── metadata.json
+```
 
+## Interface Project
+```
 Link [{
   	description: string,
   	url: lien
 }]
 
-interface Project {
-    date: string;
-    id: number;
-    name: string;
-    creator: string;
-    image: string;
-    description: string;
-    (category : (Art, Gaming, Music…); à mettre en place plus tard)
-    Link[]: {
-        	description : “Official”,
-        	url :
-        	logo : “icone”
-  	     },
-        	description : “Twitter”,
-        	url:
-          logo : “icone”
-        },
-        {
-        	description : “Discord”,
-        	url:
-        	logo : “icone”
-        },
-        {
-        	description : “Instagram”,
-        	url:
-        	logo : “icone”
-        },
-        };
-   	network: string;
-    slug: string;
+{
+  id: number;
+  name: string;
+  date: string;
+  description: string;
+  creator: string;
+  Link[]: {
+      description : “Official”,
+      url : string,
+      logo : “icone”
+  },
+  {
+      description : “Twitter”,
+      url: string,
+      logo : “icone”
+  },
+  {
+      description : “Discord”,
+      url: string,
+      logo : “icone”
+  },
+  {
+      description : “Instagram”,
+      url: string,
+      logo : “icone”
+  }
+  network: string;
+  slug: string;
 }
-
-
-Ancienne interface
-Interface actuelle pour les projets (actuellement timeline items)
 
 ```
-interface Project {
-date: string;
- 	id: number;
-image: string;
-links: Link[];
- 	name: string;
-network: string; ?
-slug: string; ?
+
+## Event File Structure
+```
+├── ...
+ └── data
+     └── events
+          └── events_slug
+              └── metadata.json
+```
+
+
+## Interface Event
+```
+{
+  id: number;
+  name: string;
+  date: string;
+  description: string;
+  creator: string;
+  Link[]: {
+      description : “Official”,
+      url : string,
+      logo : “icone”
+  },
+  {
+      description : “Twitter”,
+      url: string,
+      logo : “icone”
+  },
+  {
+      description : “Discord”,
+      url: string,
+      logo : “icone”
+  },
+  {
+      description : “Instagram”,
+      url: string,
+      logo : “icone”
+  }
+  network: string;
+  slug: string;
 }
+```
