@@ -1411,7 +1411,7 @@ const createProjectDirectory = (project) => {
 };
 
 const createProjectMetadataFile = (project) => {
-    const { name, slug, date, description, creator, links, network } = project;
+    const { name, slug, date, description, creator, network } = project;
 
     const jsonData = JSON.stringify(
         {

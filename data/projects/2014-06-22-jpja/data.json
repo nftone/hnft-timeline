@@ -1,0 +1,11 @@
+{
+  "name": "JPJA",
+  "slug": "jpja",
+  "date": "2014-06-22",
+  "description": "",
+  "creator": "",
+  "links": [
+    {"type": "hnft.wtf", "url": "https://hnft.wtf/explorer/jpja" }
+  ],
+  "network": "counterparty"
+}

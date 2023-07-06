@@ -1,0 +1,11 @@
+{
+  "name": "NILI COINS",
+  "slug": "nili-coins",
+  "date": "2014-09-14",
+  "description": "",
+  "creator": "",
+  "links": [
+    {"type": "hnft.wtf", "url": "https://hnft.wtf/explorer/NILI" }
+  ],
+  "network": "counterparty"
+}

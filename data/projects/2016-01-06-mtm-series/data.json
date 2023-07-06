@@ -1,0 +1,11 @@
+{
+  "name": "MTM Series",
+  "slug": "mtm-series",
+  "date": "2016-01-06",
+  "description": "",
+  "creator": "",
+  "links": [
+    {"type": "hnft.wtf", "url": "https://hnft.wtf/explorer/mtmseries" }
+  ],
+  "network": "counterparty"
+}

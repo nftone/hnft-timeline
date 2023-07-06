@@ -1,0 +1,11 @@
+{
+  "name": "SATOSHIDICE",
+  "slug": "satoshidice",
+  "date": "2014-01-19",
+  "description": "",
+  "creator": "",
+  "links": [
+    {"type": "hnft.wtf", "url": "https://hnft.wtf/explorer/satoshidice" }
+  ],
+  "network": "counterparty"
+}
