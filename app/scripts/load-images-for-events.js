@@ -99,7 +99,7 @@ async function downloadImage () {
             writer.on('error', reject)
         });
     }
-};
+}
 
 const getDirectoryName = ({ date, slug }) => `${date.substring(0, 10)}-${slug}`;
 
