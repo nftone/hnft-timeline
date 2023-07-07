@@ -1433,5 +1433,3 @@ const createEventMetadataFile = (event) => {
 const getDirectoryName = ({ date, slug }) => `${date.substring(0, 10)}-${slug}`;
 
 loadEventsdata();
-
-module.exports = timelineEvents;

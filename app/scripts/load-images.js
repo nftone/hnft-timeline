@@ -81,21 +81,26 @@ const axios = require('axios')
 
 async function downloadImage () {
     for (const event of timelineEvents) {
-        const url = `https://api.explorer.hnft.wtf/images/image=${event.image}`;
-        const filepath = path.resolve(
+        const url = `https://api.explorer.hnft.wtf/images/${event.image}`;
+        const directoryPath = path.resolve(
             __dirname,
-            "../../data/events"
+            "../../data/events",
+            getDirectoryName(event),
+
         )
-        const writer = fs.createWriteStream(filepath)
+        const fileName = path.join(directoryPath, "image.jpg");
+        const writer = fs.createWriteStream(fileName)
 
         const response = await axios.get(url, {responseType: 'stream'})
         response.data.pipe(writer)
 
-        return new Promise ((resolve, reject) => {
+        await new Promise ((resolve, reject) => {
             writer.on('finish', resolve)
             writer.on('error', reject)
-        })
+        });
     }
-}
+};
+
+const getDirectoryName = ({ date, slug }) => `${date.substring(0, 10)}-${slug}`;
 
 downloadImage()
