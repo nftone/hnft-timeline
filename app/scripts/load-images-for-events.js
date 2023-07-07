@@ -86,7 +86,6 @@ async function downloadImage () {
             __dirname,
             "../../data/events",
             getDirectoryName(event),
-
         )
         const fileName = path.join(directoryPath, "image.jpg");
         const writer = fs.createWriteStream(fileName)
