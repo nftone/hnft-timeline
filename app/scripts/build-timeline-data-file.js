@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+const {readFile} = require("fs");
 
 const buildDataFile = () => {
   const dataFile = {
@@ -29,24 +30,42 @@ const aggregateDirectoryJsonData = (directoryName) => {
       directoryName,
       file
     );
+    const fileStat = fs.statSync(subdirectoryPath);
 
-    fs.readdirSync(subdirectoryPath).forEach((fileName) => {
-      if (!fileName.endsWith(".json")) return;
-      const filePath = path.join(subdirectoryPath, fileName);
-      const fileData = fs.readFileSync(filePath, "utf8");
-      dataFilesContent.push(JSON.parse(fileData));
-    });
+    if (fileStat.isDirectory()) {
+      const files = fs.readdirSync(subdirectoryPath);
+      const dataFileName = getDataFile(files); // Récupérer le fichier JSON
+      const imageFileName = getImageFile(files); // Récupérer le fichier d'image
 
-    // TODO: implementer
-
-    // const files = fs.readdirSync(subdirectoryPath)
-    // const dataFile = getDataFile(files) // Recuperer JSON
-    // const imageFile = getImageFile(files) // Recuperer image
-    // const data = { ...dataFile, image: imageFile } // Ajouter image au JSON
-    // dataFilesContent.push(data)
+      if (dataFileName && imageFileName) {
+        const dataFilePath = path.join(subdirectoryPath, dataFileName);
+        const fileData = fs.readFileSync(dataFilePath, "utf8");
+        const data = { ...JSON.parse(fileData), image: imageFileName }; // Ajouter l'image au JSON
+        dataFilesContent.push(data);
+      }
+    }
   });
 
-  return dataFilesContent;
+  console.log(dataFilesContent)
+  //return dataFilesContent;
 };
+
+const getDataFile = (files) => {
+  for (const fileName of files) {
+    if (fileName.endsWith('.json')){
+      return fileName;
+    }
+  }
+  return null;
+};
+
+const getImageFile = (files) => {
+  for (const fileName of files) {
+    if (fileName.endsWith('.jpg') || fileName.endsWith('.jpeg') || fileName.endsWith('.png') || fileName.endsWith('.gif')) {
+      return fileName;
+    }
+  }
+  return null;
+}
 
 buildDataFile();
