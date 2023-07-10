@@ -1,7 +1,7 @@
 <template>
   <LoadingOverlay v-if="loading" />
 
-  <div v-else  class="app">
+  <div v-else class="app">
     <TimelineHeader />
 
     <div class="timeline-container">
@@ -16,21 +16,15 @@
               {{ month.name }}
             </div>
             <div
-              v-for="(project, i) in getTimelineEventsByPeriod(
+              v-for="(item, i) in getTimelineItemsByPeriod(
                 year.number,
                 month.number
               )"
               :key="`item-${i}`"
               class="month-projects-container"
             >
-              <TimelineEvent v-if="!project.placeholder" :item="project" />
-            </div>
-            <div
-              v-for="(project, i) in getTimelineProjectsBy(year.number, month.number)"
-              :key="`item-${i}`"
-              class="month-projects-container"
-            >
-              <TimelineItem :item="project" />
+              <TimelineEvent v-if="item.type === 'event'" :item="item" />
+              <TimelineProject v-if="item.type === 'project'" :item="item" />
             </div>
           </div>
         </div>
@@ -39,96 +33,32 @@
   </div>
 </template>
 
-<script>
-import Axios from "axios";
+<script setup>
+import { onMounted } from "vue";
 
 import { months } from "../services/months";
-import { TIMELINE_URL } from "../constants/appConstants";
 import { years } from "../services/years";
 import LoadingOverlay from "../components/LoadingOverlay.vue";
 import TimelineEvent from "../components/TimelineEvent.vue";
 import TimelineHeader from "../components/TimelineHeader.vue";
-import TimelineItem from "../components/TimelineItem.vue";
+import useTimelineData from "../composables/useTimelineData";
+import TimelineProject from "../components/TimelineProject.vue";
 
-export default {
-  components: {
-    TimelineItem,
-    TimelineEvent,
-    TimelineHeader,
-    LoadingOverlay,
-  },
+const { loading, initialize, getTimelineItemsByPeriod } = useTimelineData();
 
-  data: () => ({
-    months,
-    years,
-    projects: [],
-    eventsList: [],
-    loading: true,
-  }),
-
-  async created() {
-    try {
-      const timelineResponse = await Axios.get(TIMELINE_URL);
-      const data = timelineResponse.data;
-      this.eventsList = data.timelineEvents;
-      this.projects = data.timelineItems;
-    } catch (error) {
-      console.error(error);
-    } finally {
-      this.loading = false;
-    }
-  },
-
-  methods: {
-    getTimelineProjectsBy(year, month) {
-      const projectsInTheMonth = [...this.projects]
-        .filter((project) => {
-          const projectDate = new Date(project.date);
-          return (
-            projectDate.getFullYear() === year && projectDate.getMonth() === month
-          );
-        })
-        .sort((a, b) => {
-          const aDate = new Date(a.date).getTime();
-          const bDate = new Date(b.date).getTime();
-          return aDate - bDate;
-        });
-
-      if (projectsInTheMonth.length === 0) return [{ placeholder: true }];
-
-      return projectsInTheMonth;
-    },
-
-    getTimelineEventsByPeriod(year, month) {
-      const eventsInTheMonth = [...this.eventsList]
-        .filter((event) => {
-          const eventDate = new Date(event.date);
-          return (
-            eventDate.getFullYear() === year && eventDate.getMonth() === month
-          );
-        })
-        .sort((a, b) => {
-          const aDate = new Date(a.date).getTime();
-          const bDate = new Date(b.date).getTime();
-          return aDate - bDate;
-        });
-
-      if (eventsInTheMonth.length === 0) return [{ placeholder: true }];
-      return eventsInTheMonth;
-    },
-  },
-};
+onMounted(async () => {
+  await initialize();
+});
 </script>
 
 <style>
-
 .timeline-container a {
-  font-family: Lato,Helvetica,Arial,sans-serif;
+  font-family: Lato, Helvetica, Arial, sans-serif;
   color: #fff;
 }
 
 .timeline-container {
-  font-family: Lato,Helvetica,Arial,sans-serif;
+  font-family: Lato, Helvetica, Arial, sans-serif;
   color: #fff;
   background-color: #252525;
   padding-left: 1rem;
