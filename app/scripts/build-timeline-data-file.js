@@ -36,6 +36,14 @@ const aggregateDirectoryJsonData = (directoryName) => {
       const fileData = fs.readFileSync(filePath, "utf8");
       dataFilesContent.push(JSON.parse(fileData));
     });
+
+    // TODO: implementer
+
+    // const files = fs.readdirSync(subdirectoryPath)
+    // const dataFile = getDataFile(files) // Recuperer JSON
+    // const imageFile = getImageFile(files) // Recuperer image
+    // const data = { ...dataFile, image: imageFile } // Ajouter image au JSON
+    // dataFilesContent.push(data)
   });
 
   return dataFilesContent;
