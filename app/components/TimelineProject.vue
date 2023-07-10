@@ -7,6 +7,8 @@
           class="network-image"
           :src="`${CDN_URL}/networks/${item.network}.jpg`"
         />
+        <!-- TODO: utiliser https://image.nuxtjs.org/components/nuxt-img -->
+        <!-- image in /public/images -->
       </div>
 
       <div class="item-image-container">
@@ -92,7 +94,7 @@ export default {
   computed: {
     links() {
       if (this.item.placeholder) return {};
-      return JSON.parse(this.item.links);
+      return this.item.links;
     },
 
     discordChannel() {

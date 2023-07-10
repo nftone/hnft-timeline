@@ -2,6 +2,8 @@
   <div class="main-event-container">
     <div class="overview-event-container">
       <div class="event-image-container">
+        <!-- TODO: utiliser https://image.nuxtjs.org/components/nuxt-img -->
+        <!-- image in /public/images -->
         <img class="event-image" :src="`${CDN_URL}/${item.image}`" />
       </div>
       <div class="event-name-container" @click="expanded = !expanded">
