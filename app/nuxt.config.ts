@@ -9,5 +9,5 @@ export default defineNuxtConfig({
       title: "Historical Non-Fungible Tokens Timeline",
     },
   },
-  modules: ["@vueuse/nuxt"],
+  modules: ["@vueuse/nuxt", '@nuxt/image'],
 });

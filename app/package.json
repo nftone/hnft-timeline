@@ -11,6 +11,7 @@
     "ghGenerateAndDeploy": "node deploy/ghPagesDeploy.mjs"
   },
   "devDependencies": {
+    "@nuxt/image": "^1.0.0-rc.1",
     "@types/node": "^18",
     "@vueuse/core": "^10.1.2",
     "@vueuse/nuxt": "^10.1.2",

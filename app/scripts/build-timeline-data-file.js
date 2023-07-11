@@ -40,15 +40,28 @@ const aggregateDirectoryJsonData = (directoryName) => {
       if (dataFileName && imageFileName) {
         const dataFilePath = path.join(subdirectoryPath, dataFileName);
         const fileData = fs.readFileSync(dataFilePath, "utf8");
-        const data = { ...JSON.parse(fileData), image: imageFileName }; // Ajouter l'image au JSON
+
+        const jsonData = JSON.parse(fileData);
+        const slug = jsonData.slug; // Récupère la valeur du champ "slug" dans le fichier JSON
+        const imageExtension = path.extname(imageFileName); // Obtient l'extension de l'image
+        const image = `${slug}${imageExtension}`;
+
+        const imageSrcPath = path.join(subdirectoryPath, imageFileName);
+        const imagePath = path.join(__dirname, "../../app/public/images/", directoryName, image);
+
+        fs.copyFileSync(imageSrcPath, imagePath);
+
+        const data = { ...jsonData, image }; // Ajouter l'image au JSON
         dataFilesContent.push(data);
       }
     }
   });
 
-  console.log(dataFilesContent)
-  //return dataFilesContent;
+  //console.log(dataFilesContent)
+  return dataFilesContent;
 };
+
+
 
 const getDataFile = (files) => {
   for (const fileName of files) {

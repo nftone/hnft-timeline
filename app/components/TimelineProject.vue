@@ -2,21 +2,33 @@
   <div class="item-container-main">
     <div class="item-container">
       <div class="item-network-container">
-        <img
+
+        <nuxt-img
           v-if="!item.placeholder"
           class="network-image"
           :src="`${CDN_URL}/networks/${item.network}.jpg`"
         />
-        <!-- TODO: utiliser https://image.nuxtjs.org/components/nuxt-img -->
-        <!-- image in /public/images -->
+        <!--
+        <nuxt-img
+            v-if="!item.placeholder"
+            class="network-image"
+            :src="`/app/public/images/projects/${item.network}`" />
+        -->
       </div>
 
       <div class="item-image-container">
-        <img
+        <!--
+        <nuxt-img
           v-if="!item.placeholder"
           class="item-image"
           :src="`${CDN_URL}/${item.image}`"
         />
+        -->
+        <nuxt-img
+            v-if="!item.placeholder"
+            class="network-image"
+            :src="`images/projects/${item.image}`" />
+
       </div>
       <div class="item-content-container" @click="expanded = !expanded">
         <div>{{ item.name }}</div>
