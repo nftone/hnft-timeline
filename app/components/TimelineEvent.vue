@@ -7,7 +7,8 @@
 
       </div>
       <div class="event-name-container" @click="expanded = !expanded">
-        <div>{{ item.name }}</div>
+       <!-- <div>{{ item.name }}</div> -->
+        <div><nuxt-link to="/_showEvent/:item"> {{ item.name }} </nuxt-link></div>
       </div>
     </div>
     <div v-if="expanded" class="event-card-secondary-container">
