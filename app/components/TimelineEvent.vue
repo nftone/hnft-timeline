@@ -6,7 +6,7 @@
       </div>
       <div class="event-name-container" @click="expanded = !expanded">
         <div>
-          <nuxt-link :to="`/event/${item.slug}`">{{ item.name }}</nuxt-link>
+          <nuxt-link :to="`?event=${item.slug}`">{{ item.name }}</nuxt-link>
         </div>
       </div>
     </div>

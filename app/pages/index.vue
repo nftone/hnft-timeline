@@ -32,10 +32,17 @@
       </div>
     </div>
   </div>
+
+  <TimelineEventModal
+    :slug="eventSlug"
+    v-if="showEventModal"
+    @close="onCloseEventModal"
+  />
 </template>
 
 <script setup>
-import { onMounted } from "vue";
+import { onMounted, ref, watch } from "vue";
+import { useRouter, useRoute } from "vue-router";
 
 import { months } from "../services/months";
 import { years } from "../services/years";
@@ -44,12 +51,41 @@ import TimelineEvent from "../components/TimelineEvent.vue";
 import TimelineHeader from "../components/TimelineHeader.vue";
 import useTimelineData from "../composables/useTimelineData";
 import TimelineProject from "../components/TimelineProject.vue";
+import TimelineEventModal from "../components/TimelineEventModal.vue";
 
 const { loading, initialize, getTimelineItemsByPeriod } = useTimelineData();
 
+const route = useRoute();
+const router = useRouter();
+
+const showEventModal = ref(false);
+const eventSlug = ref(route.query.event);
+
 onMounted(async () => {
   await initialize();
+  if (route.query.event) {
+    showEventModal.value = true;
+    eventSlug.value = route.query.event;
+  }
 });
+
+const onCloseEventModal = () => {
+  showEventModal.value = false;
+  router.push({ query: "" });
+};
+
+watch(
+  () => route.query,
+  () => {
+    if (route.query.event) {
+      showEventModal.value = true;
+      eventSlug.value = route.query.event;
+    } else {
+      eventSlug.value = null;
+      showEventModal.value = false;
+    }
+  }
+);
 </script>
 
 <style>
