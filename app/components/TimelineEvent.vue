@@ -1,23 +1,26 @@
 <template>
   <div class="main-event-container">
-    <div class="overview-event-container">
-      <div class="event-image-container">
-        <nuxt-img class="event-image" :src="`images/evts/$en{item.image}`" />
-      </div>
-      <div class="event-name-container" @click="expanded = !expanded">
-        <div>
-          <nuxt-link :to="`?event=${item.slug}`">{{ item.name }}</nuxt-link>
+    <nuxt-link :to="`?event=${item.slug}`">
+      <div class="overview-event-container">
+        <div class="event-image-container">
+          <nuxt-img class="event-image" :src="`images/events/${item.image}`" />
+        </div>
+        <div class="event-name-container">
+          <div>
+           <!-- <nuxt-link :to="`?event=${item.slug}`">{{ item.name }}</nuxt-link> -->
+            {{ item.name }}
+          </div>
         </div>
       </div>
-    </div>
-    <div v-if="expanded" class="event-card-secondary-container">
-      <div v-if="isDate">
-        <div class="event-link">
-          <RocketIcon />
-          <span class="date">{{ launchDate }}</span>
+      <div v-if="expanded" class="event-card-secondary-container">
+        <div v-if="isDate">
+          <div class="event-link">
+            <RocketIcon />
+            <span class="date">{{ launchDate }}</span>
+          </div>
         </div>
       </div>
-    </div>
+    </nuxt-link>
   </div>
 </template>
 

@@ -1,84 +1,76 @@
 <template>
   <div class="item-container-main">
-    <div class="item-container">
-      <div class="item-network-container">
-
-        <nuxt-img
-          v-if="!item.placeholder"
-          class="network-image"
-          :src="`${CDN_URL}/networks/${item.network}.jpg`"
-        />
-        <!--
-        <nuxt-img
-            v-if="!item.placeholder"
-            class="network-image"
-            :src="`/app/public/images/projects/${item.network}`" />
+    <nuxt-link :to="`?project=${item.slug}`">
+      <div class="item-container">
+        <div class="item-network-container">
+           <nuxt-img
+             v-if="!item.placeholder"
+             class="network-image"
+             :src="`${CDN_URL}/networks/${item.network}.jpg`"
+           />
+          <!--
+         <nuxt-img
+             v-if="!item.placeholder"
+             class="network-image"
+             :src="`images/projects/${item.date}-${item.slug}/${item.network}.jpg`" />
         -->
+        </div>
+        <div class="item-image-container">
+          <nuxt-img
+              v-if="!item.placeholder"
+              class="network-image"
+              :src="`images/projects/${item.image}`" />
+        </div>
+        <div class="item-content-container">
+          <div>{{ item.name }}</div>
+        </div>
       </div>
 
-      <div class="item-image-container">
-        <!--
-        <nuxt-img
-          v-if="!item.placeholder"
-          class="item-image"
-          :src="`${CDN_URL}/${item.image}`"
-        />
-        -->
-        <nuxt-img
-            v-if="!item.placeholder"
-            class="network-image"
-            :src="`images/projects/${item.image}`" />
-
-      </div>
-      <div class="item-content-container" @click="expanded = !expanded">
-        <div>{{ item.name }}</div>
-      </div>
-    </div>
-
-    <div v-if="expanded">
-      <div v-if="isDate" class="item-card-secondary-container">
-        <div class="item-link">
-          <RocketIcon />
-          <span class="date">{{ launchDate }}</span>
-        </div>
-        <div v-if="discordChannel" class="item-link">
-          <a :href="discordChannel" target="_blank" rel="noopener noreferrer">
-            <DiscordIcon />
-          </a>
-          <a
-            :href="discordChannel"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="clickable-link"
-          >
-            Join our discord to learn more about this project
-          </a>
-        </div>
-        <div v-if="explorer" class="item-link">
-          <a :href="explorer" target="_blank" rel="noopener noreferrer">
-            <ExplorerIcon />
-          </a>
-          <a
-            :href="explorer"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="clickable-link"
-          >
-            HNFT
-          </a>
-        </div>
-        <div v-if="oldNft">
-          <a
-            :href="oldNft"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="clickable-link"
-          >
-            See it on OldNFT
-          </a>
+      <div v-if="expanded">
+        <div v-if="isDate" class="item-card-secondary-container">
+          <div class="item-link">
+            <RocketIcon />
+            <span class="date">{{ launchDate }}</span>
+          </div>
+          <div v-if="discordChannel" class="item-link">
+            <a :href="discordChannel" target="_blank" rel="noopener noreferrer">
+              <DiscordIcon />
+            </a>
+            <a
+              :href="discordChannel"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="clickable-link"
+            >
+              Join our discord to learn more about this project
+            </a>
+          </div>
+          <div v-if="explorer" class="item-link">
+            <a :href="explorer" target="_blank" rel="noopener noreferrer">
+              <ExplorerIcon />
+            </a>
+            <a
+              :href="explorer"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="clickable-link"
+            >
+              HNFT
+            </a>
+          </div>
+          <div v-if="oldNft">
+            <a
+              :href="oldNft"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="clickable-link"
+            >
+              See it on OldNFT
+            </a>
+          </div>
         </div>
       </div>
-    </div>
+    </nuxt-link>
   </div>
 </template>
 
