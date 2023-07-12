@@ -13,10 +13,7 @@ export default function useTimelineData() {
     const parsedData = await data.json();
     // @ts-ignore
     events.value = parsedData.events.map((e) => ({ ...e, type: "event" }));
-    console.log(
-      "🚀 ~ file: useTimelineData.ts:16 ~ initialize ~ events.value:",
-      events.value
-    );
+
     // @ts-ignore
     projects.value = parsedData.projects.map((e) => ({
       ...e,
@@ -86,10 +83,24 @@ export default function useTimelineData() {
     return eventsInTheMonth;
   };
 
+  console.log(
+    "🚀 ~ file: useTimelineData.ts:92 ~ getEventBySlug ~ events.value:",
+    events.value
+  );
+  const getEventBySlug = (slug: string) => {
+    console.log(
+      "🚀 ~ file: useTimelineData.ts:92 ~ getEventBySlug ~ events.value:",
+      events.value
+    );
+    // @ts-ignore
+    return events.value.find((event) => event.slug === slug);
+  };
+
   return {
     initialize,
     loading,
     getTimelineItemsByPeriod,
+    getEventBySlug,
     // projects,
     // events,
   };

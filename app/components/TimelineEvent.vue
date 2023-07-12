@@ -2,13 +2,12 @@
   <div class="main-event-container">
     <div class="overview-event-container">
       <div class="event-image-container">
-       <!-- <nuxt-img class="event-image" :src="`${CDN_URL}/${item.image}`" /> -->
-        <nuxt-img class="event-image" :src="`images/events/${item.image}`" />
-
+        <nuxt-img class="event-image" :src="`images/evts/$en{item.image}`" />
       </div>
       <div class="event-name-container" @click="expanded = !expanded">
-       <!-- <div>{{ item.name }}</div> -->
-        <div><nuxt-link to="/_showEvent/:item"> {{ item.name }} </nuxt-link></div>
+        <div>
+          <nuxt-link :to="`/event/${item.slug}`">{{ item.name }}</nuxt-link>
+        </div>
       </div>
     </div>
     <div v-if="expanded" class="event-card-secondary-container">

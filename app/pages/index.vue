@@ -23,8 +23,7 @@
               :key="`item-${i}`"
               class="month-projects-container"
             >
-              <TimelineEvent v-if="item.type === 'event'" :item="item"/>
-
+              <TimelineEvent v-if="item.type === 'event'" :item="item" />
 
               <TimelineProject v-if="item.type === 'project'" :item="item" />
             </div>
