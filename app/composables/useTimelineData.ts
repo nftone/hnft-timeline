@@ -96,11 +96,17 @@ export default function useTimelineData() {
     return events.value.find((event) => event.slug === slug);
   };
 
+  const getProjectBySlug = (slug : string) => {
+    // @ts-ignore
+    return projects.value.find((project) => project.slug === slug);
+  }
+
   return {
     initialize,
     loading,
     getTimelineItemsByPeriod,
     getEventBySlug,
+    getProjectBySlug
     // projects,
     // events,
   };

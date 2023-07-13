@@ -38,6 +38,12 @@
     v-if="showEventModal"
     @close="onCloseEventModal"
   />
+
+  <TimelineProjectModal
+    :slug="projectSlug"
+    v-if="showProjectModal"
+    @close="onCloseProjectModal"
+  />
 </template>
 
 <script setup>
@@ -52,6 +58,7 @@ import TimelineHeader from "../components/TimelineHeader.vue";
 import useTimelineData from "../composables/useTimelineData";
 import TimelineProject from "../components/TimelineProject.vue";
 import TimelineEventModal from "../components/TimelineEventModal.vue";
+import TimelineProjectModal from "../components/TimelineProjectModal.vue";
 
 const { loading, initialize, getTimelineItemsByPeriod } = useTimelineData();
 
@@ -60,6 +67,8 @@ const router = useRouter();
 
 const showEventModal = ref(false);
 const eventSlug = ref(route.query.event);
+const showProjectModal = ref(false);
+const projectSlug = ref(route.query.project)
 
 onMounted(async () => {
   await initialize();
@@ -67,12 +76,21 @@ onMounted(async () => {
     showEventModal.value = true;
     eventSlug.value = route.query.event;
   }
+  if(route.query.project) {
+    showProjectModal.value = true;
+    projectSlug.value = route.query.project;
+  }
 });
 
 const onCloseEventModal = () => {
   showEventModal.value = false;
   router.push({ query: "" });
 };
+
+const onCloseProjectModal = () => {
+  showProjectModal.value = false;
+  router.push({ query: "" })
+}
 
 watch(
   () => route.query,
@@ -83,6 +101,13 @@ watch(
     } else {
       eventSlug.value = null;
       showEventModal.value = false;
+    }
+    if (route.query.project) {
+      showProjectModal.value = true;
+      projectSlug.value = route.query.project;
+    } else {
+      projectSlug.value = null;
+      showProjectModal.value = false;
     }
   }
 );

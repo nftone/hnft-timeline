@@ -1,8 +1,6 @@
 <template>
   <Teleport to="body">
     <div v-if="!loading" :class="isMobile ? 'full-screen-modal-mobile' : 'screen-modal'">
-        <div class="full-screen-modal-mobile">
-          <button @click="$emit('close')">CLOSE</button>
           <div class="detail-event">
             <br>
             {{event.date}}
@@ -10,9 +8,9 @@
             {{ event.name }}
             <br>
             <br>
-            <img class="image-size" :src="`images/events/${event.image}`">
+            <img class="image-size" :src="`images/events/${event.image}`" alt="image of event">
           </div>
-        </div>
+      <button @click="$emit('close')">CLOSE</button>
     </div>
   </Teleport>
 </template>
@@ -20,7 +18,6 @@
 <script setup>
 import { onMounted, defineProps, ref, computed } from "vue";
 import useTimelineData from "../composables/useTimelineData";
-
 
 const props = defineProps(["slug"]);
 const loading = ref(true);
