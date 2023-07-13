@@ -1,32 +1,18 @@
 <template>
   <Teleport to="body">
-    <div v-if="isMobile">
-      <div v-if="!loading" class="full-screen-modal-mobile">
-        <button @click="$emit('close')">CLOSE</button>
-        <div class="detail-event">
-          <br>
-          {{event.date}}
-          <br>
-          {{ event.name }}
-          <br>
-          <br>
-          <img class="image-size" :src="`images/events/${event.image}`">
+    <div v-if="!loading" :class="isMobile ? 'full-screen-modal-mobile' : 'screen-modal'">
+        <div class="full-screen-modal-mobile">
+          <button @click="$emit('close')">CLOSE</button>
+          <div class="detail-event">
+            <br>
+            {{event.date}}
+            <br>
+            {{ event.name }}
+            <br>
+            <br>
+            <img class="image-size" :src="`images/events/${event.image}`">
+          </div>
         </div>
-      </div>
-    </div>
-    <div v-else>
-      <div v-if="!loading" class="screen-modal">
-        <button @click="$emit('close')">CLOSE</button>
-        <div class="detail-event">
-          <br>
-          {{event.date}}
-          <br>
-          {{ event.name }}
-          <br>
-          <br>
-          <img class="image-size" :src="`images/events/${event.image}`">
-        </div>
-      </div>
     </div>
   </Teleport>
 </template>
@@ -37,12 +23,17 @@ import useTimelineData from "../composables/useTimelineData";
 
 
 const props = defineProps(["slug"]);
-
 const loading = ref(true);
 const event = ref(null);
 
 const isMobile = computed(() => {
-  return $device.isMobile;
+  const screen = window.innerWidth
+  let screenWidth
+    if (screen < 768 ){
+      screenWidth = true
+    } else (
+        screenWidth = false )
+  return screenWidth
 });
 
 onMounted(async () => {
@@ -54,29 +45,7 @@ onMounted(async () => {
 </script>
 
 <style>
-.screen-modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  transform: translate(50%, 15%);
-  z-index: 9999;
-  width: 50%;
-  height: 80%;
-  background-color: rgba(0, 0, 0, 0.9);
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  padding: 2rem;
-  box-sizing: border-box;
-  font-size: 2rem;
-  font-weight: bold;
-  line-height: 1.5;
-  overflow-y: auto;
-}
-
-.full-screen-modal-mobile{
+.full-screen-modal-mobile {
   position: fixed;
   top: 0;
   left: 0;
@@ -97,12 +66,34 @@ onMounted(async () => {
   overflow-y: auto;
 }
 
-.detail-event{
+.screen-modal  {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 40%;
+  height: 80%;
+  transform: translate(75%, 5%);
+  background-color: rgba(0, 0, 0, 0.9);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 2rem;
+  box-sizing: border-box;
+  font-size: 2rem;
+  font-weight: bold;
+  line-height: 1.5;
+  overflow-y: auto;
+}
+
+.detail-event {
   text-align: center;
   font-family: Lato, Helvetica, Arial, sans-serif;
 }
 
-.image-size{
+.image-size {
   width: 250px;
   height: 250px;
 }
