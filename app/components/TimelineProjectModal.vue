@@ -21,31 +21,35 @@
           {{project.network}}
         </div>
         <div>
-          <!-- <tbody>
-            <tr>
-              <td v-for="link in project.links">
-                <a :href="link.url">{{ link.name }}</a>
-              </td>
-            </tr>
-          </tbody> -->
-          <div>
-            {{project.links}}
-            <a href="">lien</a>
-            <a href="">lien</a>
-          </div>
-          <div>
-            <a href="">lien</a>
-            <a href="">lien</a>
-          </div>
-          <div>
-            <a href="">lien</a>
-            <a href="">lien</a>
-          </div>
-          <div>
-            <a href="">lien</a>
-            <a href="">lien</a>
-          </div>
+          <table>
+            <tbody>
+              <div v-for="link in project.links">
+                <tr>
+                  <td> <a :href="link.url">{{ link.name }} </a> </td>
+                </tr>
+              </div>
+            </tbody>
+          </table>
         </div>
+        <!-- <div>
+          <br>
+          <div class="display-link">
+            <a :href="project.links[0].url" class="link"> {{project.links[0].name}} </a>
+            <a :href="project.links[1].url"> {{project.links[1].name}} </a>
+          </div>
+          <div class="display-link">
+            <a :href="project.links[2].url" class="link"> {{project.links[2].name}} </a>
+            <a :href="project.links[3].url"> {{project.links[3].name}} </a>
+          </div>
+          <div class="display-link">
+            <a :href="project.links[5].url" class="link"> {{project.links[5].name}} </a>
+            <a :href="project.links[6].url"> {{project.links[6].name}} </a>
+          </div>
+          <div class="display-link">
+            <a :href="project.links[7].url" class="link"> {{project.links[7].name}} </a>
+            <a :href="project.links[8].url"> {{project.links[8].name}} </a>
+          </div>
+        </div>-->
         <button @click="$emit('close')">CLOSE</button>
       </div>
     </div>
@@ -132,5 +136,9 @@ onMounted(async () => {
 .image-size {
   width: 250px;
   height: 250px;
+}
+
+.link {
+  margin-right: 40px;
 }
 </style>
