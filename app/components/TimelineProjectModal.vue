@@ -141,4 +141,10 @@ onMounted(async () => {
 .link {
   margin-right: 40px;
 }
+
+.display-link {
+  display: flex;
+  justify-content: space-between;
+
+}
 </style>
