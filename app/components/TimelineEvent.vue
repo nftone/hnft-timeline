@@ -7,7 +7,6 @@
         </div>
         <div class="event-name-container">
           <div>
-           <!-- <nuxt-link :to="`?event=${item.slug}`">{{ item.name }}</nuxt-link> -->
             {{ item.name }}
           </div>
         </div>

@@ -2,13 +2,15 @@
   <Teleport to="body">
     <div v-if="!loading" :class="isMobile ? 'full-screen-modal-mobile' : 'screen-modal'">
           <div class="detail-event">
-            <br>
-            {{event.date}}
-            <br>
-            {{ event.name }}
-            <br>
-            <br>
-            <img class="image-size" :src="`images/events/${event.image}`" alt="image of event">
+            <div>
+              {{event.date}}
+            </div>
+            <div>
+              {{ event.name }}
+            </div>
+            <div>
+              <img class="image-size" :src="`images/events/${event.image}`" alt="image of event">
+            </div>
           </div>
       <button @click="$emit('close')">CLOSE</button>
     </div>

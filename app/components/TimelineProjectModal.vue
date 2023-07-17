@@ -1,7 +1,7 @@
 <template>
   <Teleport to="body">
     <div v-if="!loading" :class=" isMobile ? 'full-screen-modal' : 'screen-modal'">
-      <div class="detail-event">
+      <div class="detail-project">
         <div>
           {{project.date}}
         </div>
@@ -21,7 +21,15 @@
           {{project.network}}
         </div>
         <div>
+          <!-- <tbody>
+            <tr>
+              <td v-for="link in project.links">
+                <a :href="link.url">{{ link.name }}</a>
+              </td>
+            </tr>
+          </tbody> -->
           <div>
+            {{project.links}}
             <a href="">lien</a>
             <a href="">lien</a>
           </div>
@@ -115,9 +123,10 @@ onMounted(async () => {
   overflow-y: auto;
 }
 
-.detail-event {
+.detail-project {
   text-align: center;
   font-family: Lato, Helvetica, Arial, sans-serif;
+  margin-top: 480px;
 }
 
 .image-size {

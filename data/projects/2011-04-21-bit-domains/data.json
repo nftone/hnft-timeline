@@ -4,6 +4,23 @@
   "date": "2011-04-21",
   "description": "",
   "creator": "",
-  "links": [],
+  "links": [
+    {
+      "name": "Twitter",
+      "url": "https://twitter.com"
+    },
+    {
+      "name": "Facebook",
+      "url": "https://www.facebook.com"
+    },
+    {
+      "name": "Instagram",
+      "url": "https://www.instagram.com"
+    },
+    {
+      "name": "Snapchat",
+      "url": "https://www.snapchat.com"
+    }
+  ],
   "network": "namecoin"
 }
