@@ -130,7 +130,7 @@ onMounted(async () => {
 .detail-project {
   text-align: center;
   font-family: Lato, Helvetica, Arial, sans-serif;
-  margin-top: 480px;
+  margin-top: 200px;
 }
 
 .image-size {
