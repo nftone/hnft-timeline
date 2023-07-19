@@ -4,6 +4,29 @@
   "date": "2015-10-19",
   "description": "",
   "creator": "",
-  "links": [],
+  "links": [
+    {
+      "type": "Website",
+      "name": "Official website",
+      "url": "https://etheria.world/"
+    },
+    {
+      "type": "Twitter",
+      "url": "https://twitter.com/etheriaworld"
+    },
+    {
+      "type": "Discord",
+      "url": "https://discord.com/invite/SzVmtk44Rw"
+    },
+    {
+      "type": "GitHub",
+      "url": "https://github.com/cyrusadkisson/etheria_source"
+    },
+    {
+      "type": "Website",
+      "name": "Builder",
+      "url": "https://twitter.com/etheriaworld"
+    }
+  ],
   "network": "ethereum"
 }
