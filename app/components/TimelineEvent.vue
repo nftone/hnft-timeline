@@ -11,14 +11,6 @@
           </div>
         </div>
       </div>
-      <div v-if="expanded" class="event-card-secondary-container">
-        <div v-if="isDate">
-          <div class="event-link">
-            <RocketIcon />
-            <span class="date">{{ launchDate }}</span>
-          </div>
-        </div>
-      </div>
     </nuxt-link>
   </div>
 </template>

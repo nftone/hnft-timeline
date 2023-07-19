@@ -8,12 +8,13 @@
             class="network-image"
             :src="`${CDN_URL}/networks/${item.network}.jpg`"
           />
-
+          <!--
           <nuxt-img
-            v-if="!item.placeholder"
-            class="network-image"
-            :src="`images/projects/${item.network}.jpg`"
-          />
+              v-if="!item.placeholder"
+              class="network-image"
+              :src="getNetworkImage(item.network)"
+          /> -->
+
         </div>
         <div class="item-image-container">
           <nuxt-img
@@ -27,50 +28,7 @@
         </div>
       </div>
 
-      <div v-if="expanded">
-        <div v-if="isDate" class="item-card-secondary-container">
-          <div class="item-link">
-            <RocketIcon />
-            <span class="date">{{ launchDate }}</span>
-          </div>
-          <div v-if="discordChannel" class="item-link">
-            <a :href="discordChannel" target="_blank" rel="noopener noreferrer">
-              <DiscordIcon />
-            </a>
-            <a
-              :href="discordChannel"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="clickable-link"
-            >
-              Join our discord to learn more about this project
-            </a>
-          </div>
-          <div v-if="explorer" class="item-link">
-            <a :href="explorer" target="_blank" rel="noopener noreferrer">
-              <ExplorerIcon />
-            </a>
-            <a
-              :href="explorer"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="clickable-link"
-            >
-              HNFT
-            </a>
-          </div>
-          <div v-if="oldNft">
-            <a
-              :href="oldNft"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="clickable-link"
-            >
-              See it on OldNFT
-            </a>
-          </div>
-        </div>
-      </div>
+
     </nuxt-link>
   </div>
 </template>
@@ -81,6 +39,9 @@ import { getDateStringFromDate } from "../services/dateHelpers";
 import DiscordIcon from "./icons/DiscordIcon.vue";
 import ExplorerIcon from "./icons/IconExplorer.vue";
 import RocketIcon from "./icons/IconRocket.vue";
+import useTimelineData from "../composables/useTimelineData";
+
+const { getNetworkImage } = useTimelineData();
 
 export default {
   components: {

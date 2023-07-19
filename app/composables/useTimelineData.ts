@@ -110,6 +110,15 @@ export default function useTimelineData() {
   };
 
   // @TODO: getNetworkImage
+  const getNetworkImage = (networkImage: string) => {
+    const networkImageData = taxonomy.value.networks.find(
+        (type) => type.image === networkImage
+    );
+
+    if (!networkImageData) return null
+
+    return `images/taxonomy/${networkImageData.image}`
+  };
 
   return {
     initialize,
@@ -117,6 +126,7 @@ export default function useTimelineData() {
     getTimelineItemsByPeriod,
     getEventBySlug,
     getProjectBySlug,
-    getLinkTypeImage
+    getLinkTypeImage,
+    getNetworkImage
   };
 }
