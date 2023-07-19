@@ -3,23 +3,24 @@
     <nuxt-link :to="`?project=${item.slug}`">
       <div class="item-container">
         <div class="item-network-container">
-           <nuxt-img
-             v-if="!item.placeholder"
-             class="network-image"
-             :src="`${CDN_URL}/networks/${item.network}.jpg`"
-           />
+          <nuxt-img
+            v-if="!item.placeholder"
+            class="network-image"
+            :src="`${CDN_URL}/networks/${item.network}.jpg`"
+          />
 
-         <nuxt-img
-             v-if="!item.placeholder"
-             class="network-image"
-             :src="`images/projects/${item.network}.jpg`" />
-
+          <nuxt-img
+            v-if="!item.placeholder"
+            class="network-image"
+            :src="`images/projects/${item.network}.jpg`"
+          />
         </div>
         <div class="item-image-container">
           <nuxt-img
-              v-if="!item.placeholder"
-              class="network-image"
-              :src="`images/projects/${item.image}`" />
+            v-if="!item.placeholder"
+            class="network-image"
+            :src="`images/projects/${item.image}`"
+          />
         </div>
         <div class="item-content-container">
           <div>{{ item.name }}</div>
