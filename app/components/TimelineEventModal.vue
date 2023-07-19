@@ -50,48 +50,7 @@ onMounted(async () => {
 </script>
 
 <style>
-.full-screen-modal-mobile {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 9999;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.9);
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  padding: 2rem;
-  box-sizing: border-box;
-  font-size: 2rem;
-  font-weight: bold;
-  line-height: 1.5;
-  overflow-y: auto;
-}
-
-.screen-modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 9999;
-  width: 40%;
-  height: 80%;
-  transform: translate(75%, 5%);
-  background-color: rgba(0, 0, 0, 0.9);
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  padding: 2rem;
-  box-sizing: border-box;
-  font-size: 2rem;
-  font-weight: bold;
-  line-height: 1.5;
-  overflow-y: auto;
-}
+@import "@/public/css/modal.css";
 
 .detail-event {
   text-align: center;
