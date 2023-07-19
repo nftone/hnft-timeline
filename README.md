@@ -51,7 +51,7 @@ Project {
 ```
 
 #### Project example
-```
+```json
 {
   "name": "Etheria",
   "slug": "etheria",
@@ -65,9 +65,14 @@ Project {
        "url": "https://etheria.world/"
      },
      {
-       "type" : "Twitter",
-       "url": "https://twitter.com/etheriaworld",
+       "type": "Twitter",
+       "url": "https://twitter.com/etheriaworld"
      }
+    {
+      "type": "Website",
+      "name": "Builder",
+      "url": "https://twitter.com/etheriaworld"
+    }
   ],
   "network": "Ethereum"
 }
@@ -99,6 +104,7 @@ Project {
 ```
 Link {
   type: string,
+  name?: string,
   url: string,
 }
 ```
