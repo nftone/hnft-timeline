@@ -1,11 +1,12 @@
 const fs = require("fs");
 const path = require("path");
-const {readFile} = require("fs");
 
+// @TODO: Clean this file
 const buildDataFile = () => {
   const dataFile = {
     events: aggregateDirectoryJsonData("events"),
     projects: aggregateDirectoryJsonData("projects"),
+    taxonomy: buildTaxonomy()
   };
 
   const timeLineDataPath = path.join(
@@ -47,25 +48,50 @@ const aggregateDirectoryJsonData = (directoryName) => {
         const image = `${slug}${imageExtension}`;
 
         const imageSrcPath = path.join(subdirectoryPath, imageFileName);
-        const imagePath = path.join(__dirname, "../../app/public/images/", directoryName, image);
+        const imagePath = path.join(
+          __dirname,
+          "../../app/public/images/",
+          directoryName,
+          image
+        );
 
         fs.copyFileSync(imageSrcPath, imagePath);
 
-        const data = { ...jsonData, image }; // Ajouter l'image au JSON
+        const data = { ...jsonData, image };
         dataFilesContent.push(data);
       }
     }
   });
 
-  //console.log(dataFilesContent)
   return dataFilesContent;
 };
 
+const buildTaxonomy = () => {
+  const imagesDirectoryPath = path.join(__dirname, "../../data/taxonomy/images")
+  const imagesDirectory = fs.readdirSync(imagesDirectoryPath);
+  imagesDirectory.forEach((file) => {
+    const imagePath = path.join(
+      __dirname,
+      "../../app/public/images/taxonomy/",
+      file
+    );
+        const imageSrcPath = path.join(imagesDirectoryPath, file);
+
+    fs.copyFileSync(imageSrcPath, imagePath);
+  })
+
+  const taxonomyData = fs.readFileSync(
+    path.join(__dirname, "../../data/taxonomy/taxonomy.json"),
+    "utf8"
+  );
+
+  return JSON.parse(taxonomyData);
+}
 
 
 const getDataFile = (files) => {
   for (const fileName of files) {
-    if (fileName.endsWith('.json')){
+    if (fileName.endsWith(".json")) {
       return fileName;
     }
   }
@@ -74,11 +100,16 @@ const getDataFile = (files) => {
 
 const getImageFile = (files) => {
   for (const fileName of files) {
-    if (fileName.endsWith('.jpg') || fileName.endsWith('.jpeg') || fileName.endsWith('.png') || fileName.endsWith('.gif')) {
+    if (
+      fileName.endsWith(".jpg") ||
+      fileName.endsWith(".jpeg") ||
+      fileName.endsWith(".png") ||
+      fileName.endsWith(".gif")
+    ) {
       return fileName;
     }
   }
   return null;
-}
+};
 
 buildDataFile();

@@ -1,0 +1,46 @@
+{
+  "linkTypes": [
+    {
+      "name": "Website",
+      "image": "website.png"
+    },
+    {
+      "name": "Discord",
+      "image": "discord.png"
+    },
+    {
+      "name": "Twitter",
+      "image": "twitter.svg"
+    },
+    {
+      "name": "GitHub",
+      "image": "github.png"
+    }
+  ],
+  "networks": [
+    {
+      "name": "Namecoin",
+      "image": "namecoin.jpg"
+    },
+    {
+      "name": "Bitcoin",
+      "image": "bitcoin.jpg"
+    },
+    {
+      "name": "Counterparty",
+      "image": "counterparty.jpg"
+    },
+    {
+      "name": "Ethereum",
+      "image": "ethereum.jpg"
+    },
+    {
+      "name": "Ethereum Classic",
+      "image": "ethereum-classic.jpg"
+    },
+    {
+      "name": "Dogeparty",
+      "image": "dogeparty.jpg"
+    }
+  ]
+}

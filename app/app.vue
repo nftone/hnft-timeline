@@ -8,7 +8,16 @@ html {
 }
 
 a {
+  color: white;
   text-decoration: none;
+}
+
+a:visited {
+  color: white;
+}
+
+a:hover {
+  color: white;
 }
 
 body {

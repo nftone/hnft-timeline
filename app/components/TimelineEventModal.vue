@@ -1,5 +1,6 @@
 <template>
   <Teleport to="body">
+    <div class="modal-outer">
     <div
       v-if="!loading"
       :class="isMobile ? 'full-screen-modal-mobile' : 'screen-modal'"
@@ -20,6 +21,7 @@
         </div>
       </div>
       <button @click="$emit('close')">CLOSE</button>
+    </div>
     </div>
   </Teleport>
 </template>
