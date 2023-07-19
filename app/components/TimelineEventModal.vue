@@ -5,14 +5,14 @@
       v-if="!loading"
       :class="isMobile ? 'full-screen-modal-mobile' : 'screen-modal'"
     >
-      <div class="detail-event">
+      <div>
         <div>
           {{ event.date }}
         </div>
         <div>
           {{ event.name }}
         </div>
-        <div>
+        <div class="detail-image">
           <img
             class="image-size"
             :src="`images/events/${event.image}`"
@@ -61,5 +61,6 @@ onMounted(async () => {
 .image-size {
   width: 250px;
   height: 250px;
+  background-color: white;
 }
 </style>
