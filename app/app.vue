@@ -5,6 +5,7 @@
 <style>
 html {
   font-family: Lato, Helvetica, Arial, sans-serif;
+  color: white;
 }
 
 a {

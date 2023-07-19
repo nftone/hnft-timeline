@@ -3,17 +3,15 @@
     <div class="modal-outer">
       <div
         v-if="!loading"
-        :class="isMobile ? 'full-screen-modal' : 'screen-modal'"
+        :class="isMobile ? 'full-screen-modal-mobile' : 'screen-modal'"
       >
-        <div class="detail-project">
+        <div>
           <div>
             {{ project.date }}
           </div>
-
           <div>
-            <h2>{{ project.name }}</h2>
+            {{ project.name }}
           </div>
-
           <div v-if="project.description">
             description: {{ project.description }}
           </div>
@@ -40,7 +38,7 @@
               </a>
             </div>
           </div>
-          <button @click="$emit('close')">CLOSE</button>
+          <button @click="$emit('close')">X</button>
         </div>
       </div>
     </div>
@@ -79,24 +77,15 @@ onMounted(async () => {
 <style>
 @import "@/public/css/modal.css";
 
-.detail-project {
-  text-align: center;
-  width: 100%;
-}
-
 .image-size {
   width: 250px;
   height: 250px;
+
 }
 
 .links {
   border: 1px solid red;
   display: grid;
   grid-template-columns: 1fr 1fr;
-}
-
-.display-link {
-  display: flex;
-  justify-content: space-between;
 }
 </style>

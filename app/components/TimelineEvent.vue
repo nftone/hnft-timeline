@@ -79,25 +79,4 @@ export default {
   border-radius: 50%;
 }
 
-.event-card-secondary-container {
-  padding: 8px;
-}
-
-.event-link {
-  margin: 4px 0;
-  display: grid;
-  grid-template-columns: 30px auto;
-  font-size: 14px;
-}
-
-.event-link:first-child {
-  margin-top: 0;
-  border-top: #bebebe 1px dashed;
-  padding: 4px 0 2px 0;
-}
-
-.date {
-  margin: auto 2px;
-  font-size: 13px;
-}
 </style>

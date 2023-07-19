@@ -1,27 +1,27 @@
 <template>
   <Teleport to="body">
     <div class="modal-outer">
-    <div
-      v-if="!loading"
-      :class="isMobile ? 'full-screen-modal-mobile' : 'screen-modal'"
-    >
-      <div>
+      <div
+        v-if="!loading"
+        :class="isMobile ? 'full-screen-modal-mobile' : 'screen-modal'"
+      >
         <div>
-          {{ event.date }}
+          <div>
+            {{ event.date }}
+          </div>
+          <div>
+            {{ event.name }}
+          </div>
+          <div class="detail-image">
+            <img
+              class="image-size"
+              :src="`images/events/${event.image}`"
+              alt="image of event"
+            />
+          </div>
         </div>
-        <div>
-          {{ event.name }}
-        </div>
-        <div class="detail-image">
-          <img
-            class="image-size"
-            :src="`images/events/${event.image}`"
-            alt="image of event"
-          />
-        </div>
+        <button @click="$emit('close')">X</button>
       </div>
-      <button @click="$emit('close')">CLOSE</button>
-    </div>
     </div>
   </Teleport>
 </template>
@@ -53,10 +53,6 @@ onMounted(async () => {
 
 <style>
 @import "@/public/css/modal.css";
-
-.detail-event {
-  text-align: center;
-}
 
 .image-size {
   width: 250px;

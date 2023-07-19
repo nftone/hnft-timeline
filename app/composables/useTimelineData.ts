@@ -5,6 +5,7 @@ const events = ref<TimelineEvent[]>([]);
 const taxonomy = ref<Taxonomy>({ linkTypes: [], networks: [] });
 const loading = ref(true);
 
+
 export default function useTimelineData() {
   const initialize = async () => {
     const data = await fetch("/data/timelineData.json");
