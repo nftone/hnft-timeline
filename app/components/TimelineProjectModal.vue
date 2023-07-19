@@ -8,10 +8,14 @@
         <div>
           {{ project.date }}
         </div>
+
         <div>
           <h2>{{ project.name }}</h2>
         </div>
-        <div>description : TODO {{ project.description }}</div>
+
+        <div v-if="project.description">
+          description: {{ project.description }}
+        </div>
         <div>
           <img
             class="image-size"
@@ -19,7 +23,7 @@
             alt="image of project"
           />
         </div>
-        <div>creator : TODO {{ project.creator }}</div>
+        <div v-if="project.creator">creator: {{ project.creator }}</div>
         <div>
           {{ project.network }}
         </div>
@@ -107,8 +111,6 @@ onMounted(async () => {
 
 .detail-project {
   text-align: center;
-  font-family: Lato, Helvetica, Arial, sans-serif;
-  margin-top: 200px;
 }
 
 .image-size {

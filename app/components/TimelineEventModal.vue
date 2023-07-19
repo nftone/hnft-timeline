@@ -1,17 +1,24 @@
 <template>
   <Teleport to="body">
-    <div v-if="!loading" :class="isMobile ? 'full-screen-modal-mobile' : 'screen-modal'">
-          <div class="detail-event">
-            <div>
-              {{event.date}}
-            </div>
-            <div>
-              {{ event.name }}
-            </div>
-            <div>
-              <img class="image-size" :src="`images/events/${event.image}`" alt="image of event">
-            </div>
-          </div>
+    <div
+      v-if="!loading"
+      :class="isMobile ? 'full-screen-modal-mobile' : 'screen-modal'"
+    >
+      <div class="detail-event">
+        <div>
+          {{ event.date }}
+        </div>
+        <div>
+          {{ event.name }}
+        </div>
+        <div>
+          <img
+            class="image-size"
+            :src="`images/events/${event.image}`"
+            alt="image of event"
+          />
+        </div>
+      </div>
       <button @click="$emit('close')">CLOSE</button>
     </div>
   </Teleport>
@@ -26,13 +33,12 @@ const loading = ref(true);
 const event = ref(null);
 
 const isMobile = computed(() => {
-  const screen = window.innerWidth
-  let screenWidth
-    if (screen < 768 ){
-      screenWidth = true
-    } else (
-        screenWidth = false )
-  return screenWidth
+  const screen = window.innerWidth;
+  let screenWidth;
+  if (screen < 768) {
+    screenWidth = true;
+  } else screenWidth = false;
+  return screenWidth;
 });
 
 onMounted(async () => {
@@ -65,7 +71,7 @@ onMounted(async () => {
   overflow-y: auto;
 }
 
-.screen-modal  {
+.screen-modal {
   position: fixed;
   top: 0;
   left: 0;
@@ -89,7 +95,6 @@ onMounted(async () => {
 
 .detail-event {
   text-align: center;
-  font-family: Lato, Helvetica, Arial, sans-serif;
 }
 
 .image-size {

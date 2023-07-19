@@ -115,12 +115,10 @@ watch(
 
 <style>
 .timeline-container a {
-  font-family: Lato, Helvetica, Arial, sans-serif;
   color: #fff;
 }
 
 .timeline-container {
-  font-family: Lato, Helvetica, Arial, sans-serif;
   color: #fff;
   background-color: #252525;
   padding-left: 1rem;
