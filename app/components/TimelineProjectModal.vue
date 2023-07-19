@@ -24,17 +24,9 @@
           {{ project.network }}
         </div>
         <div>
-          <table>
-            <tbody>
-              <div v-for="link in project.links">
-                <tr>
-                  <td>
-                    <a :href="link.url">{{ link.name }}</a>
-                  </td>
-                </tr>
-              </div>
-            </tbody>
-          </table>
+          <div v-for="link in project.links">
+            <a :href="link.url">{{ link.name }}</a>
+          </div>
         </div>
         <button @click="$emit('close')">CLOSE</button>
       </div>
