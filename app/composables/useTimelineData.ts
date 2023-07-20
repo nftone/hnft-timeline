@@ -115,8 +115,8 @@ export default function useTimelineData() {
     const networkImageData = taxonomy.value.networks.find(
         (type) => type.image === networkImage
     );
-
-    if (!networkImageData) return null
+    console.log(networkImage)
+    if (!networkImageData) return null ;
 
     return `images/taxonomy/${networkImageData.image}`
   };

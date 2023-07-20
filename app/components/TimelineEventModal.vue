@@ -1,6 +1,6 @@
 <template>
   <Teleport to="body">
-    <div class="modal-outer">
+    <div class="modal-outer" v-on:click="onModalClickOutside">
       <br>
       <div class="close-button" >
         <button class="detail-button" @click="$emit('close')">X</button>
@@ -33,6 +33,7 @@
 <script setup>
 import { onMounted, defineProps, ref, computed } from "vue";
 import useTimelineData from "../composables/useTimelineData";
+import { vOnClickOutside } from '@vueuse/components';
 
 const props = defineProps(["slug"]);
 const loading = ref(true);
@@ -47,11 +48,17 @@ const isMobile = computed(() => {
   return screenWidth;
 });
 
+const onModalClickOutside = () => {
+  context.emit('close');
+};
+
 onMounted(async () => {
   const { getEventBySlug, initialize } = useTimelineData();
   await initialize();
   event.value = getEventBySlug(props.slug);
   loading.value = false;
+
+  vOnClickOutside(ref('modalOuter'), onModalClickOutside);
 });
 </script>
 

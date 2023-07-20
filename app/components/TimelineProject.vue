@@ -3,13 +3,14 @@
     <nuxt-link :to="`?project=${item.slug}`">
       <div class="item-container">
         <div class="item-network-container">
+          <!--
           <nuxt-img
             v-if="!item.placeholder"
             class="network-image"
             :src="`${CDN_URL}/networks/${item.network}.jpg`"
-          />
-          <!--
-          <nuxt-img
+          /> -->
+
+          <!-- <nuxt-img
               v-if="!item.placeholder"
               class="network-image"
               :src="getNetworkImage(item.network)"
@@ -27,24 +28,21 @@
           <div>{{ item.name }}</div>
         </div>
       </div>
-
-
     </nuxt-link>
   </div>
 </template>
 
+<script setup>
+import useTimelineData from "../composables/useTimelineData";
+const { getNetworkImage } = useTimelineData();
+</script>
 
 <script>
-
 import { CDN_URL } from "../constants/appConstants";
 import { getDateStringFromDate } from "../services/dateHelpers";
 import DiscordIcon from "./icons/DiscordIcon.vue";
 import ExplorerIcon from "./icons/IconExplorer.vue";
 import RocketIcon from "./icons/IconRocket.vue";
-import useTimelineData from "../composables/useTimelineData";
-
-const { getNetworkImage } = useTimelineData();
-
 
 export default {
   components: {
@@ -81,12 +79,7 @@ export default {
     },
   },
 };
-
 </script>
-
-
-
-
 
 <style>
 .item-container {
