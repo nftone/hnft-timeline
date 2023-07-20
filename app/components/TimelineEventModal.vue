@@ -1,6 +1,10 @@
 <template>
   <Teleport to="body">
     <div class="modal-outer">
+      <br>
+      <div class="close-button" >
+        <button class="detail-button" @click="$emit('close')">X</button>
+      </div>
       <div
         v-if="!loading"
         :class="isMobile ? 'full-screen-modal-mobile' : 'screen-modal'"
@@ -20,7 +24,7 @@
             />
           </div>
         </div>
-        <button @click="$emit('close')">X</button>
+
       </div>
     </div>
   </Teleport>
@@ -59,4 +63,6 @@ onMounted(async () => {
   height: 250px;
   background-color: white;
 }
+
+
 </style>
