@@ -14,6 +14,11 @@
             <div class="month-name">
               {{ month.name }}
             </div>
+
+            <!-- @TODO: Prendre la div ci-dessous et la mettre dans un nouveau composant TimelineMonth -->
+            <!-- Lui donner un props :items=getTimelineItemsByPeriod(year.number, month.number) -->
+            <!-- Dans le composant, ajoute une logique: si pas d'item, mettre placeholder -->
+            <!-- Ensuite tu peux enlever les hack { placeholder: true } dans useTimelineData -->
             <div
               v-for="(item, i) in getTimelineItemsByPeriod(
                 year.number,
@@ -23,7 +28,10 @@
               class="month-projects-container"
             >
               <TimelineEvent v-if="item.type === 'event'" :event="item" />
-              <TimelineProject v-if="item.type === 'project'" :project="item" />
+              <TimelineProject
+                v-else-if="item.type === 'project'"
+                :project="item"
+              />
             </div>
           </div>
         </div>
@@ -111,7 +119,6 @@ watch(
   }
 );
 
-// watch modal open and lock if true
 watch(
   () => [showEventModal.value, showProjectModal.value],
   () => {
