@@ -89,6 +89,7 @@ onMounted(async () => {
 .links {
   border: 1px solid red;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  justify-items: start;
+  grid-template-columns: 2fr 1fr;
 }
 </style>

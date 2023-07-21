@@ -37,6 +37,7 @@
     :slug="eventSlug"
     v-if="showEventModal"
     @close="onCloseEventModal"
+    ref="eventModalRef"
   />
 
   <TimelineProjectModal
@@ -59,13 +60,11 @@ import useTimelineData from "../composables/useTimelineData";
 import TimelineProject from "../components/TimelineProject.vue";
 import TimelineEventModal from "../components/TimelineEventModal.vue";
 import TimelineProjectModal from "../components/TimelineProjectModal.vue";
-import { onKeyStroke } from "@vueuse/core";
+import { onKeyStroke, onClickOutside } from "@vueuse/core";
 
 const { loading, initialize, getTimelineItemsByPeriod } = useTimelineData();
-
 const route = useRoute();
 const router = useRouter();
-
 const showEventModal = ref(false);
 const eventSlug = ref(route.query.event);
 const showProjectModal = ref(false);
@@ -95,7 +94,15 @@ const onCloseProjectModal = () => {
 
 onKeyStroke ('Escape', () => {
   onCloseProjectModal();
+  onCloseEventModal()
 })
+
+onClickOutside( () => {
+  if (showEventModal.value) {
+    onCloseProjectModal();
+  }
+});
+
 
 watch(
   () => route.query,
