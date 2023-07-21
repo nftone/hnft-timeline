@@ -20,9 +20,9 @@ export default {};
 
 .loader {
   margin: auto;
-  border: 10px solid var(--primary-color);
+  border: 10px solid black;
   border-radius: 50%;
-  border-top: 10px solid var(--primary-color);
+  border-top: 10px solid white;
   width: 100px;
   height: 100px;
   animation: spinner 750ms linear infinite;
