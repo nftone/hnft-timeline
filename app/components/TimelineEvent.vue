@@ -1,13 +1,13 @@
 <template>
   <div class="main-event-container">
-    <nuxt-link :to="`?event=${item.slug}`">
+    <nuxt-link :to="`?event=${event.slug}`">
       <div class="overview-event-container">
         <div class="event-image-container">
-          <nuxt-img class="event-image" :src="`images/events/${item.image}`" />
+          <nuxt-img class="event-image" :src="`images/events/${event.image}`" />
         </div>
         <div class="event-name-container">
           <div>
-            {{ item.name }}
+            {{ event.name }}
           </div>
         </div>
       </div>
@@ -15,33 +15,9 @@
   </div>
 </template>
 
-<script>
-import { getDateStringFromDate } from "../services/dateHelpers";
-import { CDN_URL } from "../constants/appConstants";
-import RocketIcon from "./icons/IconRocket.vue";
-
-export default {
-  components: {
-    RocketIcon,
-  },
-
-  props: ["item"],
-
-  data: () => ({
-    expanded: false,
-    CDN_URL,
-  }),
-
-  computed: {
-    launchDate() {
-      return getDateStringFromDate(new Date(this.item.date));
-    },
-
-    isDate() {
-      return this.item.date;
-    },
-  },
-};
+<script setup>
+import { defineProps } from "vue";
+const props = defineProps(["event"]);
 </script>
 
 <style>
@@ -78,5 +54,4 @@ export default {
   height: 30px;
   border-radius: 50%;
 }
-
 </style>

@@ -2,9 +2,6 @@
   <LoadingOverlay v-if="loading" />
 
   <div v-else class="app">
-    yyyy
-    {{ isLocked }}
-    xxxx
     <TimelineHeader />
 
     <div class="timeline-container">
@@ -25,9 +22,8 @@
               :key="`item-${i}`"
               class="month-projects-container"
             >
-              <TimelineEvent v-if="item.type === 'event'" :item="item" />
-
-              <TimelineProject v-if="item.type === 'project'" :item="item" />
+              <TimelineEvent v-if="item.type === 'event'" :event="item" />
+              <TimelineProject v-if="item.type === 'project'" :project="item" />
             </div>
           </div>
         </div>

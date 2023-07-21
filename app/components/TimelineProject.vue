@@ -1,30 +1,23 @@
 <template>
-  <div class="item-container-main">
-    <nuxt-link :to="`?project=${item.slug}`">
-      <div class="item-container">
-        <div class="item-network-container">
-          <!--
+  <div class="project-container-main">
+    <nuxt-link :to="`?project=${project.slug}`">
+      <div class="project-container">
+        <div class="project-network-container">
           <nuxt-img
-            v-if="!item.placeholder"
+            v-if="!project.placeholder"
             class="network-image"
-            :src="`${CDN_URL}/networks/${item.network}.jpg`"
-          /> -->
-
-          <!-- <nuxt-img
-              v-if="!item.placeholder"
-              class="network-image"
-              :src="getNetworkImage(item.network)"
-          /> -->
-        </div>
-        <div class="item-image-container">
-          <nuxt-img
-            v-if="!item.placeholder"
-            class="network-image"
-            :src="`images/projects/${item.image}`"
+            :src="getNetworkImage(project.network)"
           />
         </div>
-        <div class="item-content-container">
-          <div>{{ item.name }}</div>
+        <div class="project-image-container">
+          <nuxt-img
+            v-if="!project.placeholder"
+            class="network-image"
+            :src="`images/projects/${project.image}`"
+          />
+        </div>
+        <div class="project-content-container">
+          <div>{{ project.name }}</div>
         </div>
       </div>
     </nuxt-link>
@@ -32,75 +25,33 @@
 </template>
 
 <script setup>
+import { defineProps } from "vue";
 import useTimelineData from "../composables/useTimelineData";
+const props = defineProps(["project"]);
 const { getNetworkImage } = useTimelineData();
 </script>
 
-<script>
-import { CDN_URL } from "../constants/appConstants";
-import { getDateStringFromDate } from "../services/dateHelpers";
-import DiscordIcon from "./icons/DiscordIcon.vue";
-import ExplorerIcon from "./icons/IconExplorer.vue";
-import RocketIcon from "./icons/IconRocket.vue";
-
-export default {
-  components: {
-    RocketIcon,
-    DiscordIcon,
-    ExplorerIcon,
-  },
-
-  props: ["item"],
-
-  data: () => ({
-    expanded: false,
-    CDN_URL,
-  }),
-
-  computed: {
-    links() {
-      if (this.item.placeholder) return {};
-      return this.item.links;
-    },
-
-    explorer() {
-      const id = this.links?.explorer;
-      if (!id) return null;
-      return `/explorer/?pa=1&co=${id}&sb=n&sd=a`;
-    },
-
-    launchDate() {
-      return getDateStringFromDate(new Date(this.item.date));
-    },
-
-    isDate() {
-      return this.item.date;
-    },
-  },
-};
-</script>
-
 <style>
-.item-container {
+.project-container {
   display: grid;
   grid-template-columns: 20px 30px auto;
   padding: 4px 4px;
 }
 
-.item-network-container {
+.project-network-container {
   display: grid;
   grid-column: 1;
   justify-items: center;
   margin: auto;
 }
 
-.item-image-container {
+.project-image-container {
   display: grid;
   grid-column: 2;
   justify-items: center;
 }
 
-.item-content-container {
+.project-content-container {
   cursor: pointer;
   display: grid;
   grid-column: 3;
