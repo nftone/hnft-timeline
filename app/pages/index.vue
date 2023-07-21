@@ -9,7 +9,6 @@
         <div class="year-name-container">
           <span class="year">{{ year.number }}</span>
         </div>
-
         <div class="year-months-container">
           <div v-for="month in months" :key="month.name">
             <div class="month-name">
@@ -23,6 +22,7 @@
               :key="`item-${i}`"
               class="month-projects-container"
             >
+
               <TimelineEvent v-if="item.type === 'event'" :item="item" />
 
               <TimelineProject v-if="item.type === 'project'" :item="item" />
@@ -123,6 +123,12 @@ watch(
     }
   }
 );
+
+const hasProjectsOrEventsInMonth = (year, month) => {
+  const projects = getTimelineProjectsByPeriod(year, month);
+  const events = getTimelineEventsByPeriod(year, month);
+  return projects.length > 0 || events.length > 0;
+};
 </script>
 
 <style>
@@ -169,6 +175,14 @@ watch(
   background-color: var(--bkg-grey);
   border-radius: 4px;
   margin: 4px;
+}
+
+.month-projects-container-test {
+  justify-content: left;
+  background-color: var(--bkg-grey);
+  border-radius: 4px;
+  margin: 4px;
+  color: var(--bkg-grey);
 }
 
 .month-projects-container:hover {
