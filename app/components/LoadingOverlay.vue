@@ -20,7 +20,7 @@ export default {};
 
 .loader {
   margin: auto;
-  border: 10px solid black;
+  border: 10px solid var(--dark);
   border-radius: 50%;
   border-top: 10px solid white;
   width: 100px;

@@ -4,10 +4,10 @@
 
 <style>
 :root {
-  --bkg-modal: rgba(0, 0, 0, 0.7);
+  --modal-background: rgba(0, 0, 0, 0.7);
   --white-text: #fff;
-  --bkg-black: #252525;
-  --bkg-grey: #656565;
+  --dark: #252525;
+  --grey: #656565;
   --yellow-event: rgb(217, 196, 0);
 }
 

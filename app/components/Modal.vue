@@ -42,7 +42,7 @@ const isMobile = computed(() => {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: var(--bkg-modal);
+  background-color: var(--modal-background);
   display: grid;
   place-content: center;
   transition: opacity 0.3s ease;
@@ -54,7 +54,7 @@ const isMobile = computed(() => {
   width: 60vw;
   max-width: 600px;
   height: 80vh;
-  background-color: var(--bkg-modal);
+  background-color: var(--modal-background);
   border-radius: 4px;
   box-shadow: 0 0 6px 0 rgba(0, 0, 0, 1);
   overflow-y: auto;

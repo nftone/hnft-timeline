@@ -138,7 +138,7 @@ const hasProjectsOrEventsInMonth = (year, month) => {
 
 .timeline-container {
   color: var(--white-text);
-  background-color: var(--bkg-black);
+  background-color: var(--dark);
   padding-left: 1rem;
   padding-right: 1rem;
   padding-bottom: 1rem;
@@ -155,7 +155,7 @@ const hasProjectsOrEventsInMonth = (year, month) => {
 .year-name-container {
   font-size: 1.5rem;
   font-weight: bold;
-  background-color: var(--bkg-grey);
+  background-color: var(--grey);
   height: 100%;
   display: grid;
   place-content: center;
@@ -170,17 +170,17 @@ const hasProjectsOrEventsInMonth = (year, month) => {
 
 .month-projects-container {
   justify-content: left;
-  background-color: var(--bkg-grey);
+  background-color: var(--grey);
   border-radius: 4px;
   margin: 4px;
 }
 
 .month-projects-container-test {
   justify-content: left;
-  background-color: var(--bkg-grey);
+  background-color: var(--grey);
   border-radius: 4px;
   margin: 4px;
-  color: var(--bkg-grey);
+  color: var(--grey);
 }
 
 .month-projects-container:hover {
