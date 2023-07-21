@@ -59,6 +59,7 @@ import useTimelineData from "../composables/useTimelineData";
 import TimelineProject from "../components/TimelineProject.vue";
 import TimelineEventModal from "../components/TimelineEventModal.vue";
 import TimelineProjectModal from "../components/TimelineProjectModal.vue";
+import { onKeyStroke } from "@vueuse/core";
 
 const { loading, initialize, getTimelineItemsByPeriod } = useTimelineData();
 
@@ -91,6 +92,10 @@ const onCloseProjectModal = () => {
   showProjectModal.value = false;
   router.push({ query: "" })
 }
+
+onKeyStroke ('Escape', () => {
+  onCloseProjectModal();
+})
 
 watch(
   () => route.query,
