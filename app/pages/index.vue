@@ -126,13 +126,15 @@ watch(
 </script>
 
 <style>
+@import "@/public/css/modal.css";
+
 .timeline-container a {
-  color: #fff;
+  color: var(--white-text);
 }
 
 .timeline-container {
-  color: #fff;
-  background-color: #252525;
+  color: var(--white-text);
+  background-color: var(--bkg-black);
   padding-left: 1rem;
   padding-right: 1rem;
   padding-bottom: 1rem;
@@ -149,7 +151,7 @@ watch(
 .year-name-container {
   font-size: 1.5rem;
   font-weight: bold;
-  background-color: #656565;
+  background-color: var(--bkg-grey);
   height: 100%;
   display: grid;
   place-content: center;
@@ -164,7 +166,7 @@ watch(
 
 .month-projects-container {
   justify-content: left;
-  background-color: #656565;
+  background-color: var(--bkg-grey);
   border-radius: 4px;
   margin: 4px;
 }

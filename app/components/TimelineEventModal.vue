@@ -3,7 +3,7 @@
     <div class="modal-outer">
       <br>
       <div class="close-button" >
-        <button class="detail-button" @click="$emit('close')">X</button>
+        <button class="detail-button-close" @click="$emit('close')">X</button>
       </div>
       <div
         v-if="!loading"

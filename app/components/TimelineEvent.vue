@@ -48,7 +48,7 @@ export default {
 .main-event-container {
   padding: 4px;
   border-radius: 4px;
-  background: rgb(217, 196, 0);
+  background: var(--yellow-event);
 }
 
 .overview-event-container {
