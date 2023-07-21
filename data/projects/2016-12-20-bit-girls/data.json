@@ -5,7 +5,10 @@
   "description": "",
   "creator": "",
   "links": [
-    {"type": "hnft.wtf", "url": "https://hnft.wtf/explorer/bitgirls" }
+    {
+      "type": "hnft.wtf",
+      "url": "https://hnft.wtf/explorer/bitgirls"
+    }
   ],
-  "network": "counterparty"
+  "network": "Counterparty"
 }

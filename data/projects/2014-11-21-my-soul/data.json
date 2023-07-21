@@ -5,7 +5,10 @@
   "description": "",
   "creator": "",
   "links": [
-    {"type": "hnft.wtf", "url": "https://hnft.wtf/explorer/mysoul" }
+    {
+      "type": "hnft.wtf",
+      "url": "https://hnft.wtf/explorer/mysoul"
+    }
   ],
-  "network": "counterparty"
+  "network": "Counterparty"
 }

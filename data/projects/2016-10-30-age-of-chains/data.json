@@ -5,7 +5,10 @@
   "description": "",
   "creator": "",
   "links": [
-    {"type": "hnft.wtf", "url": "https://hnft.wtf/explorer/ageofchains" }
+    {
+      "type": "hnft.wtf",
+      "url": "https://hnft.wtf/explorer/ageofchains"
+    }
   ],
-  "network": "counterparty"
+  "network": "Counterparty"
 }

@@ -2,6 +2,9 @@
   <LoadingOverlay v-if="loading" />
 
   <div v-else class="app">
+    yyyy
+    {{ isLocked }}
+    xxxx
     <TimelineHeader />
 
     <div class="timeline-container">
@@ -22,7 +25,6 @@
               :key="`item-${i}`"
               class="month-projects-container"
             >
-
               <TimelineEvent v-if="item.type === 'event'" :item="item" />
 
               <TimelineProject v-if="item.type === 'project'" :item="item" />
@@ -33,42 +35,43 @@
     </div>
   </div>
 
-  <TimelineEventModal
-    :slug="eventSlug"
-    v-if="showEventModal"
-    @close="onCloseEventModal"
-    ref="eventModalRef"
-  />
+  <Modal v-if="showEventModal" @close="onCloseEventModal">
+    <TimelineEventDetail :slug="eventSlug" />
+  </Modal>
 
-  <TimelineProjectModal
-    :slug="projectSlug"
-    v-if="showProjectModal"
-    @close="onCloseProjectModal"
-  />
+  <Modal v-if="showProjectModal" @close="onCloseProjectModal">
+    <TimelineProjectDetail :slug="projectSlug" />
+  </Modal>
 </template>
 
 <script setup>
 import { onMounted, ref, watch } from "vue";
 import { useRouter, useRoute } from "vue-router";
+import { useScrollLock } from "@vueuse/core";
 
 import { months } from "../services/months";
 import { years } from "../services/years";
+
 import LoadingOverlay from "../components/LoadingOverlay.vue";
+import Modal from "../components/Modal.vue";
 import TimelineEvent from "../components/TimelineEvent.vue";
+import TimelineEventDetail from "../components/TimelineEventDetail.vue";
 import TimelineHeader from "../components/TimelineHeader.vue";
-import useTimelineData from "../composables/useTimelineData";
 import TimelineProject from "../components/TimelineProject.vue";
-import TimelineEventModal from "../components/TimelineEventModal.vue";
-import TimelineProjectModal from "../components/TimelineProjectModal.vue";
-import { onKeyStroke, onClickOutside } from "@vueuse/core";
+import TimelineProjectDetail from "../components/TimelineProjectDetail.vue";
+import useTimelineData from "../composables/useTimelineData";
 
 const { loading, initialize, getTimelineItemsByPeriod } = useTimelineData();
 const route = useRoute();
 const router = useRouter();
+
+const el = document.querySelector("body");
+const isLocked = useScrollLock(el);
+
 const showEventModal = ref(false);
 const eventSlug = ref(route.query.event);
 const showProjectModal = ref(false);
-const projectSlug = ref(route.query.project)
+const projectSlug = ref(route.query.project);
 
 onMounted(async () => {
   await initialize();
@@ -76,7 +79,7 @@ onMounted(async () => {
     showEventModal.value = true;
     eventSlug.value = route.query.event;
   }
-  if(route.query.project) {
+  if (route.query.project) {
     showProjectModal.value = true;
     projectSlug.value = route.query.project;
   }
@@ -89,20 +92,8 @@ const onCloseEventModal = () => {
 
 const onCloseProjectModal = () => {
   showProjectModal.value = false;
-  router.push({ query: "" })
-}
-
-onKeyStroke ('Escape', () => {
-  onCloseProjectModal();
-  onCloseEventModal()
-})
-
-onClickOutside( () => {
-  if (showEventModal.value) {
-    onCloseProjectModal();
-  }
-});
-
+  router.push({ query: "" });
+};
 
 watch(
   () => route.query,
@@ -124,6 +115,19 @@ watch(
   }
 );
 
+// watch modal open and lock if true
+watch(
+  () => [showEventModal.value, showProjectModal.value],
+  () => {
+    if (showEventModal.value || showProjectModal.value) {
+      isLocked.value = true;
+    } else {
+      isLocked.value = false;
+    }
+  },
+  { deep: true }
+);
+
 const hasProjectsOrEventsInMonth = (year, month) => {
   const projects = getTimelineProjectsByPeriod(year, month);
   const events = getTimelineEventsByPeriod(year, month);
@@ -132,8 +136,6 @@ const hasProjectsOrEventsInMonth = (year, month) => {
 </script>
 
 <style>
-@import "@/public/css/modal.css";
-
 .timeline-container a {
   color: var(--white-text);
 }

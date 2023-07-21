@@ -5,7 +5,10 @@
   "description": "",
   "creator": "",
   "links": [
-    {"type": "hnft.wtf", "url": "https://hnft.wtf/explorer/olga" }
+    {
+      "type": "hnft.wtf",
+      "url": "https://hnft.wtf/explorer/olga"
+    }
   ],
-  "network": "counterparty"
+  "network": "Counterparty"
 }

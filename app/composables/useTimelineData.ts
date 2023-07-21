@@ -5,7 +5,6 @@ const events = ref<TimelineEvent[]>([]);
 const taxonomy = ref<Taxonomy>({ linkTypes: [], networks: [] });
 const loading = ref(true);
 
-
 export default function useTimelineData() {
   const initialize = async () => {
     const data = await fetch("/data/timelineData.json");
@@ -22,7 +21,6 @@ export default function useTimelineData() {
     }));
 
     taxonomy.value = parsedData.taxonomy;
-    console.log("🚀 ~ file: useTimelineData.ts:24 ~ initialize ~ taxonomy.value:", taxonomy.value)
 
     loading.value = false;
   };
@@ -102,23 +100,22 @@ export default function useTimelineData() {
 
   const getLinkTypeImage = (linkType: string) => {
     const linkTypeData = taxonomy.value.linkTypes.find(
-      (type) => type.name === linkType
+      ({ name }) => name === linkType
     );
 
-    if (!linkTypeData) return null
+    if (!linkTypeData) return null;
 
-    return `images/taxonomy/${linkTypeData.image}`
+    return `images/taxonomy/${linkTypeData.image}`;
   };
 
-  // @TODO: getNetworkImage
-  const getNetworkImage = (networkImage: string) => {
+  const getNetworkImage = (networkName: string) => {
     const networkImageData = taxonomy.value.networks.find(
-        (type) => type.image === networkImage
+      ({ name }) => name === networkName
     );
-    console.log(networkImage)
-    if (!networkImageData) return null ;
 
-    return `images/taxonomy/${networkImageData.image}`
+    if (!networkImageData) return null;
+
+    return `images/taxonomy/${networkImageData.image}`;
   };
 
   return {
@@ -128,6 +125,6 @@ export default function useTimelineData() {
     getEventBySlug,
     getProjectBySlug,
     getLinkTypeImage,
-    getNetworkImage
+    getNetworkImage,
   };
 }

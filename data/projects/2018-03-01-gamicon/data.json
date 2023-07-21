@@ -5,7 +5,10 @@
   "description": "",
   "creator": "",
   "links": [
-    {"type": "hnft.wtf", "url": "https://hnft.wtf/explorer/gamicon" }
+    {
+      "type": "hnft.wtf",
+      "url": "https://hnft.wtf/explorer/gamicon"
+    }
   ],
-  "network": "counterparty"
+  "network": "Counterparty"
 }

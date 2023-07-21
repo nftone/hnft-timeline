@@ -5,7 +5,10 @@
   "description": "",
   "creator": "",
   "links": [
-    {"type": "hnft.wtf", "url": "https://hnft.wtf/explorer/jpja" }
+    {
+      "type": "hnft.wtf",
+      "url": "https://hnft.wtf/explorer/jpja"
+    }
   ],
-  "network": "counterparty"
+  "network": "Counterparty"
 }

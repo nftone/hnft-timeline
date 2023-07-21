@@ -2,8 +2,8 @@
   "name": "Etheria",
   "slug": "etheria",
   "date": "2015-10-19",
-  "description": "",
-  "creator": "",
+  "description": "Ξtheria is a virtual world in which players can own tiles, farm them for blocks, and build things. The entire state of the world is held in and all player actions are made through the decentralized, trustless Ethereum blockchain.",
+  "creator": "Cyrus Adkisson",
   "links": [
     {
       "type": "Website",
@@ -28,5 +28,5 @@
       "url": "https://twitter.com/etheriaworld"
     }
   ],
-  "network": "ethereum"
+  "network": "Ethereum"
 }

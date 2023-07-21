@@ -5,7 +5,10 @@
   "description": "",
   "creator": "",
   "links": [
-    {"type": "hnft.wtf", "url": "https://hnft.wtf/explorer/PINATA" }
+    {
+      "type": "hnft.wtf",
+      "url": "https://hnft.wtf/explorer/PINATA"
+    }
   ],
-  "network": "counterparty"
+  "network": "Counterparty"
 }

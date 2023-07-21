@@ -5,7 +5,10 @@
   "description": "",
   "creator": "",
   "links": [
-    {"type": "hnft.wtf", "url": "https://hnft.wtf/explorer/rarepepe" }
+    {
+      "type": "hnft.wtf",
+      "url": "https://hnft.wtf/explorer/rarepepe"
+    }
   ],
-  "network": "counterparty"
+  "network": "Counterparty"
 }

@@ -5,7 +5,10 @@
   "description": "",
   "creator": "",
   "links": [
-    {"type": "hnft.wtf", "url": "https://hnft.wtf/explorer/bitcorncrops" }
+    {
+      "type": "hnft.wtf",
+      "url": "https://hnft.wtf/explorer/bitcorncrops"
+    }
   ],
-  "network": "counterparty"
+  "network": "Counterparty"
 }

@@ -5,7 +5,10 @@
   "description": "",
   "creator": "",
   "links": [
-    {"type": "hnft.wtf", "url": "https://hnft.wtf/explorer/salvation" }
+    {
+      "type": "hnft.wtf",
+      "url": "https://hnft.wtf/explorer/salvation"
+    }
   ],
-  "network": "counterparty"
+  "network": "Counterparty"
 }

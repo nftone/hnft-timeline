@@ -1,6 +1,10 @@
 {
   "linkTypes": [
     {
+      "name": "hnft.wtf",
+      "image": "hnft-wtf.png"
+    },
+    {
       "name": "Website",
       "image": "website.png"
     },

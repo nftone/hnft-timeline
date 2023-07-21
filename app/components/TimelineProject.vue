@@ -15,7 +15,6 @@
               class="network-image"
               :src="getNetworkImage(item.network)"
           /> -->
-
         </div>
         <div class="item-image-container">
           <nuxt-img

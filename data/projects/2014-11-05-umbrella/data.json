@@ -5,7 +5,10 @@
   "description": "",
   "creator": "",
   "links": [
-    {"type": "hnft.wtf", "url": "https://hnft.wtf/explorer/umbrella" }
+    {
+      "type": "hnft.wtf",
+      "url": "https://hnft.wtf/explorer/umbrella"
+    }
   ],
-  "network": "counterparty"
+  "network": "Counterparty"
 }
