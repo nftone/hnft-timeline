@@ -1,6 +1,6 @@
 <template>
   <Teleport to="body">
-    <div class="modal-outer">
+    <div v-if="show" class="modal-outer">
       <div ref="modalInner" :class="`modal-inner ${isMobile ? 'mobile' : ''}`">
         <div class="modal-header">
           <div class="close-button">
@@ -23,6 +23,8 @@ const emit = defineEmits(["close"]);
 
 const modalInner = ref(null);
 
+const show = ref(true)
+
 onKeyStroke("Escape", () => emit("close"));
 onClickOutside(modalInner, () => emit("close"));
 
@@ -35,6 +37,7 @@ const isMobile = computed(() => {
 </script>
 
 <style>
+
 .modal-outer {
   position: fixed;
   z-index: 9998;
@@ -45,9 +48,6 @@ const isMobile = computed(() => {
   background-color: var(--modal-background);
   display: grid;
   place-content: center;
-  transition: opacity 0.3s ease;
-  place-content: center;
-  transition: all 0.3s ease;
 }
 
 .modal-inner {
@@ -106,4 +106,5 @@ const isMobile = computed(() => {
   width: 100%;
   text-align: center;
 }
+
 </style>

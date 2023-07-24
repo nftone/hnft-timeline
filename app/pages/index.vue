@@ -3,7 +3,6 @@
 
   <div v-else class="app">
     <TimelineHeader />
-
     <div class="timeline-container">
       <div v-for="(year, id) in years" :key="id" class="year-inner-container">
         <div class="year-name-container">
@@ -21,13 +20,20 @@
     </div>
   </div>
 
+
   <Modal v-if="showEventModal" @close="onCloseEventModal">
-    <TimelineEventDetail :slug="eventSlug" />
+    <Transition>
+      <TimelineEventDetail :slug="eventSlug" />
+    </Transition>
   </Modal>
 
-  <Modal v-if="showProjectModal" @close="onCloseProjectModal">
-    <TimelineProjectDetail :slug="projectSlug" />
-  </Modal>
+
+  <transition>
+    <Modal v-if="showProjectModal" @close="onCloseProjectModal">
+      <TimelineProjectDetail :slug="projectSlug" />
+    </Modal>
+  </transition>
+
 </template>
 
 <script setup>
@@ -79,6 +85,7 @@ const onCloseProjectModal = () => {
   showProjectModal.value = false;
   router.push({ query: "" });
 };
+
 
 watch(
   () => route.query,
@@ -155,5 +162,18 @@ watch(
   text-align: center;
   padding: 2px;
   font-weight: bold;
+}
+
+.v-enter-active
+{
+  transition: opacity 1s ease;
+}
+.v-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
 }
 </style>
