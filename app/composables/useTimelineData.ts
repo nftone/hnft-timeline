@@ -56,10 +56,6 @@ export default function useTimelineData() {
         return aDate - bDate;
       });
 
-    // @TODO: Replace placeholder logic by a better one
-    // @ts-ignore
-    if (projectsInTheMonth.length === 0) return [{ placeholder: true }];
-
     return projectsInTheMonth;
   };
 
@@ -82,10 +78,6 @@ export default function useTimelineData() {
         const bDate = new Date(b.date).getTime();
         return aDate - bDate;
       });
-
-    // @TODO: Replace placeholder logic by a better one
-    // @ts-ignore
-    if (eventsInTheMonth.length === 0) return [{ placeholder: true }];
 
     return eventsInTheMonth;
   };

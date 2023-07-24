@@ -1,12 +1,13 @@
 <template>
-  <!-- Lui donner un props :items=getTimelineItemsByPeriod(year.number, month.number) -->
-  <!-- Dans le composant, ajoute une logique: si pas d'item, mettre placeholder -->
-  <!-- Ensuite tu peux enlever les hack { placeholder: true } dans useTimelineData -->
+  <div v-if="getTimelineItemsByPeriod(year.number, month.number).length === 0"
+       class="month-projects-container-empty"
+  >
+    &nbsp;
+  </div>
+
   <div
-      v-for="(item, i) in getTimelineItemsByPeriod(
-                year.number,
-                month.number
-              )"
+      v-else
+      v-for="(item, i) in getTimelineItemsByPeriod(year.number, month.number)"
       :key="`item-${i}`"
       class="month-projects-container"
   >
@@ -20,7 +21,6 @@
 
 
 <script setup>
-
 import TimelineEvent from "../components/TimelineEvent.vue";
 import TimelineProject from "../components/TimelineProject.vue";
 import useTimelineData from "../composables/useTimelineData";
@@ -28,12 +28,10 @@ import useTimelineData from "../composables/useTimelineData";
 const {getTimelineItemsByPeriod} = useTimelineData();
 
 const { year, month } = defineProps(["year", "month"]);
-
 </script>
 
 
 <style>
-
 .month-projects-container {
   justify-content: left;
   background-color: var(--grey);
@@ -41,12 +39,12 @@ const { year, month } = defineProps(["year", "month"]);
   margin: 4px;
 }
 
-.month-projects-container-test {
+.month-projects-container-empty {
   justify-content: left;
   background-color: var(--grey);
   border-radius: 4px;
   margin: 4px;
-  color: var(--grey);
+  height: 9px;
 }
 
 .month-projects-container:hover {
