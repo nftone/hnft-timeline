@@ -21,11 +21,6 @@
     {
       "type": "GitHub",
       "url": "https://github.com/cyrusadkisson/etheria_source"
-    },
-    {
-      "type": "Website",
-      "name": "Builder",
-      "url": "https://twitter.com/etheriaworld"
     }
   ],
   "network": "Ethereum"

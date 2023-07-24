@@ -68,11 +68,6 @@ Project {
        "type": "Twitter",
        "url": "https://twitter.com/etheriaworld"
      }
-    {
-      "type": "Website",
-      "name": "Builder",
-      "url": "https://twitter.com/etheriaworld"
-    }
   ],
   "network": "Ethereum"
 }
