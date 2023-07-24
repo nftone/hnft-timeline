@@ -14,25 +14,7 @@
             <div class="month-name">
               {{ month.name }}
             </div>
-
-            <!-- @TODO: Prendre la div ci-dessous et la mettre dans un nouveau composant TimelineMonth -->
-            <!-- Lui donner un props :items=getTimelineItemsByPeriod(year.number, month.number) -->
-            <!-- Dans le composant, ajoute une logique: si pas d'item, mettre placeholder -->
-            <!-- Ensuite tu peux enlever les hack { placeholder: true } dans useTimelineData -->
-            <div
-              v-for="(item, i) in getTimelineItemsByPeriod(
-                year.number,
-                month.number
-              )"
-              :key="`item-${i}`"
-              class="month-projects-container"
-            >
-              <TimelineEvent v-if="item.type === 'event'" :event="item" />
-              <TimelineProject
-                v-else-if="item.type === 'project'"
-                :project="item"
-              />
-            </div>
+            <TimelineMonth :year="year" :month="month"/>
           </div>
         </div>
       </div>
@@ -58,14 +40,13 @@ import { years } from "../services/years";
 
 import LoadingOverlay from "../components/LoadingOverlay.vue";
 import Modal from "../components/Modal.vue";
-import TimelineEvent from "../components/TimelineEvent.vue";
 import TimelineEventDetail from "../components/TimelineEventDetail.vue";
 import TimelineHeader from "../components/TimelineHeader.vue";
-import TimelineProject from "../components/TimelineProject.vue";
 import TimelineProjectDetail from "../components/TimelineProjectDetail.vue";
 import useTimelineData from "../composables/useTimelineData";
+import TimelineMonth from "../components/TimelineMonth.vue";
 
-const { loading, initialize, getTimelineItemsByPeriod } = useTimelineData();
+const { loading, initialize } = useTimelineData();
 const route = useRoute();
 const router = useRouter();
 
@@ -131,11 +112,6 @@ watch(
   { deep: true }
 );
 
-const hasProjectsOrEventsInMonth = (year, month) => {
-  const projects = getTimelineProjectsByPeriod(year, month);
-  const events = getTimelineEventsByPeriod(year, month);
-  return projects.length > 0 || events.length > 0;
-};
 </script>
 
 <style>
@@ -173,26 +149,6 @@ const hasProjectsOrEventsInMonth = (year, month) => {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   margin: 10px 10px;
-}
-
-.month-projects-container {
-  justify-content: left;
-  background-color: var(--grey);
-  border-radius: 4px;
-  margin: 4px;
-}
-
-.month-projects-container-test {
-  justify-content: left;
-  background-color: var(--grey);
-  border-radius: 4px;
-  margin: 4px;
-  color: var(--grey);
-}
-
-.month-projects-container:hover {
-  transform: scale(1.01);
-  box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2), 0 1px 15px 0 rgba(0, 0, 0, 0.19);
 }
 
 .month-name {
