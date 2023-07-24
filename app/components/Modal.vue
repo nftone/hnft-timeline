@@ -53,13 +53,13 @@ const isMobile = computed(() => {
 .modal-inner {
   width: 60vw;
   max-width: 600px;
-  height: 80vh;
-  background-color: var(--modal-background);
+  max-height: 80vh;
+  padding: 1rem;
+  background-color: #252525;
   border-radius: 4px;
   box-shadow: 0 0 6px 0 rgba(0, 0, 0, 1);
   overflow-y: auto;
   display: grid;
-  grid-template-rows: 25px auto;
 }
 
 .modal-inner.mobile {
@@ -78,6 +78,46 @@ const isMobile = computed(() => {
   overflow-y: auto;
 }
 
+.modal-inner h2{
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 1rem 0rem 1rem 0rem;
+  background-color: var(--yellow-event);
+  border-radius: 4px;
+  padding: 0.5rem;
+}
+
+.modal-inner .subheader{
+  background-color: var(--grey);
+  border-radius: 4px;
+  padding: 0.2rem;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.modal-inner .description{
+  margin-bottom: 1rem;
+}
+
+.modal-inner .network{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-content: center;
+  margin: 2rem 0rem;
+}
+
+.modal-inner .networkname{
+  font-weight: bold;
+}
+
+.modal-inner .network img{
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 0.5rem;
+}
+
 .modal-header {
   width: 100%;
 }
@@ -94,11 +134,12 @@ const isMobile = computed(() => {
   background-color: white;
   font-size: 15px;
   border-radius: 4px;
-  border: 2px solid white;
+  font-weight:bold;
+  border: none;
 }
 
 .close-button button:hover {
-  background-color: black;
+  background-color: #353535;
   color: white;
 }
 
