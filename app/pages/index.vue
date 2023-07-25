@@ -20,13 +20,11 @@
     </div>
   </div>
 
-
-  <Modal v-if="showEventModal" @close="onCloseEventModal">
-    <Transition>
-      <TimelineEventDetail :slug="eventSlug" />
-    </Transition>
-  </Modal>
-
+  <Transition>
+    <Modal v-if="showEventModal" @close="onCloseEventModal">
+        <TimelineEventDetail :slug="eventSlug" />
+    </Modal>
+  </Transition>
 
   <transition>
     <Modal v-if="showProjectModal" @close="onCloseProjectModal">
@@ -166,7 +164,7 @@ watch(
 
 .v-enter-active
 {
-  transition: opacity 1s ease;
+  transition: opacity 0.5s ease;
 }
 .v-leave-active {
   transition: opacity 0.5s ease;

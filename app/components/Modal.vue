@@ -1,7 +1,7 @@
 <template>
   <Teleport to="body">
     <div v-if="show" class="modal-outer">
-      <div ref="modalInner" :class="`modal-inner ${isMobile ? 'mobile' : ''}`">
+      <div ref="modalInner" :class="isMobile ? 'modal-inner.mobile' : 'modal-inner'">
         <div class="modal-header">
           <div class="close-button">
             <button @click="$emit('close')">X</button>
