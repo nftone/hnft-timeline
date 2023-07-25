@@ -8,10 +8,10 @@
     </div>
 
     <div class="detail-image">
-      <img
-        class="image-size"
-        :src="`images/events/${event.image}`"
-        alt="image of event"
+      <nuxt-img
+          class="image-size"
+          :src="`images/events/${event.image}`"
+          alt="image of event"
       />
     </div>
   </div>

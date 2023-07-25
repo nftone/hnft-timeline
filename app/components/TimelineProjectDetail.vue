@@ -4,7 +4,7 @@
       {{ project.name }}
     </h2>
     <div>
-      <img
+      <nuxt-img
         class="image-size"
         :src="`images/projects/${project.image}`"
         alt="image of project"
