@@ -36,19 +36,21 @@ const { getNetworkImage } = useTimelineData();
   height: 50px;
   overflow: hidden;
   display: grid;
-  grid-template-columns: 50px auto 20px;
+  grid-template-columns: 50px auto 40px;
 }
 
 .project-network-container {
   display: grid;
   justify-items: center;
-  margin: auto;
+  align-items: center;
 }
+
 
 .project-image-container {
   height: 50px;
   display: grid;
   justify-items: center;
+  align-items: center;
 }
 
 .project-image-container img {
@@ -64,7 +66,8 @@ const { getNetworkImage } = useTimelineData();
 }
 
 .network-image {
-  border-radius: 4px;
-  width: 16px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
 }
 </style>

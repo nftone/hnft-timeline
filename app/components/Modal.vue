@@ -1,13 +1,18 @@
 <template>
+
+  <div class="close-button">
+    <button @click="$emit('close')">X</button>
+  </div>
     <div v-if="show" class="modal-outer">
+
+      <div class="close-button">
+        <button @click="$emit('close')">X</button>
+      </div>
       <div
         ref="modalInner"
         :class="isSmallerThanTablet ? 'modal-inner.mobile' : 'modal-inner'"
       >
         <div class="modal-header">
-          <div class="close-button">
-            <button @click="$emit('close')">X</button>
-          </div>
           <div class="modal-body">
             <slot />
           </div>
@@ -82,6 +87,7 @@ onMounted(() => {
   font-weight: bold;
   line-height: 1;
   overflow-y: auto;
+  background-color: #252525;
 }
 
 .modal-inner h2 {

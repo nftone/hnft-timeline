@@ -21,7 +21,7 @@ const props = defineProps(["event"]);
 
 <style>
 .main-event-container {
-  padding: 4px;
+
   border-radius: 4px;
   background: var(--yellow-event);
 }
@@ -49,8 +49,8 @@ const props = defineProps(["event"]);
 }
 
 .event-image {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
 }
 </style>
