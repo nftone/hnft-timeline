@@ -65,7 +65,7 @@
   font-size: 0.8rem;
   font-weight: 400;
   line-height: 1.5;
-  padding: 1.5rem 1.5rem 2rem 1.5rem;
+  padding: 1rem 1rem 1rem 0.5rem;
   border-top: 2px solid var(--dark);
 }
 
@@ -115,14 +115,6 @@
   justify-content: center;
   padding-top: 10px;
 
-}
-
-.footer-contact-label {
-  font-size: 11px;
-  width: 40%;
-  text-align: center;
-  color: #fff;
-  padding-right: 5px;
 }
 
 .footer-contact-social-link {
