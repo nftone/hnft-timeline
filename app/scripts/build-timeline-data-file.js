@@ -6,12 +6,12 @@ const buildDataFile = () => {
   const dataFile = {
     events: aggregateDirectoryJsonData("events"),
     projects: aggregateDirectoryJsonData("projects"),
-    taxonomy: buildTaxonomy()
+    taxonomy: buildTaxonomy(),
   };
 
   const timeLineDataPath = path.join(
     __dirname,
-    "../public/data",
+    "../src/data",
     "timelineData.json"
   );
 
@@ -67,7 +67,10 @@ const aggregateDirectoryJsonData = (directoryName) => {
 };
 
 const buildTaxonomy = () => {
-  const imagesDirectoryPath = path.join(__dirname, "../../data/taxonomy/images")
+  const imagesDirectoryPath = path.join(
+    __dirname,
+    "../../data/taxonomy/images"
+  );
   const imagesDirectory = fs.readdirSync(imagesDirectoryPath);
   imagesDirectory.forEach((file) => {
     const imagePath = path.join(
@@ -75,10 +78,10 @@ const buildTaxonomy = () => {
       "../../app/public/images/taxonomy/",
       file
     );
-        const imageSrcPath = path.join(imagesDirectoryPath, file);
+    const imageSrcPath = path.join(imagesDirectoryPath, file);
 
     fs.copyFileSync(imageSrcPath, imagePath);
-  })
+  });
 
   const taxonomyData = fs.readFileSync(
     path.join(__dirname, "../../data/taxonomy/taxonomy.json"),
@@ -86,8 +89,7 @@ const buildTaxonomy = () => {
   );
 
   return JSON.parse(taxonomyData);
-}
-
+};
 
 const getDataFile = (files) => {
   for (const fileName of files) {

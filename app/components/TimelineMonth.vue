@@ -1,35 +1,31 @@
 <template>
-  <div v-if="getTimelineItemsByPeriod(year.number, month.number).length === 0"
-       class="month-projects-container-empty"
+  <div
+    v-if="getTimelineItemsByPeriod(year.number, month.number).length === 0"
+    class="month-projects-container-empty"
   >
     &nbsp;
   </div>
 
   <div
-      v-else
-      v-for="(item, i) in getTimelineItemsByPeriod(year.number, month.number)"
-      :key="`item-${i}`"
-      class="month-projects-container"
+    v-else
+    v-for="(item, i) in getTimelineItemsByPeriod(year.number, month.number)"
+    :key="`item-${i}`"
+    class="month-projects-container"
   >
     <TimelineEvent v-if="item.type === 'event'" :event="item" />
-    <TimelineProject
-        v-else-if="item.type === 'project'"
-        :project="item"
-    />
+    <TimelineProject v-else-if="item.type === 'project'" :project="item" />
   </div>
 </template>
-
 
 <script setup>
 import TimelineEvent from "../components/TimelineEvent.vue";
 import TimelineProject from "../components/TimelineProject.vue";
 import useTimelineData from "../composables/useTimelineData";
 
-const {getTimelineItemsByPeriod} = useTimelineData();
+const { getTimelineItemsByPeriod } = useTimelineData();
 
 const { year, month } = defineProps(["year", "month"]);
 </script>
-
 
 <style>
 .month-projects-container {

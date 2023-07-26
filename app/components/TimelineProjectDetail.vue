@@ -1,5 +1,5 @@
 <template>
-  <div v-if="!loading">
+  <div>
     <h2>
       {{ project.name }}
     </h2>
@@ -26,7 +26,7 @@
         class="link-image"
         :src="getNetworkImage(project.network)"
       />
-      <div class="networkname">{{ project.network }}</div>
+      <div class="network-name">{{ project.network }}</div>
     </div>
     <div class="links">
       <div v-for="link in project.links">
@@ -43,21 +43,14 @@
 </template>
 
 <script setup>
-import { onMounted, defineProps, ref, computed } from "vue";
 import useTimelineData from "../composables/useTimelineData";
 
 const props = defineProps(["slug"]);
-const loading = ref(true);
-const project = ref(null);
 
 const { getLinkTypeImage, getNetworkImage } = useTimelineData();
+const { getProjectBySlug } = useTimelineData();
 
-onMounted(async () => {
-  const { getProjectBySlug, initialize } = useTimelineData();
-  await initialize();
-  project.value = getProjectBySlug(props.slug);
-  loading.value = false;
-});
+const project = getProjectBySlug(props.slug);
 </script>
 
 <style>

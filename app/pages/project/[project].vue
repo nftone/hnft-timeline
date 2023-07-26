@@ -16,16 +16,26 @@
         </div>
       </div>
     </div>
-    <TimelineFooter />
   </div>
+
+  <Modal @close="() => router.push({ path: '/' })">
+    <TimelineProjectDetail :slug="route.params.project" />
+  </Modal>
 </template>
 
 <script setup>
-import { months } from "../services/months";
-import { years } from "../services/years";
+import { useRouter, useRoute } from "vue-router";
 
-import TimelineHeader from "../components/TimelineHeader.vue";
-import TimelineMonth from "../components/TimelineMonth.vue";
+import { months } from "../../services/months";
+import { years } from "../../services/years";
+
+import Modal from "../../components/Modal.vue";
+import TimelineHeader from "../../components/TimelineHeader.vue";
+import TimelineProjectDetail from "../../components/TimelineProjectDetail.vue";
+import TimelineMonth from "../../components/TimelineMonth.vue";
+
+const route = useRoute();
+const router = useRouter();
 </script>
 
 <style>

@@ -1,6 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  ssr: false,
+  // ssr: false,
   app: {
     baseURL: "/",
     head: {
@@ -10,4 +10,15 @@ export default defineNuxtConfig({
     },
   },
   modules: ["@vueuse/nuxt", "@nuxt/image"],
+  routeRules: {
+    // // Homepage pre-rendered at build time
+    "/": { prerender: true },
+    "/project/*": { prerender: true },
+    "/event/*": { prerender: true },
+  },
+  nitro: {
+    prerender: {
+      crawlLinks: true,
+    },
+  },
 });

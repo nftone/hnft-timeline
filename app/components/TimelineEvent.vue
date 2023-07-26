@@ -1,6 +1,6 @@
 <template>
   <div class="main-event-container">
-    <nuxt-link :to="`?event=${event.slug}`">
+    <nuxt-link :to="`/event/${event.slug}`">
       <div class="overview-event-container">
         <div class="event-image-container">
           <nuxt-img class="event-image" :src="`images/events/${event.image}`" />
@@ -16,7 +16,6 @@
 </template>
 
 <script setup>
-import { defineProps } from "vue";
 const props = defineProps(["event"]);
 </script>
 

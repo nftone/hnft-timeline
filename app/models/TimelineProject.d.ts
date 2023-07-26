@@ -1,9 +1,9 @@
 interface TimelineProject {
-  name: String;
-  slug: String;
-  date: Date;
-  description: String;
-  creator: String;
+  name: string;
+  slug: string;
+  date: string;
+  description: string;
+  creator: string;
   links: [];
-  network: String;
+  network: string;
 }

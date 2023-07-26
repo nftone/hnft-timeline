@@ -1,30 +1,19 @@
-import { ref } from "vue";
+import data from "../src/data/timelineData.json";
 
-const projects = ref<TimelineProject[]>([]);
-const events = ref<TimelineEvent[]>([]);
-const taxonomy = ref<Taxonomy>({ linkTypes: [], networks: [] });
-const loading = ref(true);
+// @ts-ignore
+const projects: TimelineProject[] = data.projects.map((e: TimelineProject) => ({
+  ...e,
+  type: "project",
+}));
+
+const events: TimelineEvent[] = data.events.map((e: TimelineEvent) => ({
+  ...e,
+  type: "event",
+}));
+
+const taxonomy = data.taxonomy;
 
 export default function useTimelineData() {
-  const initialize = async () => {
-    const data = await fetch("/data/timelineData.json");
-    const parsedData = await data.json();
-
-    events.value = parsedData.events.map((e: TimelineEvent) => ({
-      ...e,
-      type: "event",
-    }));
-
-    projects.value = parsedData.projects.map((e: TimelineProject) => ({
-      ...e,
-      type: "project",
-    }));
-
-    taxonomy.value = parsedData.taxonomy;
-
-    loading.value = false;
-  };
-
   const getTimelineItemsByPeriod = (
     year: number,
     month: number
@@ -42,7 +31,7 @@ export default function useTimelineData() {
     year: number,
     month: number
   ): TimelineProject[] => {
-    const projectsInTheMonth = [...projects.value]
+    const projectsInTheMonth = [...projects]
       .filter((project) => {
         const projectDate = new Date(project.date);
         return (
@@ -63,7 +52,7 @@ export default function useTimelineData() {
     year: number,
     month: number
   ): TimelineEvent[] => {
-    const eventsInTheMonth = [...events.value]
+    const eventsInTheMonth = [...events]
 
       .filter((event) => {
         const eventDate = new Date(event.date);
@@ -83,15 +72,15 @@ export default function useTimelineData() {
   };
 
   const getEventBySlug = (slug: string) => {
-    return events.value.find((event) => event.slug === slug);
+    return events.find((event) => event.slug === slug);
   };
 
   const getProjectBySlug = (slug: string) => {
-    return projects.value.find((project) => project.slug === slug);
+    return projects.find((project) => project.slug === slug);
   };
 
   const getLinkTypeImage = (linkType: string) => {
-    const linkTypeData = taxonomy.value.linkTypes.find(
+    const linkTypeData = taxonomy.linkTypes.find(
       ({ name }) => name === linkType
     );
 
@@ -101,7 +90,7 @@ export default function useTimelineData() {
   };
 
   const getNetworkImage = (networkName: string) => {
-    const networkImageData = taxonomy.value.networks.find(
+    const networkImageData = taxonomy.networks.find(
       ({ name }) => name === networkName
     );
 
@@ -111,8 +100,6 @@ export default function useTimelineData() {
   };
 
   return {
-    initialize,
-    loading,
     getTimelineItemsByPeriod,
     getEventBySlug,
     getProjectBySlug,

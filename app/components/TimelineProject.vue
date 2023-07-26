@@ -1,6 +1,6 @@
 <template>
   <div class="project-container-main">
-    <nuxt-link :to="`?project=${project.slug}`">
+    <nuxt-link :to="`/project/${project.slug}`">
       <div class="project-container">
         <div class="project-network-container">
           <nuxt-img
@@ -25,7 +25,6 @@
 </template>
 
 <script setup>
-import { defineProps } from "vue";
 import useTimelineData from "../composables/useTimelineData";
 const props = defineProps(["project"]);
 const { getNetworkImage } = useTimelineData();

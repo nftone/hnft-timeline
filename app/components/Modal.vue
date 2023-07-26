@@ -1,6 +1,9 @@
 <template>
     <div v-if="show" class="modal-outer">
-      <div ref="modalInner" :class="isMobile ? 'modal-inner.mobile' : 'modal-inner'">
+      <div
+        ref="modalInner"
+        :class="isSmallerThanTablet ? 'modal-inner.mobile' : 'modal-inner'"
+      >
         <div class="modal-header">
           <div class="close-button">
             <button @click="$emit('close')">X</button>
@@ -14,28 +17,33 @@
 </template>
 
 <script setup>
-import { defineEmits, ref, computed } from "vue";
+import { useScrollLock, useBreakpoints } from "@vueuse/core";
+import { ref, onMounted } from "vue";
 import { onKeyStroke, onClickOutside } from "@vueuse/core";
 
 const emit = defineEmits(["close"]);
 
 const modalInner = ref(null);
 
-const show = ref(true)
+const show = ref(true);
 
 onKeyStroke("Escape", () => emit("close"));
 onClickOutside(modalInner, () => emit("close"));
 
-// @TODO use vueuse useBreakpoints
-const isMobile = computed(() => {
-  const screen = window.innerWidth;
-  if (screen < 768) return true;
-  return false;
+const breakpoints = useBreakpoints({
+  tablet: 640,
+});
+
+const isSmallerThanTablet = breakpoints.smaller("tablet");
+
+onMounted(() => {
+  const el = document.querySelector("body");
+  const isLocked = useScrollLock(el);
+  isLocked.value = true;
 });
 </script>
 
 <style>
-
 .modal-outer {
   position: fixed;
   z-index: 9998;
@@ -76,7 +84,7 @@ const isMobile = computed(() => {
   overflow-y: auto;
 }
 
-.modal-inner h2{
+.modal-inner h2 {
   font-size: 1.5rem;
   font-weight: bold;
   margin: 1rem 0rem 1rem 0rem;
@@ -85,7 +93,7 @@ const isMobile = computed(() => {
   padding: 0.5rem;
 }
 
-.modal-inner .subheader{
+.modal-inner .subheader {
   background-color: var(--grey);
   border-radius: 4px;
   padding: 0.2rem;
@@ -93,11 +101,11 @@ const isMobile = computed(() => {
   margin-top: 0.5rem;
 }
 
-.modal-inner .description{
+.modal-inner .description {
   margin-bottom: 1rem;
 }
 
-.modal-inner .network{
+.modal-inner .network {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -106,11 +114,11 @@ const isMobile = computed(() => {
   margin: 2rem 0rem;
 }
 
-.modal-inner .networkname{
+.modal-inner .network-name {
   font-weight: bold;
 }
 
-.modal-inner .network img{
+.modal-inner .network img {
   display: block;
   margin: 0 auto;
   margin-bottom: 0.5rem;
@@ -132,7 +140,7 @@ const isMobile = computed(() => {
   background-color: white;
   font-size: 15px;
   border-radius: 4px;
-  font-weight:bold;
+  font-weight: bold;
   border: none;
 }
 
@@ -145,5 +153,4 @@ const isMobile = computed(() => {
   width: 100%;
   text-align: center;
 }
-
 </style>
