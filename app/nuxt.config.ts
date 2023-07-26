@@ -1,8 +1,10 @@
+const development = process.env.NODE_ENV !== "production";
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   // ssr: false,
   app: {
-    baseURL: "/hnft-timeline/",
+    baseURL: development ? "/" : "/hnft-timeline/",
     head: {
       charset: "utf-8",
       viewport: "width=device-width, initial-scale=1",
