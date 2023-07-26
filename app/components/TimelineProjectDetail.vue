@@ -12,12 +12,15 @@
     </div>
     <div>
       <div class="subheader">Date</div>
+      TimelineEvent
       {{ project.date }}
     </div>
     <div v-if="project.creator" class="subheader">Creator</div>
-    <div v-if="project.creator">{{ project.creator }}</div>
+    <div v-if="project.creator">
+      {{ project.creator }}
+    </div>
     <div v-if="project.description" class="subheader">Description</div>
-    <div class="description" v-if="project.description">
+    <div v-if="project.description" class="description">
       {{ project.description }}
     </div>
     <div class="network">
@@ -26,10 +29,12 @@
         class="link-image"
         :src="getNetworkImage(project.network)"
       />
-      <div class="network-name">{{ project.network }}</div>
+      <div class="network-name">
+        {{ project.network }}
+      </div>
     </div>
     <div class="links">
-      <div v-for="link in project.links">
+      <div v-for="link in project.links" :key="`${slug}-link-${link}`">
         <a :href="link.url" target="_blank">
           <nuxt-img
             width="32px"
@@ -42,15 +47,15 @@
   </div>
 </template>
 
-<script setup>
-import useTimelineData from "../composables/useTimelineData";
+<script setup lang="ts">
+import useTimelineData from "../composables/useTimelineData"
 
-const props = defineProps(["slug"]);
+const props = defineProps<{ slug: string }>()
 
-const { getLinkTypeImage, getNetworkImage } = useTimelineData();
-const { getProjectBySlug } = useTimelineData();
+const { getLinkTypeImage, getNetworkImage } = useTimelineData()
+const { getProjectBySlug } = useTimelineData()
 
-const project = getProjectBySlug(props.slug);
+const project = getProjectBySlug(props.slug)
 </script>
 
 <style>

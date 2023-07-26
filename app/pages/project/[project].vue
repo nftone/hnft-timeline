@@ -2,16 +2,26 @@
   <div class="app">
     <TimelineHeader />
     <div class="timeline-container">
-      <div v-for="(year, id) in years" :key="id" class="year-inner-container">
+      <div
+        v-for="(year, id) in years"
+        :key="id"
+        class="year-inner-container"
+      >
         <div class="year-name-container">
           <span class="year">{{ year.number }}</span>
         </div>
         <div class="year-months-container">
-          <div v-for="month in months" :key="month.name">
+          <div
+            v-for="month in months"
+            :key="month.name"
+          >
             <div class="month-name">
               {{ month.name }}
             </div>
-            <TimelineMonth :year="year" :month="month" />
+            <TimelineMonth
+              :year="year"
+              :month="month"
+            />
           </div>
         </div>
       </div>
@@ -24,18 +34,18 @@
 </template>
 
 <script setup>
-import { useRouter, useRoute } from "vue-router";
+import { useRouter, useRoute } from "vue-router"
 
-import { months } from "../../services/months";
-import { years } from "../../services/years";
+import { months } from "../../services/months"
+import { years } from "../../services/years"
 
-import Modal from "../../components/Modal.vue";
-import TimelineHeader from "../../components/TimelineHeader.vue";
-import TimelineProjectDetail from "../../components/TimelineProjectDetail.vue";
-import TimelineMonth from "../../components/TimelineMonth.vue";
+import Modal from "../../components/Modal.vue"
+import TimelineHeader from "../../components/TimelineHeader.vue"
+import TimelineProjectDetail from "../../components/TimelineProjectDetail.vue"
+import TimelineMonth from "../../components/TimelineMonth.vue"
 
-const route = useRoute();
-const router = useRouter();
+const route = useRoute()
+const router = useRouter()
 </script>
 
 <style>

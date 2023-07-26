@@ -4,9 +4,9 @@
       <div class="project-container">
         <div class="project-image-container">
           <nuxt-img
+            v-if="!project.placeholder"
             height="50px"
             width="50px"
-            v-if="!project.placeholder"
             :src="`images/projects/${project.image}`"
           />
         </div>
@@ -25,10 +25,10 @@
   </div>
 </template>
 
-<script setup>
-import useTimelineData from "../composables/useTimelineData";
-const props = defineProps(["project"]);
-const { getNetworkImage } = useTimelineData();
+<script setup lang="ts">
+import useTimelineData from "../composables/useTimelineData"
+const props = defineProps<{ project: TimelineProject }>()
+const { getNetworkImage } = useTimelineData()
 </script>
 
 <style>
@@ -44,7 +44,6 @@ const { getNetworkImage } = useTimelineData();
   justify-items: center;
   align-items: center;
 }
-
 
 .project-image-container {
   height: 50px;

@@ -3,9 +3,10 @@
     <div>
       <div>
         The timeline is fully open source.
-        <a href="https://github.com/nftone/hnft-timeline"
-           target="_blank"
-           class="website-link"
+        <a
+          href="https://github.com/nftone/hnft-timeline"
+          target="_blank"
+          class="website-link"
         >Follow these instructions</a>
         to add a new project or propose changes !
       </div>
@@ -13,38 +14,58 @@
   </div>
   <div>
     <div class="footer">
-        Created with ❤️ by the
-        <a href="https://www.nft1.com/"
-           target="_blank"
-           class="website-link"
-        >NFT1 Team.</a>
-        <span id="donate-ether">Donate</span><span class="address">nft1dev.eth</span>
+      Created with ❤️ by the
+      <a href="https://www.nft1.com/" target="_blank" class="website-link">NFT1 Team.</a>
+      <span id="donate-ether">Donate</span><span class="address">nft1dev.eth</span>
       <div class="footer-contact">
         <div>
-          <a class="footer-contact-social-link"
-             href="#"
-             @click="openContactModal">
-              <nuxt-img class="white-svg" :src="`/images/icons/message.png`" width="30px"/>
+          <a
+            class="footer-contact-social-link"
+            href="#"
+            @click="openContactModal"
+          >
+            <nuxt-img
+              class="white-svg"
+              :src="`/images/icons/message.png`"
+              width="30px"
+            />
           </a>
-          <a class="footer-contact-social-link"
-             href="https://github.com/nftone/hnft-timeline"
-             target="_blank">
-            <nuxt-img class="white-svg" :src="`/images/icons/github.svg`" width="30px"/>
+          <a
+            class="footer-contact-social-link"
+            href="https://github.com/nftone/hnft-timeline"
+            target="_blank"
+          >
+            <nuxt-img
+              class="white-svg"
+              :src="`/images/icons/github.svg`"
+              width="30px"
+            />
           </a>
-          <a class="footer-contact-social-link"
-             href=""
-             target="_blank">
-            <nuxt-img class="white-svg" :src="`/images/icons/twitter.svg`" width="30px"/>
+          <a class="footer-contact-social-link" href="" target="_blank">
+            <nuxt-img
+              class="white-svg"
+              :src="`/images/icons/twitter.svg`"
+              width="30px"
+            />
           </a>
-          <a class="footer-contact-social-link"
-             href=""
-             target="_blank">
-            <nuxt-img class="white-svg" :src="`/images/icons/discord.svg`" width="30px"/>
+          <a class="footer-contact-social-link" href="" target="_blank">
+            <nuxt-img
+              class="white-svg"
+              :src="`/images/icons/discord.svg`"
+              width="30px"
+            />
           </a>
-          <a class="footer-contact-social-link"
-             href="https://www.nft1.com/"
-             target="_blank">
-            <nuxt-img class="white-svg" :src="`/images/icons/web.svg`" width="30px" color="white"/>
+          <a
+            class="footer-contact-social-link"
+            href="https://www.nft1.com/"
+            target="_blank"
+          >
+            <nuxt-img
+              class="white-svg"
+              :src="`/images/icons/web.svg`"
+              width="30px"
+              color="white"
+            />
           </a>
         </div>
       </div>
@@ -56,25 +77,22 @@
   </Modal>
 </template>
 
-
 <script setup>
-import { ref } from "vue";
+import { ref } from "vue"
 
-import Modal from "../components/Modal.vue";
-import ContactModal from "../components/ContactModal.vue";
+import Modal from "../components/Modal.vue"
+import ContactModal from "../components/ContactModal.vue"
 
-const showContactModal = ref(false);
+const showContactModal = ref(false)
 
 const openContactModal = () => {
-  showContactModal.value = true;
+  showContactModal.value = true
 }
 
 const closeContactModal = () => {
-  showContactModal.value = false;
+  showContactModal.value = false
 }
-
 </script>
-
 
 <style>
 .footer {
@@ -127,12 +145,10 @@ const closeContactModal = () => {
   transition: 0.3s;
 }
 
-
 .footer-contact {
   display: flex;
   justify-content: center;
   padding-top: 10px;
-
 }
 
 .footer-contact-social-link {
@@ -150,4 +166,3 @@ const closeContactModal = () => {
   filter: invert(1);
 }
 </style>
-

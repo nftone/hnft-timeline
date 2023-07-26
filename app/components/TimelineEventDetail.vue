@@ -12,23 +12,22 @@
         class="image-size"
         :src="`images/events/${event.image}`"
         alt="image of event"
+        width="250px"
+        height="250px"
       />
     </div>
   </div>
 </template>
 
-<script setup>
-import useTimelineData from "../composables/useTimelineData";
-const props = defineProps(["slug"]);
-const { getEventBySlug } = useTimelineData();
-const event = getEventBySlug(props.slug);
+<script setup lang="ts">
+import useTimelineData from "../composables/useTimelineData"
+const props = defineProps<{ slug: string }>()
+const { getEventBySlug } = useTimelineData()
+const event = getEventBySlug(props.slug)
 </script>
 
 <style>
-/* @TODO Rename and move size should be defined in nuxt-img component */
-.image-size {
-  width: 250px;
-  height: 250px;
+.detail-image img {
   background-color: white;
 }
 </style>

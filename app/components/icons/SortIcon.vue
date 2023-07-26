@@ -47,14 +47,7 @@
   </div>
 </template>
 
-<script>
-import SortIconTypes from '../../enums/SortIconTypes'
-
-export default {
-  props: ['type'],
-
-  data: () => ({
-    SortIconTypes,
-  }),
-}
+<script setup lang="ts">
+import SortIconTypes from "../../enums/SortIconTypes"
+const props = defineProps<{ type: string }>()
 </script>

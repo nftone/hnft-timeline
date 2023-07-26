@@ -21,11 +21,11 @@
 </template>
 
 <script setup>
-import { months } from "../services/months";
-import { years } from "../services/years";
+import { months } from "../services/months"
+import { years } from "../services/years"
 
-import TimelineHeader from "../components/TimelineHeader.vue";
-import TimelineMonth from "../components/TimelineMonth.vue";
+import TimelineHeader from "../components/TimelineHeader.vue"
+import TimelineMonth from "../components/TimelineMonth.vue"
 </script>
 
 <style>

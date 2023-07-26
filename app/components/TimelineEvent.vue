@@ -15,13 +15,12 @@
   </div>
 </template>
 
-<script setup>
-const props = defineProps(["event"]);
+<script setup lang="ts">
+const props = defineProps<{ event: TimelineEvent }>()
 </script>
 
 <style>
 .main-event-container {
-
   border-radius: 4px;
   background: var(--yellow-event);
 }

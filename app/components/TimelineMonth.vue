@@ -7,8 +7,8 @@
   </div>
 
   <div
-    v-else
     v-for="(item, i) in getTimelineItemsByPeriod(year.number, month.number)"
+    v-else
     :key="`item-${i}`"
     class="month-projects-container"
   >
@@ -17,14 +17,14 @@
   </div>
 </template>
 
-<script setup>
-import TimelineEvent from "../components/TimelineEvent.vue";
-import TimelineProject from "../components/TimelineProject.vue";
-import useTimelineData from "../composables/useTimelineData";
+<script setup lang="ts">
+import TimelineEvent from "../components/TimelineEvent.vue"
+import TimelineProject from "../components/TimelineProject.vue"
+import useTimelineData from "../composables/useTimelineData"
 
-const { getTimelineItemsByPeriod } = useTimelineData();
+const { getTimelineItemsByPeriod } = useTimelineData()
 
-const { year, month } = defineProps(["year", "month"]);
+const props = defineProps<{ year: number; month: number }>()
 </script>
 
 <style>

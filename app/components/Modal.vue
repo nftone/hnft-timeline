@@ -1,46 +1,51 @@
 <template>
-    <div v-if="show" class="modal-outer">
-      <div class="close-button">
-        <button @click="$emit('close')">X</button>
-      </div>
-      <div
-        ref="modalInner"
-        :class="isSmallerThanTablet ? 'modal-inner.mobile' : 'modal-inner'"
-      >
-        <div class="modal-header">
-          <div class="modal-body">
-            <slot />
-          </div>
+  <div
+    v-if="show"
+    class="modal-outer"
+  >
+    <div class="close-button">
+      <button @click="$emit('close')">
+        X
+      </button>
+    </div>
+    <div
+      ref="modalInner"
+      :class="isSmallerThanTablet ? 'modal-inner.mobile' : 'modal-inner'"
+    >
+      <div class="modal-header">
+        <div class="modal-body">
+          <slot />
         </div>
       </div>
     </div>
+  </div>
 </template>
 
 <script setup>
-import { useScrollLock, useBreakpoints } from "@vueuse/core";
-import { ref, onMounted } from "vue";
-import { onKeyStroke, onClickOutside } from "@vueuse/core";
+import { useScrollLock, useBreakpoints } from "@vueuse/core"
+import { ref, onMounted } from "vue"
+import { onKeyStroke, onClickOutside } from "@vueuse/core"
 
-const emit = defineEmits(["close"]);
+const emit = defineEmits(["close"])
 
-const modalInner = ref(null);
+const modalInner = ref(null)
 
-const show = ref(true);
+const show = ref(true)
 
-onKeyStroke("Escape", () => emit("close"));
-onClickOutside(modalInner, () => emit("close"));
+onKeyStroke("Escape", () => emit("close"))
+onClickOutside(modalInner, () => emit("close"))
 
 const breakpoints = useBreakpoints({
   tablet: 640,
-});
+})
 
-const isSmallerThanTablet = breakpoints.smaller("tablet");
+const isSmallerThanTablet = breakpoints.smaller("tablet")
 
 onMounted(() => {
-  const el = document.querySelector("body");
-  const isLocked = useScrollLock(el);
-  isLocked.value = true;
-});
+  const el = document.querySelector("body")
+  const isLocked = useScrollLock(el)
+  isLocked.value = true
+})
 
 console.log(isSmallerThanTablet)
 </script>
