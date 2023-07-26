@@ -6,10 +6,7 @@
     "dev": "nuxt dev --port 3003",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare",
-    "gh-pages-deploy": "gh-pages --dotfiles --dist dist",
-    "predeploy": "npm run build  && cp CNAME ./dist",
-    "deploy": "cd dist && cp index.html 404.html && cd .. && gh-pages -d dist"
+    "postinstall": "nuxt prepare"
   },
   "devDependencies": {
     "@nuxt/image": "^1.0.0-rc.1",
