@@ -24,27 +24,27 @@
           <a class="footer-contact-social-link"
              href=""
              target="_blank">
-              <nuxt-img :src="`/images/icons/message.png`" width="30px"/>
+              <nuxt-img class="white-svg" :src="`/images/icons/message.png`" width="30px"/>
           </a>
           <a class="footer-contact-social-link"
              href="https://github.com/nftone/hnft-timeline"
              target="_blank">
-            <nuxt-img :src="`/images/icons/github.svg`" width="30px"/>
+            <nuxt-img class="white-svg" :src="`/images/icons/github.svg`" width="30px"/>
           </a>
           <a class="footer-contact-social-link"
              href=""
              target="_blank">
-            <nuxt-img :src="`/images/icons/twitter.svg`" width="30px"/>
+            <nuxt-img class="white-svg" :src="`/images/icons/twitter.svg`" width="30px"/>
           </a>
           <a class="footer-contact-social-link"
              href=""
              target="_blank">
-            <nuxt-img :src="`/images/icons/discord.svg`" width="30px"/>
+            <nuxt-img class="white-svg" :src="`/images/icons/discord.svg`" width="30px"/>
           </a>
           <a class="footer-contact-social-link"
              href="https://www.nft1.com/"
              target="_blank">
-            <nuxt-img :src="`/images/icons/web.svg`" width="30px"/>
+            <nuxt-img class="white-svg" :src="`/images/icons/web.svg`" width="30px" color="white"/>
           </a>
         </div>
       </div>
@@ -134,6 +134,10 @@
 .footer-contact-social-link:hover {
   color: #656565;
   cursor: pointer;
+}
+
+.white-svg {
+  filter: invert(1);
 }
 </style>
 
