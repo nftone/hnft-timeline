@@ -9,7 +9,7 @@
 
     <div class="detail-image">
       <nuxt-img
-        class="imfdefineEmitsage-size"
+        class="image-size"
         :src="`images/events/${event.image}`"
         alt="image of event"
       />

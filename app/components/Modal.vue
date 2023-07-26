@@ -1,10 +1,5 @@
 <template>
-
-  <div class="close-button">
-    <button @click="$emit('close')">X</button>
-  </div>
     <div v-if="show" class="modal-outer">
-
       <div class="close-button">
         <button @click="$emit('close')">X</button>
       </div>
@@ -46,6 +41,8 @@ onMounted(() => {
   const isLocked = useScrollLock(el);
   isLocked.value = true;
 });
+
+console.log(isSmallerThanTablet)
 </script>
 
 <style>
