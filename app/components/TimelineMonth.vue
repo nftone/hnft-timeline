@@ -31,6 +31,7 @@ const { year, month } = defineProps(["year", "month"]);
 .month-projects-container {
   justify-content: left;
   background-color: var(--grey);
+  border-top: 1px solid var(--grey);
   border-radius: 4px;
   margin: 4px;
 }
