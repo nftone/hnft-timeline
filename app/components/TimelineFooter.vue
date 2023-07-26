@@ -22,8 +22,8 @@
       <div class="footer-contact">
         <div>
           <a class="footer-contact-social-link"
-             href=""
-             target="_blank">
+             href="#"
+             @click="openContactModal">
               <nuxt-img class="white-svg" :src="`/images/icons/message.png`" width="30px"/>
           </a>
           <a class="footer-contact-social-link"
@@ -50,10 +50,28 @@
       </div>
     </div>
   </div>
+
+  <Modal v-if="showContactModal" @close="closeContactModal">
+    <ContactModal />
+  </Modal>
 </template>
 
 
 <script setup>
+import { ref } from "vue";
+
+import Modal from "../components/Modal.vue";
+import ContactModal from "../components/ContactModal.vue";
+
+const showContactModal = ref(false);
+
+const openContactModal = () => {
+  showContactModal.value = true;
+}
+
+const closeContactModal = () => {
+  showContactModal.value = false;
+}
 
 </script>
 
