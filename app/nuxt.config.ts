@@ -7,7 +7,7 @@ export default defineNuxtConfig({
       title: "Historical Non-Fungible Tokens Timeline",
     },
   },
-  modules: ["@vueuse/nuxt", "@nuxt/image"],
+  modules: ["@vueuse/nuxt", "@nuxt/image", "@nuxtjs/turnstile"],
   routeRules: {
     "/": { prerender: true },
     "/project/*": { prerender: true },

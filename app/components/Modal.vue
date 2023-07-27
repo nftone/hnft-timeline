@@ -63,18 +63,6 @@ console.log(isSmallerThanTablet)
   place-content: center;
 }
 
-.modal-outer-mobile {
-  position: fixed;
-  z-index: 9998;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: #252525;
-  display: grid;
-  place-content: center;
-}
-
 .modal-inner {
   width: 60vw;
   max-width: 600px;
