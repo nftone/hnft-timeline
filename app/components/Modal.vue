@@ -10,7 +10,7 @@
     </div>
     <div
       ref="modalInner"
-      :class="isSmallerThanTablet ? 'modal-inner.mobile' : 'modal-inner'"
+      :class="{'modal-inner-mobile' : isSmallerThanTablet, 'modal-inner': !isSmallerThanTablet}"
     >
       <div class="modal-header">
         <div class="modal-body">
@@ -63,6 +63,18 @@ console.log(isSmallerThanTablet)
   place-content: center;
 }
 
+.modal-outer-mobile {
+  position: fixed;
+  z-index: 9998;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #252525;
+  display: grid;
+  place-content: center;
+}
+
 .modal-inner {
   width: 60vw;
   max-width: 600px;
@@ -75,7 +87,7 @@ console.log(isSmallerThanTablet)
   display: grid;
 }
 
-.modal-inner.mobile {
+.modal-inner-mobile {
   width: 100%;
   height: 100%;
   text-align: center;
@@ -101,6 +113,15 @@ console.log(isSmallerThanTablet)
   padding: 0.5rem;
 }
 
+.modal-inner-mobile h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 1rem 0rem 1rem 0rem;
+  background-color: var(--yellow-event);
+  border-radius: 4px;
+  padding: 0.5rem;
+}
+
 .modal-inner .subheader {
   background-color: var(--grey);
   border-radius: 4px;
@@ -109,7 +130,19 @@ console.log(isSmallerThanTablet)
   margin-top: 0.5rem;
 }
 
+.modal-inner-mobile .subheader {
+  background-color: var(--grey);
+  border-radius: 4px;
+  padding: 0.2rem;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+}
+
 .modal-inner .description {
+  margin-bottom: 1rem;
+}
+
+.modal-inner-mobile .description {
   margin-bottom: 1rem;
 }
 
@@ -122,14 +155,32 @@ console.log(isSmallerThanTablet)
   margin: 2rem 0rem;
 }
 
+.modal-inner-mobile .network {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-content: center;
+  margin: 1rem 0rem;
+}
+
 .modal-inner .network-name {
   font-weight: bold;
 }
+
+
 
 .modal-inner .network img {
   display: block;
   margin: 0 auto;
   margin-bottom: 0.5rem;
+}
+
+.modal-inner-mobile .network img {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 0.5rem;
+  border-radius: 50%;
 }
 
 .modal-header {

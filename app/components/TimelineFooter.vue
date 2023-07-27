@@ -71,10 +71,11 @@
       </div>
     </div>
   </div>
-
+<!-- contactModal is not ready
   <Modal v-if="showContactModal" @close="closeContactModal">
     <ContactModal />
   </Modal>
+  -->
 </template>
 
 <script setup>
