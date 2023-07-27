@@ -36,7 +36,7 @@ const { getNetworkImage } = useTimelineData()
   height: 50px;
   overflow: hidden;
   display: grid;
-  grid-template-columns: 50px auto 40px;
+  grid-template-columns: 50px auto 35px;
 }
 
 .project-network-container {
