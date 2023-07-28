@@ -1,6 +1,5 @@
 <template>
   <div class="app">
-    <TimelineHeader />
     <div class="timeline-container">
       <div v-for="(year, id) in years" :key="id" class="year-inner-container">
         <div class="year-name-container">
@@ -16,7 +15,6 @@
         </div>
       </div>
     </div>
-    <TimelineFooter />
   </div>
 </template>
 
@@ -26,8 +24,6 @@ import {years} from "../services/years";
 import {months} from "../services/months";
 
 import TimelineMonth from "./TimelineMonth.vue";
-import TimelineHeader from "./TimelineHeader.vue";
-
 </script>
 
 <style>
