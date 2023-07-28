@@ -24,7 +24,7 @@
       </div>
     </div>
     <div>
-      <NuxtTurnstile class="captcha" />
+      <NuxtTurnstile class="captcha" ref="turnstile"/>
     </div>
     <button
         class="submit-button-contact"
@@ -42,7 +42,7 @@ import {ref} from 'vue';
 const error = ref('');
 const message = ref('');
 const submitted = ref(false);
-const reCaptchaToken = ref('');
+const turnstile = ref ();
 
 const onSubmitMessage = () => {
   try {

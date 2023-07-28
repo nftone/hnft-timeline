@@ -18,4 +18,13 @@ export default defineNuxtConfig({
       crawlLinks: true,
     },
   },
+  turnstile: {
+    siteKey: '0x4AAAAAAACJyD5TN6_HsXTU',
+  },
+
+  runtimeConfig: {
+    turnstile: {
+      secretKey: '',
+    },
+  },
 })
