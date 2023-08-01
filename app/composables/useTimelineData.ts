@@ -1,4 +1,5 @@
 import data from "../src/data/timelineData.json"
+import {ref} from 'vue'
 
 // @ts-ignore
 const projects: TimelineProject[] = data.projects.map((e: TimelineProject) => ({
@@ -29,13 +30,16 @@ export default function useTimelineData() {
 
   const getTimelineProjectsByPeriod = (
     year: number,
-    month: number
+    month: number,
   ): TimelineProject[] => {
+    console.log("networkFilter UsetimelineData : " + networkFilter.value)
     const projectsInTheMonth = [...projects]
       .filter((project) => {
         const projectDate = new Date(project.date)
         return (
           projectDate.getFullYear() === year && projectDate.getMonth() === month
+            && (networkFilter.value.length === 0 || networkFilter.value.includes(project.network))
+            //project.network === "Namecoin"
         )
       })
       .sort((a, b) => {
@@ -99,11 +103,14 @@ export default function useTimelineData() {
     return `images/taxonomy/${networkImageData.image}`
   }
 
+  const networkFilter = ref<string[]>([]);
+
   return {
     getTimelineItemsByPeriod,
     getEventBySlug,
     getProjectBySlug,
     getLinkTypeImage,
     getNetworkImage,
+    networkFilter,
   }
 }
