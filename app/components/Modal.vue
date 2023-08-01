@@ -13,7 +13,7 @@
       :class="{'modal-inner-mobile' : isSmallerThanTablet, 'modal-inner': !isSmallerThanTablet}"
     >
       <div class="modal-header">
-        <div class="modal-body">
+        <div :class="{'modal-body-mobile' : isSmallerThanTablet, 'modal-body': !isSmallerThanTablet}">
           <slot />
         </div>
       </div>
@@ -76,7 +76,7 @@ console.log(isSmallerThanTablet)
 }
 
 .modal-inner-mobile {
-  width: 100%;
+  width: 100vw;
   height: 100%;
   text-align: center;
   display: flex;
@@ -104,7 +104,7 @@ console.log(isSmallerThanTablet)
 .modal-inner-mobile h2 {
   font-size: 1.5rem;
   font-weight: bold;
-  margin: 1rem 0rem 1rem 0rem;
+  margin: 3rem 0rem 1rem 0rem;
   background-color: var(--yellow-event);
   border-radius: 4px;
   padding: 0.5rem;
@@ -156,8 +156,6 @@ console.log(isSmallerThanTablet)
   font-weight: bold;
 }
 
-
-
 .modal-inner .network img {
   display: block;
   margin: 0 auto;
@@ -198,6 +196,12 @@ console.log(isSmallerThanTablet)
 
 .modal-body {
   width: 100%;
+  text-align: center;
+}
+
+.modal-body-mobile {
+  width: 100%;
+  height: 100vh;
   text-align: center;
 }
 </style>
