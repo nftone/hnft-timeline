@@ -16,7 +16,8 @@
 </template>
 
 <script setup lang="ts">
-const props = defineProps<{ event: TimelineEvent }>()
+
+defineProps<{ event: TimelineEvent }>()
 </script>
 
 <style>

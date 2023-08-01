@@ -25,10 +25,16 @@ const filterProjects = (projects: TimelineProject[]): TimelineProject[] => {
   return projects.filter(({ network }) => network === networkFilter)
 }
 
+const filterEvents = (events: TimelineEvent[]): TimelineEvent[] => {
+  if (networkFilter === "") return  events
+  return events.filter(({ network }) => network === networkFilter)
+}
+
 export default function useTimelineData(route: RouteLocationNormalizedLoaded) {
   networkFilter = String(route.query?.network || "")
 
   const filteredProjects = filterProjects(projects)
+  const filteredEvents = filterEvents(events)
 
   const getTimelineItemsByPeriod = (
     year: number,
@@ -68,7 +74,7 @@ export default function useTimelineData(route: RouteLocationNormalizedLoaded) {
     year: number,
     month: number
   ): TimelineEvent[] => {
-    const eventsInTheMonth = [...events]
+    const eventsInTheMonth = [...filteredEvents]
 
       .filter((event) => {
         const eventDate = new Date(event.date)
