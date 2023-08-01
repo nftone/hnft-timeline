@@ -1,5 +1,6 @@
 import { RouteLocationNormalizedLoaded } from "vue-router"
 import data from "../src/data/timelineData.json"
+import * as net from "net";
 
 // @ts-ignore
 const projects: TimelineProject[] = data.projects.map((e: TimelineProject) => ({
@@ -14,6 +15,8 @@ const events: TimelineEvent[] = data.events.map((e: TimelineEvent) => ({
 }))
 
 const taxonomy = data.taxonomy
+
+const networks = data.taxonomy.networks
 
 let networkFilter: string = ""
 
@@ -140,6 +143,8 @@ export default function useTimelineData(route: RouteLocationNormalizedLoaded) {
     return items[1]
   }
 
+
+
   return {
     getTimelineItemsByPeriod,
     getEventBySlug,
@@ -148,5 +153,6 @@ export default function useTimelineData(route: RouteLocationNormalizedLoaded) {
     getNetworkImage,
     getEarliestItem,
     getLatestItem,
+    networks,
   }
 }

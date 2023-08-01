@@ -6,11 +6,9 @@
     <div class="filter-container">
       <select id="network-filter" v-model="selectedNetwork">
         <option value="">All</option>
-        <option value="Counterparty">Counterparty</option>
-        <option value="Dogeparty">Dogeparty</option>
-        <option value="Ethereum">Ethereum</option>
-        <option value="Ethereum Classic">Ethereum Classic</option>
-        <option value="Namecoin">Namecoin</option>
+        <option v-for="network in networks" :key="network.name" :value="network.name">
+          {{network.name}}
+        </option>
       </select>
     </div>
   </div>
@@ -19,10 +17,12 @@
 <script lang="ts" setup>
 import { useRouter, useRoute } from "vue-router"
 import { ref, watch } from "vue"
+import useTimelineData from "../composables/useTimelineData"
 
 const router = useRouter()
 const route = useRoute()
 
+const { networks } = useTimelineData(route);
 const initialNetworkFilter = String(route.query?.network || "")
 const selectedNetwork = ref(initialNetworkFilter)
 
