@@ -1,9 +1,15 @@
 <template>
   <TimelineHeader />
-  <router-view />
+  <router-view :key="route.fullPath" />
   <TimelineFooter />
-
 </template>
+
+<script setup>
+// TODO: This is a hack
+// We should not have to do this to re-render the app on query param change
+import { useRoute } from "vue-router"
+const route = useRoute()
+</script>
 
 <style>
 :root {
@@ -36,7 +42,3 @@ body {
   margin: 0;
 }
 </style>
-
-<script setup>
-
-</script>

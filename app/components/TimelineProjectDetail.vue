@@ -12,7 +12,6 @@
     </div>
     <div>
       <div class="subheader">Date</div>
-      TimelineEvent
       {{ project.date }}
     </div>
     <div v-if="project.creator" class="subheader">Creator</div>
@@ -52,8 +51,9 @@ import useTimelineData from "../composables/useTimelineData"
 
 const props = defineProps<{ slug: string }>()
 
-const { getLinkTypeImage, getNetworkImage } = useTimelineData()
-const { getProjectBySlug } = useTimelineData()
+const { getLinkTypeImage, getProjectBySlug, getNetworkImage } = useTimelineData(
+  useRoute()
+)
 
 const project = getProjectBySlug(props.slug)
 </script>

@@ -4,7 +4,6 @@
       <div class="project-container">
         <div class="project-image-container">
           <nuxt-img
-            v-if="!project.placeholder"
             height="50px"
             width="50px"
             :src="`images/projects/${project.image}`"
@@ -15,7 +14,6 @@
         </div>
         <div class="project-network-container">
           <nuxt-img
-            v-if="!project.placeholder"
             class="network-image"
             :src="getNetworkImage(project.network)"
           />
@@ -27,8 +25,8 @@
 
 <script setup lang="ts">
 import useTimelineData from "../composables/useTimelineData"
-const props = defineProps<{ project: TimelineProject }>()
-const { getNetworkImage } = useTimelineData()
+defineProps<{ project: TimelineProject }>()
+const { getNetworkImage } = useTimelineData(useRoute())
 </script>
 
 <style>

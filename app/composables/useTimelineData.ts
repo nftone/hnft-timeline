@@ -1,5 +1,5 @@
+import { RouteLocationNormalizedLoaded } from "vue-router"
 import data from "../src/data/timelineData.json"
-import {ref} from 'vue'
 
 // @ts-ignore
 const projects: TimelineProject[] = data.projects.map((e: TimelineProject) => ({
@@ -7,6 +7,7 @@ const projects: TimelineProject[] = data.projects.map((e: TimelineProject) => ({
   type: "project",
 }))
 
+// @ts-ignore
 const events: TimelineEvent[] = data.events.map((e: TimelineEvent) => ({
   ...e,
   type: "event",
@@ -14,7 +15,18 @@ const events: TimelineEvent[] = data.events.map((e: TimelineEvent) => ({
 
 const taxonomy = data.taxonomy
 
-export default function useTimelineData() {
+let networkFilter: string = ""
+
+const filterProjects = (projects: TimelineProject[]): TimelineProject[] => {
+  if (networkFilter === "") return projects
+  return projects.filter(({ network }) => network === networkFilter)
+}
+
+export default function useTimelineData(route: RouteLocationNormalizedLoaded) {
+  networkFilter = String(route.query?.network || "")
+
+  const filteredProjects = filterProjects(projects)
+
   const getTimelineItemsByPeriod = (
     year: number,
     month: number
@@ -30,16 +42,13 @@ export default function useTimelineData() {
 
   const getTimelineProjectsByPeriod = (
     year: number,
-    month: number,
+    month: number
   ): TimelineProject[] => {
-    console.log("networkFilter UsetimelineData : " + networkFilter.value)
-    const projectsInTheMonth = [...projects]
+    const projectsInTheMonth = [...filteredProjects]
       .filter((project) => {
         const projectDate = new Date(project.date)
         return (
           projectDate.getFullYear() === year && projectDate.getMonth() === month
-            && (networkFilter.value.length === 0 || networkFilter.value.includes(project.network))
-            //project.network === "Namecoin"
         )
       })
       .sort((a, b) => {
@@ -75,35 +84,61 @@ export default function useTimelineData() {
     return eventsInTheMonth
   }
 
-  const getEventBySlug = (slug: string) => {
-    return events.find((event) => event.slug === slug)
+  const getEventBySlug = (slug: string): TimelineEvent => {
+    const event = events.find((event) => event.slug === slug)
+    if (!event) throw new Error(`Event with slug ${slug} not found`)
+    return event
   }
 
-  const getProjectBySlug = (slug: string) => {
-    return projects.find((project) => project.slug === slug)
+  const getProjectBySlug = (slug: string): TimelineProject => {
+    const project = projects.find((project) => project.slug === slug)
+    if (!project) throw new Error(`Project with slug ${slug} not found`)
+    return project
   }
 
-  const getLinkTypeImage = (linkType: string) => {
+  const getLinkTypeImage = (linkType: string): string => {
     const linkTypeData = taxonomy.linkTypes.find(
       ({ name }) => name === linkType
     )
 
-    if (!linkTypeData) return null
+    if (!linkTypeData)
+      throw new Error(`Link type with name ${linkType} not found`)
 
     return `images/taxonomy/${linkTypeData.image}`
   }
 
-  const getNetworkImage = (networkName: string) => {
+  const getNetworkImage = (networkName: string): string => {
     const networkImageData = taxonomy.networks.find(
       ({ name }) => name === networkName
     )
 
-    if (!networkImageData) return null
+    if (!networkImageData) {
+      throw new Error(`Network with name ${networkName} not found`)
+    }
 
     return `images/taxonomy/${networkImageData.image}`
   }
 
-  const networkFilter = ref<string[]>([]);
+  const getEarliestItem = (): TimelineProject | TimelineEvent => {
+    const items = [filteredProjects[0], events[0]].sort((a, b) => {
+      const aDate = new Date(a.date).getTime()
+      const bDate = new Date(b.date).getTime()
+      return aDate - bDate
+    })
+    return items[0]
+  }
+
+  const getLatestItem = (): TimelineProject | TimelineEvent => {
+    const items = [
+      filteredProjects[filteredProjects.length - 1],
+      events[events.length - 1],
+    ].sort((a, b) => {
+      const aDate = new Date(a.date).getTime()
+      const bDate = new Date(b.date).getTime()
+      return aDate - bDate
+    })
+    return items[1]
+  }
 
   return {
     getTimelineItemsByPeriod,
@@ -111,6 +146,7 @@ export default function useTimelineData() {
     getProjectBySlug,
     getLinkTypeImage,
     getNetworkImage,
-    networkFilter,
+    getEarliestItem,
+    getLatestItem,
   }
 }

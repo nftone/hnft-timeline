@@ -4,30 +4,42 @@
       <h1 class="timeline-title">HNFT Timeline</h1>
     </div>
     <div class="filter-container">
-      <select v-model="networkFilter" id="network-filter" @change="changeNetwork">
+      <select id="network-filter" v-model="selectedNetwork">
         <option value="">All</option>
         <option value="Counterparty">Counterparty</option>
         <option value="Dogeparty">Dogeparty</option>
         <option value="Ethereum">Ethereum</option>
         <option value="Ethereum Classic">Ethereum Classic</option>
         <option value="Namecoin">Namecoin</option>
-
       </select>
     </div>
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
+import { useRouter, useRoute } from "vue-router"
+import { ref, watch } from "vue"
 
-import { ref, watch } from 'vue';
-import useTimelineData from "../composables/useTimelineData";
+const router = useRouter()
+const route = useRoute()
 
-const { networkFilter } = useTimelineData();
+const initialNetworkFilter = String(route.query?.network || "")
+const selectedNetwork = ref(initialNetworkFilter)
 
-watch(networkFilter, () => {
-  console.log("network choisi TimelineHeader: ", networkFilter.value);
-});
+const onNetworkFilterChanged = (network: string) => {
+  const query: any = {}
 
+  if (network !== "") query.network = network
+
+  router.push({
+    path: "/",
+    query,
+  })
+}
+
+watch(selectedNetwork, async (newValue: string) => {
+  onNetworkFilterChanged(newValue)
+})
 </script>
 
 <style>

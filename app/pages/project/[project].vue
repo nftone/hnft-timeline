@@ -9,7 +9,7 @@
 <script setup>
 import { useRouter, useRoute } from "vue-router"
 
-import Timeline from "~/components/Timeline.vue";
+import Timeline from "~/components/Timeline.vue"
 import Modal from "../../components/Modal.vue"
 import TimelineProjectDetail from "../../components/TimelineProjectDetail.vue"
 

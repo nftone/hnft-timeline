@@ -1,1 +1,0 @@
-// type(TimelineEvent | TimelineProject);

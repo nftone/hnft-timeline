@@ -22,9 +22,12 @@ import TimelineEvent from "../components/TimelineEvent.vue"
 import TimelineProject from "../components/TimelineProject.vue"
 import useTimelineData from "../composables/useTimelineData"
 
-const { getTimelineItemsByPeriod } = useTimelineData()
+const { getTimelineItemsByPeriod } = useTimelineData(useRoute())
 
-const props = defineProps<{ year: number; month: number }>()
+const props = defineProps<{
+  year: Year
+  month: Month
+}>()
 </script>
 
 <style>
