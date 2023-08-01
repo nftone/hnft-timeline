@@ -9,9 +9,9 @@
 <script setup>
 import { useRouter, useRoute } from "vue-router"
 
-import Timeline from "~/components/Timeline.vue";
+import Timeline from "~/components/Timeline.vue"
 import Modal from "../../components/Modal.vue"
-import TimelineEventDetail from "../../components/TimelineEventDetail.vue";
+import TimelineEventDetail from "../../components/TimelineEventDetail.vue"
 
 const route = useRoute()
 const router = useRouter()

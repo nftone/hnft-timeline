@@ -41,18 +41,22 @@
               width="30px"
             />
           </a>
-          <a class="footer-contact-social-link"
-             href="https://twitter.com/nft1dev"
-             target="_blank">
+          <a
+            class="footer-contact-social-link"
+            href="https://twitter.com/nft1dev"
+            target="_blank"
+          >
             <nuxt-img
               class="white-svg"
               :src="`/images/icons/twitter.svg`"
               width="30px"
             />
           </a>
-          <a class="footer-contact-social-link"
-             href="https://discord.gg/Qz3QF86Db6"
-             target="_blank">
+          <a
+            class="footer-contact-social-link"
+            href="https://discord.gg/Qz3QF86Db6"
+            target="_blank"
+          >
             <nuxt-img
               class="white-svg"
               :src="`/images/icons/discord.svg`"
@@ -79,7 +83,6 @@
   <Modal v-if="showContactModal" @close="closeContactModal">
     <ContactModal />
   </Modal>
-
 </template>
 
 <script setup>

@@ -12,23 +12,23 @@
         Message
       </label>
       <textarea
-          name="message"
-          id="message"
-          v-model="message"
-          rows="10"
-          placeholder=" Enter a message"
-          class="textarea"
-      ></textarea>
+        id="message"
+        v-model="message"
+        name="message"
+        rows="10"
+        placeholder=" Enter a message"
+        class="textarea"
+      />
       <div v-if="error" class="message-error">
         {{ error }}
       </div>
     </div>
     <div>
-      <NuxtTurnstile class="captcha" ref="turnstile"/>
+      <NuxtTurnstile ref="turnstile" class="captcha" />
     </div>
     <button
-        class="submit-button-contact"
-        @click="onSubmitMessage"
+      class="submit-button-contact"
+      @click="onSubmitMessage"
     >
       Submit
     </button>
@@ -37,26 +37,26 @@
 
 
 <script setup>
-import {ref} from 'vue';
+import {ref} from 'vue'
 
-const error = ref('');
-const message = ref('');
-const submitted = ref(false);
-const turnstile = ref ();
+const error = ref('')
+const message = ref('')
+const submitted = ref(false)
+const turnstile = ref ()
 
 const onSubmitMessage = () => {
   try {
     if (!message.value) {
-      error.value = 'Message is required.';
-      return;
+      error.value = 'Message is required.'
+      return
     }
 
-    submitted.value = true;
-    error.value = '';
+    submitted.value = true
+    error.value = ''
   } catch (error) {
-    error.value = error;
+    error.value = error
   }
-};
+}
 </script>
 
 

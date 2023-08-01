@@ -1,16 +1,20 @@
 <template>
   <div class="app">
     <div class="timeline-container">
-      <div v-for="(year, id) in years" :key="id" class="year-inner-container">
+      <div
+        v-for="calendarYear in calendar"
+        :key="calendarYear.year.id"
+        class="year-inner-container"
+      >
         <div class="year-name-container">
-          <span class="year">{{ year.number }}</span>
+          <span class="year">{{ calendarYear.year.number }}</span>
         </div>
         <div class="year-months-container">
-          <div v-for="month in months" :key="month.name">
+          <div v-for="month in calendarYear.months" :key="month.name">
             <div class="month-name">
               {{ month.name }}
             </div>
-            <TimelineMonth :year="year" :month="month" />
+            <TimelineMonth :year="calendarYear.year" :month="month" />
           </div>
         </div>
       </div>
@@ -18,12 +22,43 @@
   </div>
 </template>
 
+<script lang="ts" setup>
+import useTimelineData from "../composables/useTimelineData"
 
-<script setup>
-import {years} from "../services/years";
-import {months} from "../services/months";
+import { years } from "../services/years"
+import { months } from "../services/months"
 
-import TimelineMonth from "./TimelineMonth.vue";
+const { getEarliestItem, getLatestItem } = useTimelineData(useRoute())
+const earliestItem = getEarliestItem()
+const latestItem = getLatestItem()
+
+interface CalendarYear {
+  year: Year
+  months: Month[]
+}
+
+const calendar: CalendarYear[] = years.map((year) => {
+  // enlever les mois et annees avant le premier item et apres le dernier item
+  return {
+    year,
+    months: months,
+  }
+})
+
+// creer services/calendar.ts
+// getCalendar(earliestDate, latestDate): CalendarYear[]
+// supprimer services/months.ts et services/years.ts
+// months servait uniquement a renseigner les noms des mois, ca peut etre remplace pawr une logique de ce type:
+
+// get month name from month number
+// function getMonthName(monthNumber) {
+//     var monthNames = ["January", "February", "March", "April", "May", "June",
+//                       "July", "August", "September", "October", "November",
+//                       "December"  ]
+//     return monthNames[monthNumber]
+// }
+
+import TimelineMonth from "./TimelineMonth.vue"
 </script>
 
 <style>

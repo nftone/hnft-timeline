@@ -85,9 +85,6 @@ console.log(isSmallerThanTablet)
   flex-direction: column;
   padding: 2rem;
   box-sizing: border-box;
-  font-size: 1.5rem;
-  font-weight: bold;
-  line-height: 1;
   overflow-y: auto;
   background-color: #252525;
 }
