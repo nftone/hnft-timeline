@@ -24,27 +24,33 @@
   "networks": [
     {
       "name": "Namecoin",
-      "image": "namecoin.jpg"
+      "image": "namecoin.jpg",
+      "slug": "namecoin"
     },
     {
       "name": "Bitcoin",
-      "image": "bitcoin.jpg"
+      "image": "bitcoin.jpg",
+      "slug": "bitcoin"
     },
     {
       "name": "Counterparty",
-      "image": "counterparty.jpg"
+      "image": "counterparty.jpg",
+      "slug": "counterparty"
     },
     {
       "name": "Ethereum",
-      "image": "ethereum.jpg"
+      "image": "ethereum.jpg",
+      "slug": "ethereum"
     },
     {
       "name": "Ethereum Classic",
-      "image": "ethereum-classic.jpg"
+      "image": "ethereum-classic.jpg",
+      "slug": "ethereum-classic"
     },
     {
       "name": "Dogeparty",
-      "image": "dogeparty.jpg"
+      "image": "dogeparty.jpg",
+      "slug": "dogeparty"
     }
   ]
 }

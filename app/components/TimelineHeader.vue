@@ -4,12 +4,14 @@
       <h1 class="timeline-title">HNFT Timeline</h1>
     </div>
     <div class="filter-container">
-      <select id="network-filter" v-model="selectedNetwork">
-        <option value="">All</option>
-        <option v-for="network in networks" :key="network.name" :value="network.name">
-          {{network.name}}
-        </option>
-      </select>
+      <div class="select-container">
+        <select id="network-filter" v-model="selectedNetwork">
+          <option value="">All network</option>
+          <option v-for="network in networks" :key="network.name" :value="network.slug">
+            {{network.name}}
+          </option>
+        </select>
+        </div>
     </div>
   </div>
 </template>
@@ -45,8 +47,10 @@ watch(selectedNetwork, async (newValue: string) => {
 <style>
 .header-container {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  align-content: center;
+  justify-content: space-between;
+  align-items: baseline;
   padding-left: 1rem;
   padding-right: 1rem;
   background-color: #252525;
@@ -66,7 +70,21 @@ watch(selectedNetwork, async (newValue: string) => {
 }
 
 .filter-container {
-  margin-top: 1rem;
-  color: #fff;
+  padding-right: 2rem;
 }
+
+.select-container select {
+  padding: 0.3rem 0.3rem 0.3rem 0.3rem;
+  font-size: 14px;
+  border: 2px solid var(--grey);
+  border-radius: 5px;
+  background-color: #fff;
+  cursor: pointer;
+  outline: none;
+}
+
+.select-container select:focus {
+  border-color: var(--yellow-event);
+}
+
 </style>

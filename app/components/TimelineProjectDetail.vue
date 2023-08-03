@@ -29,7 +29,7 @@
         :src="getNetworkImage(project.network)"
       />
       <div class="network-name">
-        {{ project.network }}
+        {{ project.name }}
       </div>
     </div>
     <div class="links">

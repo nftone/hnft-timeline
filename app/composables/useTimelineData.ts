@@ -1,6 +1,5 @@
 import { RouteLocationNormalizedLoaded } from "vue-router"
 import data from "../src/data/timelineData.json"
-import * as net from "net";
 
 // @ts-ignore
 const projects: TimelineProject[] = data.projects.map((e: TimelineProject) => ({
@@ -15,7 +14,6 @@ const events: TimelineEvent[] = data.events.map((e: TimelineEvent) => ({
 }))
 
 const taxonomy = data.taxonomy
-
 const networks = data.taxonomy.networks
 
 let networkFilter: string = ""
@@ -116,13 +114,13 @@ export default function useTimelineData(route: RouteLocationNormalizedLoaded) {
     return `images/taxonomy/${linkTypeData.image}`
   }
 
-  const getNetworkImage = (networkName: string): string => {
+  const getNetworkImage = (networkSlug: string): string => {
     const networkImageData = taxonomy.networks.find(
-      ({ name }) => name === networkName
+      ({ slug }) => slug === networkSlug
     )
 
     if (!networkImageData) {
-      throw new Error(`Network with name ${networkName} not found`)
+      throw new Error(`Network with name ${networkSlug} not found`)
     }
 
     return `images/taxonomy/${networkImageData.image}`
