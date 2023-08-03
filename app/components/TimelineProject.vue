@@ -6,6 +6,7 @@
           <nuxt-img
             height="50px"
             width="50px"
+            :alt="`Image of project ${project.name}`"
             :src="`images/projects/${project.image}`"
           />
         </div>
@@ -15,6 +16,9 @@
         <div class="project-network-container">
           <nuxt-img
             class="network-image"
+            width="22px"
+            height="22px"
+            :alt="`Network image of project ${project.name}`"
             :src="getNetworkImage(project.network)"
           />
         </div>
@@ -63,8 +67,6 @@ const { getNetworkImage } = useTimelineData(useRoute())
 }
 
 .network-image {
-  width: 22px;
-  height: 22px;
   border-radius: 50%;
 }
 </style>

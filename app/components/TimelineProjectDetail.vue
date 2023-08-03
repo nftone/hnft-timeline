@@ -26,6 +26,7 @@
       <nuxt-img
         width="32px"
         class="link-image"
+        :alt="`Image of project ${project.name}`"
         :src="getNetworkImage(project.network)"
       />
       <div class="network-name">
@@ -38,6 +39,7 @@
           <nuxt-img
             width="32px"
             class="link-image"
+            :alt="`Network image of project ${project.name}`"
             :src="getLinkTypeImage(link.type)"
           />
         </a>

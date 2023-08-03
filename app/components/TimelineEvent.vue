@@ -3,7 +3,11 @@
     <nuxt-link :to="`/event/${event.slug}`">
       <div class="overview-event-container">
         <div class="event-image-container">
-          <nuxt-img class="event-image" :src="`images/events/${event.image}`" />
+          <nuxt-img
+              class="event-image"
+              :src="`images/events/${event.image}`"
+              :alt="`Image of event ${event.name}`"
+          />
         </div>
         <div class="event-name-container">
           <div>

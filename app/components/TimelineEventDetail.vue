@@ -8,7 +8,7 @@
       <nuxt-img
         class="image-size"
         :src="`images/events/${event.image}`"
-        alt="image of event"
+        :alt="`Image of event ${event.name}`"
         width="250px"
         height="250px"
       />
