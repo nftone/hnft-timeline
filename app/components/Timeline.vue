@@ -46,7 +46,6 @@ const calendar: CalendarYear[] = years.map((year) => {
 
 
 // getCalendar(earliestDate, latestDate): CalendarYear[]
-// supprimer services/months.ts et services/years.ts
 
 
 
