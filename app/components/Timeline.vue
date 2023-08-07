@@ -10,11 +10,11 @@
           <span class="year">{{ calendarYear.year.number }}</span>
         </div>
         <div class="year-months-container">
-          <div v-for="month in calendarYear.months" :key="month.name">
+          <div v-for="month in calendarYear.months" :key="month">
             <div class="month-name">
-              {{ month.name }}
+              {{ getMonthName(month) }}
             </div>
-            <TimelineMonth :year="calendarYear.year" :month="month" />
+            <TimelineMonth :year="calendarYear.year" :months="[month]" />
           </div>
         </div>
       </div>
@@ -25,8 +25,7 @@
 <script lang="ts" setup>
 import useTimelineData from "../composables/useTimelineData"
 
-import { years } from "../services/years"
-import { months } from "../services/months"
+import { years, getMonthName } from "../services/calendar"
 
 const { getEarliestItem, getLatestItem } = useTimelineData(useRoute())
 const earliestItem = getEarliestItem()
@@ -34,29 +33,22 @@ const latestItem = getLatestItem()
 
 interface CalendarYear {
   year: Year
-  months: Month[]
+  months: number[]
 }
 
 const calendar: CalendarYear[] = years.map((year) => {
   // enlever les mois et annees avant le premier item et apres le dernier item
   return {
     year,
-    months: months,
+    months: [...Array(12).keys()],
   }
 })
 
-// creer services/calendar.ts
+
 // getCalendar(earliestDate, latestDate): CalendarYear[]
 // supprimer services/months.ts et services/years.ts
-// months servait uniquement a renseigner les noms des mois, ca peut etre remplace pawr une logique de ce type:
 
-// get month name from month number
-// function getMonthName(monthNumber) {
-//     var monthNames = ["January", "February", "March", "April", "May", "June",
-//                       "July", "August", "September", "October", "November",
-//                       "December"  ]
-//     return monthNames[monthNumber]
-// }
+
 
 import TimelineMonth from "./TimelineMonth.vue"
 </script>

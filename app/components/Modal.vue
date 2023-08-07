@@ -47,7 +47,6 @@ onMounted(() => {
   isLocked.value = true
 })
 
-console.log(isSmallerThanTablet)
 </script>
 
 <style>

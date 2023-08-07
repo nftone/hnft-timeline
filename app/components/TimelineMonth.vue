@@ -1,20 +1,24 @@
 <template>
+<div>
   <div
-    v-if="getTimelineItemsByPeriod(year.number, month.number).length === 0"
-    class="month-projects-container-empty"
+      v-if="isEmpty()"
+      class="month-projects-container-empty"
   >
     &nbsp;
   </div>
-
   <div
-    v-for="(item, i) in getTimelineItemsByPeriod(year.number, month.number)"
-    v-else
-    :key="`item-${i}`"
-    class="month-projects-container"
+      v-for="(month, index) in months"
+      :key="index"
   >
-    <TimelineEvent v-if="item.type === 'event'" :event="item" />
-    <TimelineProject v-else-if="item.type === 'project'" :project="item" />
+    <div v-for="(item, i) in getTimelineItemsByPeriod(year.number, month)"
+         :key="`item-${i}`"
+         class="month-projects-container"
+    >
+      <TimelineEvent v-if="item.type === 'event'" :event="item" />
+      <TimelineProject v-else-if="item.type === 'project'" :project="item" />
+    </div>
   </div>
+</div>
 </template>
 
 <script setup lang="ts">
@@ -22,12 +26,33 @@ import TimelineEvent from "../components/TimelineEvent.vue"
 import TimelineProject from "../components/TimelineProject.vue"
 import useTimelineData from "../composables/useTimelineData"
 
-const { getTimelineItemsByPeriod } = useTimelineData(useRoute())
+const { getTimelineItemsByPeriod, getEarliestItem, getLatestItem} = useTimelineData(useRoute())
 
 const props = defineProps<{
   year: Year
-  month: Month
+  months: number[]
 }>()
+
+function isEmpty(): boolean {
+  for (const month of props.months) {
+    if (getTimelineItemsByPeriod(props.year.number, month).length > 0 ) {
+      return false;
+    }
+  }
+  return true;
+}
+
+const earliestItem = getEarliestItem();
+const latestItem = getLatestItem();
+
+const filteredMonths: number[] = [];
+for (let year = earliestItem.year; year <= latestItem.year; year++) {
+  const startMonth = year === earliestItem.year ? earliestItem.month : 0;
+  const endMonth = year === latestItem.year ? latestItem.month : 11;
+  for (let month = startMonth; month <= endMonth; month++) {
+    filteredMonths.push(month);
+  }
+}
 </script>
 
 <style>
