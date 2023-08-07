@@ -41,18 +41,6 @@ function isEmpty(): boolean {
   }
   return true;
 }
-
-const earliestItem = getEarliestItem();
-const latestItem = getLatestItem();
-
-const filteredMonths: number[] = [];
-for (let year = earliestItem.year; year <= latestItem.year; year++) {
-  const startMonth = year === earliestItem.year ? earliestItem.month : 0;
-  const endMonth = year === latestItem.year ? latestItem.month : 11;
-  for (let month = startMonth; month <= endMonth; month++) {
-    filteredMonths.push(month);
-  }
-}
 </script>
 
 <style>
