@@ -6,7 +6,7 @@
     <div class="filter-container">
       <div class="select-container">
         <select id="network-filter" v-model="selectedNetwork">
-          <option value="">All network</option>
+          <option value="">All networks</option>
           <option v-for="network in networks" :key="network.name" :value="network.slug">
             {{network.name}}
           </option>
