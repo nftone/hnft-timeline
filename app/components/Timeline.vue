@@ -24,8 +24,7 @@
 
 <script lang="ts" setup>
 import useTimelineData from "../composables/useTimelineData"
-
-import { years, getMonthName } from "../services/calendar"
+import { years, getMonthName, getCalendar } from "../services/calendar"
 
 const { getEarliestItem, getLatestItem } = useTimelineData(useRoute())
 const earliestItem = getEarliestItem()
@@ -36,18 +35,13 @@ interface CalendarYear {
   months: number[]
 }
 
-const calendar: CalendarYear[] = years.map((year) => {
+const calendar: CalendarYear[] = getCalendar(new Date(earliestItem.date), new Date(latestItem.date)).map(year => {
   // enlever les mois et annees avant le premier item et apres le dernier item
   return {
     year,
     months: [...Array(12).keys()],
-  }
-})
-
-
-// getCalendar(earliestDate, latestDate): CalendarYear[]
-
-
+  };
+});
 
 import TimelineMonth from "./TimelineMonth.vue"
 </script>

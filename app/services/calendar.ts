@@ -12,3 +12,21 @@ export function getMonthName(monthNumber: number) {
 
     return monthNames[monthNumber]
 }
+
+export function getCalendar(minDate : any, maxDate : any)  {
+    const minYear = minDate.getFullYear();
+    //const minMonth = minDate.getMonth();
+    const maxYear = maxDate.getFullYear();
+    //const maxMonth = maxDate.getMonth();
+
+    const calendar = [];
+
+    for (let id = minYear; id <= maxYear; id ++) {
+        let number = id
+            calendar.push({
+                id,
+                number
+            })
+    }
+    return calendar;
+}
