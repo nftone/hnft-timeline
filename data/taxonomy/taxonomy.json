@@ -1,0 +1,56 @@
+{
+  "linkTypes": [
+    {
+      "name": "hnft.wtf",
+      "image": "hnft-wtf.png"
+    },
+    {
+      "name": "Website",
+      "image": "website.png"
+    },
+    {
+      "name": "Discord",
+      "image": "discord.png"
+    },
+    {
+      "name": "Twitter",
+      "image": "twitter.svg"
+    },
+    {
+      "name": "GitHub",
+      "image": "github.png"
+    }
+  ],
+  "networks": [
+    {
+      "name": "Namecoin",
+      "image": "namecoin.jpg",
+      "slug": "namecoin"
+    },
+    {
+      "name": "Bitcoin",
+      "image": "bitcoin.jpg",
+      "slug": "bitcoin"
+    },
+    {
+      "name": "Counterparty",
+      "image": "counterparty.jpg",
+      "slug": "counterparty"
+    },
+    {
+      "name": "Ethereum",
+      "image": "ethereum.jpg",
+      "slug": "ethereum"
+    },
+    {
+      "name": "Ethereum Classic",
+      "image": "ethereum-classic.jpg",
+      "slug": "ethereum-classic"
+    },
+    {
+      "name": "Dogeparty",
+      "image": "dogeparty.jpg",
+      "slug": "dogeparty"
+    }
+  ]
+}

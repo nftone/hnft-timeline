@@ -1,0 +1,14 @@
+{
+  "name": "XCPinata",
+  "slug": "xc-pinata",
+  "date": "2015-03-17",
+  "description": "",
+  "creator": "",
+  "links": [
+    {
+      "type": "hnft.wtf",
+      "url": "https://hnft.wtf/explorer/PINATA"
+    }
+  ],
+  "network": "counterparty"
+}

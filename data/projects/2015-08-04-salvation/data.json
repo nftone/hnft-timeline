@@ -1,0 +1,14 @@
+{
+  "name": "SALVATION",
+  "slug": "salvation",
+  "date": "2015-08-04",
+  "description": "",
+  "creator": "",
+  "links": [
+    {
+      "type": "hnft.wtf",
+      "url": "https://hnft.wtf/explorer/salvation"
+    }
+  ],
+  "network": "counterparty"
+}

@@ -1,0 +1,14 @@
+{
+  "name": "Spells of Genesis",
+  "slug": "spells-of-genesis",
+  "date": "2015-03-11",
+  "description": "",
+  "creator": "",
+  "links": [
+    {
+      "type": "hnft.wtf",
+      "url": "https://hnft.wtf/explorer/sog"
+    }
+  ],
+  "network": "counterparty"
+}

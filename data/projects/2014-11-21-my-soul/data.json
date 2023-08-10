@@ -1,0 +1,14 @@
+{
+  "name": "MYSOUL",
+  "slug": "my-soul",
+  "date": "2014-11-21",
+  "description": "",
+  "creator": "",
+  "links": [
+    {
+      "type": "hnft.wtf",
+      "url": "https://hnft.wtf/explorer/mysoul"
+    }
+  ],
+  "network": "counterparty"
+}

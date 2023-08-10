@@ -1,0 +1,14 @@
+{
+  "name": "Age of Chains",
+  "slug": "age-of-chains",
+  "date": "2016-10-30",
+  "description": "",
+  "creator": "",
+  "links": [
+    {
+      "type": "hnft.wtf",
+      "url": "https://hnft.wtf/explorer/ageofchains"
+    }
+  ],
+  "network": "counterparty"
+}

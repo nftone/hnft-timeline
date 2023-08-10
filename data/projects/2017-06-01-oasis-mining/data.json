@@ -1,0 +1,14 @@
+{
+  "name": "Oasis Mining",
+  "slug": "oasis-mining",
+  "date": "2017-06-01",
+  "description": "",
+  "creator": "",
+  "links": [
+    {
+      "type": "hnft.wtf",
+      "url": "https://hnft.wtf/explorer/oasismining"
+    }
+  ],
+  "network": "counterparty"
+}

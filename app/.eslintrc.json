@@ -1,0 +1,21 @@
+{
+  "extends": [
+    "prettier",
+    "plugin:vue/vue3-recommended",
+    "plugin:vue/vue3-essential",
+    "plugin:vue/vue3-strongly-recommended"
+  ],
+  "parserOptions": {
+    "parser": "@typescript-eslint/parser",
+    "sourceType": "module"
+  },
+  "rules": {
+    "vue/multi-word-component-names": "off",
+    "vue/singleline-html-element-content-newline": "off",
+    "vue/max-attributes-per-line": 0,
+    "semi": [
+      "error",
+      "never"
+    ]
+  }
+}

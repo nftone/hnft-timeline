@@ -1,0 +1,14 @@
+{
+  "name": "UMBRELLA",
+  "slug": "umbrella",
+  "date": "2014-11-05",
+  "description": "",
+  "creator": "",
+  "links": [
+    {
+      "type": "hnft.wtf",
+      "url": "https://hnft.wtf/explorer/umbrella"
+    }
+  ],
+  "network": "counterparty"
+}

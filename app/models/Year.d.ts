@@ -1,0 +1,3 @@
+interface Year {
+  number: number
+}

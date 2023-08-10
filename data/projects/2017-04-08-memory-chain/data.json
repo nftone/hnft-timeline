@@ -1,0 +1,14 @@
+{
+  "name": "MemoryChain",
+  "slug": "memory-chain",
+  "date": "2017-04-08",
+  "description": "",
+  "creator": "",
+  "links": [
+    {
+      "type": "hnft.wtf",
+      "url": "https://hnft.wtf/explorer/memorychain"
+    }
+  ],
+  "network": "counterparty"
+}

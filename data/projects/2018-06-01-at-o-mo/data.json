@@ -1,0 +1,14 @@
+{
+  "name": "At O Mo",
+  "slug": "at-o-mo",
+  "date": "2018-06-01",
+  "description": "",
+  "creator": "",
+  "links": [
+    {
+      "type": "hnft.wtf",
+      "url": "https://hnft.wtf/explorer/atomo"
+    }
+  ],
+  "network": "counterparty"
+}

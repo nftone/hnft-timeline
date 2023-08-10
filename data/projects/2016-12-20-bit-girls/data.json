@@ -1,0 +1,14 @@
+{
+  "name": "BitGirls",
+  "slug": "bit-girls",
+  "date": "2016-12-20",
+  "description": "",
+  "creator": "",
+  "links": [
+    {
+      "type": "hnft.wtf",
+      "url": "https://hnft.wtf/explorer/bitgirls"
+    }
+  ],
+  "network": "counterparty"
+}

@@ -1,0 +1,14 @@
+{
+  "name": "Skara",
+  "slug": "skara",
+  "date": "2017-11-22",
+  "description": "",
+  "creator": "",
+  "links": [
+    {
+      "type": "hnft.wtf",
+      "url": "https://hnft.wtf/explorer/skara"
+    }
+  ],
+  "network": "counterparty"
+}

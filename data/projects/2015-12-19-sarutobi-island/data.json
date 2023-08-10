@@ -1,0 +1,14 @@
+{
+  "name": "Sarutobi Island",
+  "slug": "sarutobi-island",
+  "date": "2015-12-19",
+  "description": "",
+  "creator": "",
+  "links": [
+    {
+      "type": "hnft.wtf",
+      "url": "https://hnft.wtf/explorer/sautobi"
+    }
+  ],
+  "network": "counterparty"
+}
