@@ -39,13 +39,14 @@ The app is built with Nuxt. Refer to the README in the app folder for more infor
 ### Project
 #### Project interface
 ```
-Project {
+TimelineProject {
   name: string
   slug: string
   date: string
-  description?: string
+  description: string
+  image: string
   creator: string
-  links: Link[]
+  links: TimelineLink[]
   network: string
 }
 ```
@@ -69,7 +70,7 @@ Project {
        "url": "https://twitter.com/etheriaworld"
      }
   ],
-  "network": "Ethereum"
+  "network": "ethereum"
 }
 
 ```
