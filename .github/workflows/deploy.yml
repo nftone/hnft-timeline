@@ -17,12 +17,12 @@ jobs:
         run: yarn
         working-directory: ./app
 
+      - name: Run script buil-timeline-data-file
+        run: node app/scripts/build-timeline-data-file.js 
+
       - name: Generate static files
         run: npx nuxi generate
         working-directory: ./app
-
-      - name: Run script buil-timeline-data-file
-        run: node app/scripts/build-timeline-data-file.js 
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
