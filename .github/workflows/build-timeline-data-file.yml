@@ -23,4 +23,4 @@ jobs:
       working-directory: ./app
 
     - name: Run script buil-timeline-data-file
-      run: node scripts/build-timeline-data-file.js  
+      run: node app/scripts/build-timeline-data-file.js  
