@@ -19,7 +19,8 @@ jobs:
         node-version: '18'
 
     - name: Install dependencies
-      run: npm install
+      run: yarn
+      working-directory: ./app
 
     - name: Run script buil-timeline-data-file
       run: node scripts/build-timeline-data-file.js  
