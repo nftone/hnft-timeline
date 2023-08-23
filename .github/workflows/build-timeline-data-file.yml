@@ -3,7 +3,7 @@ name: build-timeline-data-file
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   build-data:
