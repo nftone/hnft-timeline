@@ -34,7 +34,11 @@
       </div>
     </div>
     <div class="links">
-      <div v-for="link in project.links" :key="`${slug}-link-${link}`">
+      <div
+        v-for="link in project.links"
+        :key="`${slug}-link-${link}`"
+        class="link"
+      >
         <a :href="link.url" target="_blank">
           <nuxt-img
             width="32px"
@@ -43,15 +47,26 @@
             :src="getLinkTypeImage(link.type)"
           />
         </a>
+        <span>
+          {{ link?.name || link.type }}
+        </span>
       </div>
     </div>
+    <div class="contribute mt-2">
+      <button @click="editModalIsOpen = true">Propose changes</button>
+    </div>
   </div>
+
+  <Modal v-if="editModalIsOpen" @close="editModalIsOpen = false">
+    <TimelineProjectEditModal :project="project" />
+  </Modal>
 </template>
 
 <script setup lang="ts">
 import useTimelineData from "../composables/useTimelineData"
 
 const props = defineProps<{ slug: string }>()
+const editModalIsOpen = ref(false)
 
 const {
   getLinkTypeImage, //
@@ -76,5 +91,10 @@ const project = getProjectBySlug(props.slug)
   display: grid;
   justify-items: center;
   grid-template-columns: repeat(auto-fit, minmax(32px, 1fr));
+}
+
+.links .link {
+  display: grid;
+  grid-auto-flow: row;
 }
 </style>

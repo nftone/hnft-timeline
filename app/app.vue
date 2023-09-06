@@ -67,4 +67,20 @@ body {
   padding: 0;
   box-sizing: border-box;
 }
+
+.mt-2 {
+  margin-top: 2rem;
+}
+
+.mb-1 {
+  margin-bottom: 1rem;
+}
+
+.ml-1 {
+  margin-left: 1rem;
+}
+
+.pa-1 {
+  padding: 1rem;
+}
 </style>

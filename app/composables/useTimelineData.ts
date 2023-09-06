@@ -103,6 +103,11 @@ export default function useTimelineData(route: RouteLocationNormalizedLoaded) {
     return project
   }
 
+  const getProjectContributionUrl = (project: TimelineProject): string => {
+    const dateSlug = `${project.date}-${project.slug}`
+    return `https://github.com/nftone/hnft-timeline/edit/master/data/projects/${dateSlug}/data.json`
+  }
+
   const getLinkTypeImage = (linkType: string): string => {
     const linkTypeData = taxonomy.linkTypes.find(
       ({ name }) => name === linkType
@@ -125,11 +130,9 @@ export default function useTimelineData(route: RouteLocationNormalizedLoaded) {
 
     return `images/taxonomy/${networkImageData.image}`
   }
-  
+
   const getNetworkName = (networkSlug: string): string => {
-    const network = taxonomy.networks.find(
-      ({ slug }) => slug === networkSlug
-    )
+    const network = taxonomy.networks.find(({ slug }) => slug === networkSlug)
     if (!network) return "-"
     return network.name
   }
@@ -156,14 +159,16 @@ export default function useTimelineData(route: RouteLocationNormalizedLoaded) {
   }
 
   return {
-    getTimelineItemsByPeriod,
+    getEarliestItem,
     getEventBySlug,
-    getProjectBySlug,
+    getLatestItem,
     getLinkTypeImage,
     getNetworkImage,
     getNetworkName,
-    getEarliestItem,
-    getLatestItem,
+    getProjectBySlug,
+    getProjectContributionUrl,
+    getTimelineItemsByPeriod,
     networks,
+    taxonomy,
   }
 }
