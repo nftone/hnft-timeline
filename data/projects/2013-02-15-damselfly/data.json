@@ -2,8 +2,13 @@
   "name": "Damselfly",
   "slug": "damselfly",
   "date": "2013-02-15",
-  "description": "",
-  "creator": "",
-  "links": [],
+  "description": "First-ever fully on-chain image. Encoded in base64 across 5470 names.  Karel, the pioneer says: \"I never really intended it as a \"NFT\" to resell etc.. more like 'how to store an image on the blockchain'\".",
+  "creator": "Karel Bilek",
+  "links": [
+    {
+      "type": "NMC.Vision",
+      "url": "https://nmc.vision/?trait=base64&traits=damselfly"
+    }
+  ],
   "network": "namecoin"
 }
