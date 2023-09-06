@@ -125,6 +125,14 @@ export default function useTimelineData(route: RouteLocationNormalizedLoaded) {
 
     return `images/taxonomy/${networkImageData.image}`
   }
+  
+  const getNetworkName = (networkSlug: string): string => {
+    const network = taxonomy.networks.find(
+      ({ slug }) => slug === networkSlug
+    )
+    if (!network) return "-"
+    return network.name
+  }
 
   const getEarliestItem = (): TimelineProject | TimelineEvent => {
     const items = [filteredProjects[0], filteredEvents[0]].sort((a, b) => {
@@ -153,6 +161,7 @@ export default function useTimelineData(route: RouteLocationNormalizedLoaded) {
     getProjectBySlug,
     getLinkTypeImage,
     getNetworkImage,
+    getNetworkName,
     getEarliestItem,
     getLatestItem,
     networks,

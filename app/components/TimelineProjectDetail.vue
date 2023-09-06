@@ -30,7 +30,7 @@
         :src="getNetworkImage(project.network)"
       />
       <div class="network-name">
-        {{ project.name }}
+        {{ getNetworkName(project.network) }}
       </div>
     </div>
     <div class="links">
@@ -53,9 +53,12 @@ import useTimelineData from "../composables/useTimelineData"
 
 const props = defineProps<{ slug: string }>()
 
-const { getLinkTypeImage, getProjectBySlug, getNetworkImage } = useTimelineData(
-  useRoute()
-)
+const {
+  getLinkTypeImage, //
+  getProjectBySlug,
+  getNetworkImage,
+  getNetworkName,
+} = useTimelineData(useRoute())
 
 const project = getProjectBySlug(props.slug)
 </script>
