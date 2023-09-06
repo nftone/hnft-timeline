@@ -19,6 +19,10 @@
     {
       "name": "GitHub",
       "image": "github.png"
+    },
+    {
+      "name": "NMC.Vision",
+      "image": "nmc-vision.png"
     }
   ],
   "networks": [
