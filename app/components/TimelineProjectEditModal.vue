@@ -30,11 +30,12 @@
       />
 
       <label for="description">Description</label>
-      <input
+      <textarea
         id="description"
         v-model="updatedProject.description"
         type="text"
         placeholder="Description"
+        rows="6"
       />
 
       <label for="image">Creator</label>
@@ -109,7 +110,7 @@
         rel="noopener noreferrer"
         class="ml-1"
         style="text-decoration: underline"
-        >and propose changes in GitHub
+        >and propose changes on GitHub
       </a>
     </div>
   </div>
