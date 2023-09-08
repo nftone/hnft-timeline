@@ -1,0 +1,15 @@
+{
+  "name": "Peperium",
+  "slug": "peperium",
+  "date": "2017-04-14",
+  "description": "Peperium was a decentralized Meme marketplace and a trading card game that allowed users to create memes by leveraging Ethereum and IPFS. The Peperium project also had its own token, RARE, which was used for meme creation and listing fees. Sadly, the project fizzled away after Series 2, with only 31 different collectibles left behind.",
+  "creator": "",
+  "links": [
+    {
+      "type": "Website",
+      "name": "Official website",
+      "url": "https://www.peperium.art/"
+    }
+  ],
+  "network": "ethereum"
+}
