@@ -1,1 +1,0 @@
-import{_ as o}from"./Timeline.vue.875f3d39.js";import{l as r,o as e}from"./entry.aa358442.js";import"./nuxt-link.2027ebc7.js";const n={__name:"index",setup(t){return(_,a)=>(e(),r(o))}};export{n as default};
