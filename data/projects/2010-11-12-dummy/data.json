@@ -1,1 +1,9 @@
-{}
+{
+  "name": "This is a test",
+  "slug": "this-is-a-test",
+  "date": "2010-11-12",
+  "description": "This is for testing the creation of a project from the GitHub GUI.",
+  "creator": "Decentraliser",
+  "links": [],
+  "network": "namecoin"
+}
